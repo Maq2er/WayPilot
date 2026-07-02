@@ -11,4 +11,10 @@ export const checklistItems: ChecklistItem[] = [
   { id: 'insurance', label: 'Страховка' },
   { id: 'spf', label: 'SPF 50' },
   { id: 'umbrella', label: 'Зонт или пончо' },
+  { id: 'beach-towel', label: '🏖️ Пляж: купальник и полотенце' },
+  { id: 'beach-electrolytes', label: '💧 Пляж: электролиты' },
+  { id: 'island-drybag', label: '🏝️ Остров: гермопакет' },
+  { id: 'island-motion', label: '⛴️ Остров: средство от укачивания' },
+  { id: 'airport-ticket', label: '✈️ Аэропорт: билет и терминал' },
+  { id: 'airport-scale', label: '🧳 Аэропорт: проверить вес багажа' },
 ]

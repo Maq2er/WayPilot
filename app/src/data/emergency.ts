@@ -19,7 +19,7 @@ export const emergencyData: EmergencyData = {
     { number: '119', label: 'Пожарные' },
     { number: '120', label: 'Скорая' },
   ],
-  phraseIds: ['need-help', 'ambulance', 'police', 'lost', 'call-hotel'],
+  phraseIds: ['need-help', 'ambulance', 'police', 'lost', 'call-hotel', 'russian-consulate'],
 }
 
 export const consularContacts = [

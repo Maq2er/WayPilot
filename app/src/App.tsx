@@ -40,6 +40,7 @@ export default function App() {
   const [selectedDayId, setSelectedDayId, dayStorage] = useStoredState('selectedDayId', tripDays[0].id)
   const [privateEmergency, setPrivateEmergency, emergencyStorage] = useStoredState<PrivateEmergencyProfile>('privateEmergency', {
     hotelPhone:'', bookingNumber:'', insuranceCompany:'', policyNumber:'', insurancePhone:'',
+    bloodType:'', diabetesType:'', hypertensionGrade:'', asthmaSeverity:'', allergies:'', medications:'', emergencyContact:'',
   })
   const [installHelp, setInstallHelp] = useState(false)
   const [requestedPlaceId, setRequestedPlaceId] = useState<string | null>(null)
@@ -62,7 +63,7 @@ export default function App() {
           ...feature.properties,
           lat:feature.geometry.coordinates[1],
           lon:feature.geometry.coordinates[0],
-          tags:String(feature.properties.tags || '').replace(/[\[\]'"]/g,'').split(',').map(item => item.trim()).filter(Boolean),
+          tags:String(feature.properties.tags || '').replace(/[\[\]'"]/g,'').split(/[\s,]+/).map(item => item.trim().toLowerCase()).filter(Boolean),
         })))
       })
       .catch(() => active && setDataError(true))
@@ -149,7 +150,7 @@ export default function App() {
       <main>
         {dataError && <div className="storage-warning">Не удалось загрузить данные мест. Перезапустите приложение; остальные разделы доступны.</div>}
         {view === 'today' && <Today locations={locations} selectedDayId={selectedDayId} onSelectDay={setSelectedDayId} onOpenPlace={openPlace} onOpenPhrase={openPhrase} go={go}/>}
-        {view === 'days' && <Days locations={locations}/>}
+        {view === 'days' && <Days locations={locations} onOpenPlace={openPlace}/>}
         {view === 'places' && <Places locations={locations} loading={loading} favoriteIds={favoritePlaces} requestedPlaceId={requestedPlaceId} onRequestHandled={clearRequestedPlace} onToggleFavorite={id => setFavoritePlaces(toggle(favoritePlaces,id))} onCopy={handleCopy}/>}
         {view === 'phrases' && <Phrasebook favoriteIds={favoritePhrases} requestedPhraseId={requestedPhraseId} onRequestHandled={clearRequestedPhrase} onToggleFavorite={id => setFavoritePhrases(toggle(favoritePhrases,id))} onCopy={handleCopy}/>}
         {view === 'mine' && <Mine locations={locations} favoritePlaceIds={favoritePlaces} favoritePhraseIds={favoritePhrases} onTogglePlace={id => setFavoritePlaces(toggle(favoritePlaces,id))} onTogglePhrase={id => setFavoritePhrases(toggle(favoritePhrases,id))} notes={notes} onNotes={setNotes} checks={checks} onChecks={setChecks} budget={budget} onBudget={setBudget} onCopy={handleCopy} onExport={exportData} onImport={importData} storageAvailable={storageAvailable}/>}

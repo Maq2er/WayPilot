@@ -87,6 +87,13 @@ export interface PrivateEmergencyProfile {
   insuranceCompany: string
   policyNumber: string
   insurancePhone: string
+  bloodType: string
+  diabetesType: string
+  hypertensionGrade: string
+  asthmaSeverity: string
+  allergies: string
+  medications: string
+  emergencyContact: string
 }
 
 export interface Budget {

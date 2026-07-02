@@ -1,9 +1,11 @@
 import { useState } from 'react'
-import { ChevronDown, ChevronUp, MapPin } from 'lucide-react'
+import { ChevronDown, ChevronUp, Coffee, MapPin, Moon, Sun } from 'lucide-react'
 import { tripDays } from '../data/days'
 import type { Place } from '../types'
 
-export function Days({ locations }: { locations: Place[] }) {
+const segmentIcons = { Утро:Sun, День:Coffee, Вечер:Moon }
+
+export function Days({ locations, onOpenPlace }: { locations: Place[]; onOpenPlace: (id: string) => void }) {
   const [open, setOpen] = useState(0)
   return (
     <section>
@@ -18,10 +20,10 @@ export function Days({ locations }: { locations: Place[] }) {
               <div className="day-body">
                 {day.segments.map(segment => (
                   <div className="day-segment" key={segment.label}>
-                    <strong>{segment.label}</strong><span>{segment.summary}</span>
+                    <strong>{(() => { const Icon = segmentIcons[segment.label as keyof typeof segmentIcons] ?? Sun; return <><Icon size={14}/>{segment.label}</> })()}</strong><span>{segment.summary}</span>
                     <div>{segment.placeIds.slice(0,3).map(id => {
                       const place = locations.find(item => item.id === id)
-                      return place ? <small key={id}><MapPin size={13}/>{place.name}</small> : null
+                      return place ? <button key={id} onClick={() => onOpenPlace(id)}><MapPin size={13}/>{place.name}</button> : null
                     })}</div>
                   </div>
                 ))}

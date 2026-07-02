@@ -74,4 +74,9 @@ export const phrases: Phrase[] = [
   { id:'call-hotel', category:'emergency', ru:'Позвоните в мой отель', zh:'请给我的酒店打电话', pinyin:'qǐng gěi wǒ de jiǔ diàn dǎ diàn huà', audio:'assets/audio/phrases/emergency/call-my-hotel.mp3', critical:true },
   { id:'feel-sick', category:'emergency', ru:'Мне плохо', zh:'我不舒服', pinyin:'wǒ bù shū fu', audio:'assets/audio/phrases/emergency/i-feel-sick.mp3', critical:true },
   { id:'hospital', category:'emergency', ru:'Где ближайшая больница?', zh:'最近的医院在哪里？', pinyin:'zuì jìn de yī yuàn zài nǎ lǐ?', audio:null },
+  { id:'russian-consulate', category:'emergency', ru:'Я гражданин России. Помогите связаться с консульством', zh:'我是俄罗斯公民，请帮我联系俄罗斯领事馆', pinyin:'wǒ shì Éluósī gōngmín, qǐng bāng wǒ liánxì Éluósī lǐngshìguǎn', audio:null },
+  { id:'diabetes-one', category:'emergency', ru:'У меня диабет первого типа', zh:'我有一型糖尿病', pinyin:'wǒ yǒu yī xíng tángniàobìng', audio:null },
+  { id:'diabetes-two', category:'emergency', ru:'У меня диабет второго типа', zh:'我有二型糖尿病', pinyin:'wǒ yǒu èr xíng tángniàobìng', audio:null },
+  { id:'need-insulin', category:'emergency', ru:'Мне нужен инсулин', zh:'我需要胰岛素', pinyin:'wǒ xūyào yídǎosù', audio:null },
+  { id:'severe-allergy', category:'emergency', ru:'У меня сильная аллергия', zh:'我有严重过敏', pinyin:'wǒ yǒu yánzhòng guòmǐn', audio:null },
 ]

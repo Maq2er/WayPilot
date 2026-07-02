@@ -1,9 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
-import { ChevronDown, ChevronUp, Copy, MapPin, Search, Star, X } from 'lucide-react'
+import { ChevronDown, ChevronUp, Map, MapPin, Search, Star, X } from 'lucide-react'
 import type { Place } from '../types'
 import { FoodGuide } from './FoodGuide'
+import { TaxiDisplay } from './TaxiDisplay'
+import { placePhoto } from '../data/placePhotos'
 
-const categories = ['все','рядом','море','еда','бар','шопинг','природа','дождь','транспорт','резерв']
+const categories = ['все','рядом','море','еда','бар','шопинг','природа','дождь','фото','чай','напитки','транспорт','резерв']
 
 interface Props {
   locations: Place[]
@@ -72,17 +74,29 @@ export function Places({ locations, loading, favoriteIds, requestedPlaceId, onRe
 
 function PlaceCard({ place, favorite, onToggleFavorite, onCopy }: { place: Place; favorite: boolean; onToggleFavorite: (id: string) => void; onCopy: (text: string) => void }) {
   const [open, setOpen] = useState(false)
-  const taxi = `请送我们去这里：\n${place.zh}\n${place.name}\n坐标：${place.lat}, ${place.lon}`
+  const [showTaxi, setShowTaxi] = useState(false)
+  const photo = placePhoto(place.name)
+  const coverEmoji = place.tags.includes('бар') ? '◒' : place.tags.includes('еда') ? '◇' : place.tags.includes('море') ? '≈' : place.tags.includes('шопинг') ? '▣' : place.tags.includes('транспорт') ? '➜' : '⌁'
+  const isApple = /iPhone|iPad|Macintosh/i.test(navigator.userAgent)
+  const systemMap = isApple
+    ? `https://maps.apple.com/?ll=${place.lat},${place.lon}&q=${encodeURIComponent(place.name)}`
+    : `https://www.google.com/maps/search/?api=1&query=${place.lat},${place.lon}`
+  const amap = `https://uri.amap.com/search?keyword=${encodeURIComponent(place.zh || place.name)}&city=${encodeURIComponent('三亚')}&src=WayPilot&callnative=1`
   return (
     <article className="place" data-place-id={place.id}>
+      {photo
+        ? <img className="place-photo" src={photo} alt={place.name} loading="lazy"/>
+        : <div className={`place-photo-placeholder ${place.tags[0] || 'default'}`}><b>{coverEmoji}</b><span>{place.zh || place.name}</span><small>{place.tags.includes('бар') || place.tags.includes('еда') ? 'Нужно фото фасада' : 'Фото места готовится'}</small></div>}
       <div className="place-top"><span className="category">{place.cat}</span><button className={`favorite ${favorite ? 'active' : ''}`} onClick={() => onToggleFavorite(place.id)} aria-label={favorite ? 'Удалить из избранного' : 'Добавить в избранное'}><Star size={21} fill={favorite ? 'currentColor' : 'none'}/></button></div>
       <h3>{place.name}</h3><p className="chinese">{place.zh}</p><p className="verdict">{place.verdict}</p>
       {open && <div className="place-details"><InfoRow label="Когда" text={place.when}/><InfoRow label="Зачем" text={place.role}/><p>{place.note}</p><code>{place.lat}, {place.lon}</code></div>}
       <button className="details-button" onClick={() => setOpen(!open)}>{open ? 'Свернуть' : 'Подробнее'} {open ? <ChevronUp size={17}/> : <ChevronDown size={17}/>}</button>
       <div className="place-actions">
-        <button onClick={() => onCopy(taxi)}><Copy size={18}/>Таксисту</button>
-        <a href={`https://maps.apple.com/?ll=${place.lat},${place.lon}&q=${encodeURIComponent(place.name)}`}><MapPin size={18}/>Apple Maps</a>
+        <button onClick={() => setShowTaxi(true)}><MapPin size={18}/>Таксисту</button>
+        <a href={amap} target="_blank" rel="noreferrer"><Map size={18}/>Amap</a>
+        <a href={systemMap} target="_blank" rel="noreferrer"><MapPin size={18}/>{isApple ? 'Apple' : 'Google'}</a>
       </div>
+      {showTaxi && <TaxiDisplay place={place} onClose={() => setShowTaxi(false)} onCopy={onCopy}/>}
     </article>
   )
 }

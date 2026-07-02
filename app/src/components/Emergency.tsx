@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { AlertTriangle, Building2, Copy, LockKeyhole, Maximize2, Pencil, Phone, X } from 'lucide-react'
+import { AlertTriangle, Building2, Copy, LocateFixed, LockKeyhole, Maximize2, Pencil, Phone, X } from 'lucide-react'
 import { consularContacts, emergencyData } from '../data/emergency'
 import { phrases } from '../data/phrases'
 import type { Phrase, PrivateEmergencyProfile } from '../types'
@@ -17,10 +17,23 @@ interface Props {
 export function Emergency({ profile, onProfile, favoritePhraseIds, onToggleFavorite, onCopy }: Props) {
   const [selected, setSelected] = useState<Phrase | null>(null)
   const [editing, setEditing] = useState(false)
+  const [locating, setLocating] = useState(false)
   const hotelText = `${emergencyData.hotel.nameZh}\n${emergencyData.hotel.addressZh}`
   const emergencyPhrases = emergencyData.phraseIds
     .map(id => phrases.find(phrase => phrase.id === id))
     .filter((phrase): phrase is Phrase => Boolean(phrase))
+  const copyLocation = () => {
+    if (!navigator.geolocation) return
+    setLocating(true)
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        setLocating(false)
+        void onCopy(`Мои координаты: ${position.coords.latitude.toFixed(6)}, ${position.coords.longitude.toFixed(6)}`)
+      },
+      () => setLocating(false),
+      { enableHighAccuracy:true, timeout:12000 },
+    )
+  }
 
   return (
     <section>
@@ -44,6 +57,7 @@ export function Emergency({ profile, onProfile, favoritePhraseIds, onToggleFavor
           <a key={item.number} href={`tel:${item.number}`}><strong>{item.number}</strong><span>{item.label}</span></a>
         ))}
       </div>
+      <button className="location-button" onClick={copyLocation} disabled={locating}><LocateFixed size={19}/>{locating ? 'Определяю координаты…' : 'Скопировать мои координаты'}</button>
 
       <SectionTitle title="Помощь гражданам РФ"/>
       <div className="consular-list">
@@ -74,6 +88,14 @@ export function Emergency({ profile, onProfile, favoritePhraseIds, onToggleFavor
             <PrivateInput label="Страховая компания" value={profile.insuranceCompany} onChange={insuranceCompany => onProfile({...profile,insuranceCompany})}/>
             <PrivateInput label="Номер полиса" value={profile.policyNumber} onChange={policyNumber => onProfile({...profile,policyNumber})}/>
             <PrivateInput label="Телефон ассистанса" value={profile.insurancePhone} onChange={insurancePhone => onProfile({...profile,insurancePhone})}/>
+            <div className="private-form-divider">Медицинский профиль</div>
+            <PrivateSelect label="Группа крови" value={profile.bloodType || ''} options={['A (II) Rh+','A (II) Rh−','B (III) Rh+','B (III) Rh−','AB (IV) Rh+','AB (IV) Rh−','O (I) Rh+','O (I) Rh−']} onChange={bloodType => onProfile({...profile,bloodType})}/>
+            <PrivateSelect label="Диабет" value={profile.diabetesType || ''} options={['Нет','Тип 1','Тип 2','Гестационный','Другой']} onChange={diabetesType => onProfile({...profile,diabetesType})}/>
+            <PrivateSelect label="Гипертония" value={profile.hypertensionGrade || ''} options={['Нет','1 степень','2 степень','3 степень']} onChange={hypertensionGrade => onProfile({...profile,hypertensionGrade})}/>
+            <PrivateSelect label="Астма" value={profile.asthmaSeverity || ''} options={['Нет','Лёгкая','Средняя','Тяжёлая']} onChange={asthmaSeverity => onProfile({...profile,asthmaSeverity})}/>
+            <PrivateInput label="Аллергии" value={profile.allergies || ''} onChange={allergies => onProfile({...profile,allergies})}/>
+            <PrivateInput label="Постоянные лекарства" value={profile.medications || ''} onChange={medications => onProfile({...profile,medications})}/>
+            <PrivateInput label="Контакт родственника" value={profile.emergencyContact || ''} onChange={emergencyContact => onProfile({...profile,emergencyContact})}/>
             <p>Сохраняется в localStorage и не отправляется на GitHub или сервер.</p>
           </div>
         ) : (
@@ -83,6 +105,13 @@ export function Emergency({ profile, onProfile, favoritePhraseIds, onToggleFavor
             <Summary label="Страховка" value={profile.insuranceCompany}/>
             <Summary label="Номер полиса" value={profile.policyNumber}/>
             <Summary label="Ассистанс" value={profile.insurancePhone}/>
+            <Summary label="Группа крови" value={profile.bloodType}/>
+            <Summary label="Диабет" value={profile.diabetesType}/>
+            <Summary label="Гипертония" value={profile.hypertensionGrade}/>
+            <Summary label="Астма" value={profile.asthmaSeverity}/>
+            <Summary label="Аллергии" value={profile.allergies}/>
+            <Summary label="Лекарства" value={profile.medications}/>
+            <Summary label="Родственник" value={profile.emergencyContact}/>
           </div>
         )}
       </div>
@@ -112,6 +141,10 @@ export function Emergency({ profile, onProfile, favoritePhraseIds, onToggleFavor
 
 function PrivateInput({ label, value, onChange }: { label:string; value:string; onChange:(value:string)=>void }) {
   return <label><span>{label}</span><input value={value} onChange={event => onChange(event.target.value)} autoComplete="off"/></label>
+}
+
+function PrivateSelect({ label, value, options, onChange }: { label:string; value:string; options:string[]; onChange:(value:string)=>void }) {
+  return <label><span>{label}</span><select value={value} onChange={event => onChange(event.target.value)}><option value="">Не указано</option>{options.map(option => <option key={option}>{option}</option>)}</select></label>
 }
 
 function Summary({ label, value }: { label:string; value:string }) {

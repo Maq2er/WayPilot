@@ -1,4 +1,5 @@
-import { Check, CircleDollarSign, Copy, ListChecks, MapPinned, Star, Upload, WalletCards, X } from 'lucide-react'
+import { useState } from 'react'
+import { ArrowLeftRight, Check, CircleDollarSign, Copy, ListChecks, MapPinned, Star, Upload, WalletCards, X } from 'lucide-react'
 import { checklistItems } from '../data/checklist'
 import { phrases } from '../data/phrases'
 import type { Budget, Place } from '../types'
@@ -24,12 +25,22 @@ interface Props {
 }
 
 export function Mine(props: Props) {
+  const rate = Number(props.budget.rate) || 13
+  const [cny, setCny] = useState('100')
+  const [rub, setRub] = useState(() => String(100 * rate))
   const savedPlaces = props.locations.filter(place => props.favoritePlaceIds.includes(place.id))
   const savedPhrases = phrases.filter(phrase => props.favoritePhraseIds.includes(phrase.id))
   const expenseKeys: Array<keyof Budget> = ['transport','food','bars','activity','spa','shop','other']
   const total = expenseKeys.reduce((sum, key) => sum + (Number(props.budget[key]) || 0), 0)
   const left = (Number(props.budget.cash) || 0) - total
-  const rate = Number(props.budget.rate) || 13
+  const changeCny = (value: string) => {
+    setCny(value)
+    setRub(value === '' ? '' : String(Math.round((Number(value) || 0) * rate * 100) / 100))
+  }
+  const changeRub = (value: string) => {
+    setRub(value)
+    setCny(value === '' ? '' : String(Math.round(((Number(value) || 0) / rate) * 100) / 100))
+  }
   const setMoney = (key: keyof Budget, value: string) => props.onBudget({ ...props.budget, [key]: value })
   const toggleCheck = (id: string) => props.onChecks(props.checks.includes(id) ? props.checks.filter(item => item !== id) : [...props.checks, id])
 
@@ -80,6 +91,14 @@ export function Mine(props: Props) {
         <Money label="Шопинг" value={props.budget.shop} onChange={value => setMoney('shop', value)}/>
         <Money label="Прочее" value={props.budget.other} onChange={value => setMoney('other', value)}/>
       </div>
+
+      <SectionTitle title="Конвертер валют"/>
+      <div className="currency-converter">
+        <label><span>Юани</span><div><input type="number" inputMode="decimal" value={cny} onChange={event => changeCny(event.target.value)}/><b>¥</b></div></label>
+        <ArrowLeftRight/>
+        <label><span>Рубли</span><div><input type="number" inputMode="decimal" value={rub} placeholder={String(100 * rate)} onChange={event => changeRub(event.target.value)}/><b>₽</b></div></label>
+      </div>
+      <p className="converter-rate">Используется ваш курс: 1 CNY = {rate} ₽</p>
 
       <SectionTitle title="Резервная копия"/>
       <div className="backup-actions">

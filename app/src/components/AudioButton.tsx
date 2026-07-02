@@ -25,13 +25,9 @@ export function AudioButton({ phrase, large = false }: Props) {
     }
     const voices = window.speechSynthesis.getVoices()
     const chineseVoice = voices.find(voice => voice.lang.toLowerCase().startsWith('zh'))
-    if (!chineseVoice) {
-      setState('unavailable')
-      return
-    }
     const utterance = new SpeechSynthesisUtterance(phrase.zh)
-    utterance.lang = chineseVoice.lang
-    utterance.voice = chineseVoice
+    utterance.lang = chineseVoice?.lang || 'zh-CN'
+    if (chineseVoice) utterance.voice = chineseVoice
     utterance.rate = 0.82
     utterance.onstart = () => setState('playing')
     utterance.onend = () => setState('idle')
