@@ -1,6 +1,6 @@
 import { useState } from 'react'
-import { AlertTriangle, Copy, LockKeyhole, Maximize2, Pencil, X } from 'lucide-react'
-import { emergencyData } from '../data/emergency'
+import { AlertTriangle, Building2, Copy, LockKeyhole, Maximize2, Pencil, Phone, X } from 'lucide-react'
+import { consularContacts, emergencyData } from '../data/emergency'
 import { phrases } from '../data/phrases'
 import type { Phrase, PrivateEmergencyProfile } from '../types'
 import { PhraseDisplay } from './PhraseDisplay'
@@ -44,6 +44,26 @@ export function Emergency({ profile, onProfile, favoritePhraseIds, onToggleFavor
           <a key={item.number} href={`tel:${item.number}`}><strong>{item.number}</strong><span>{item.label}</span></a>
         ))}
       </div>
+
+      <SectionTitle title="Помощь гражданам РФ"/>
+      <div className="consular-list">
+        {consularContacts.map(contact => {
+          const contactText = `${contact.title}\n${contact.addressZh}\n${contact.addressRu}\nОбычный телефон: ${contact.phone}\nЭкстренный телефон: ${contact.emergencyPhone}`
+          return (
+            <article className="consular-card" key={contact.id}>
+              <div className="consular-head"><Building2/><div><strong>{contact.title}</strong><span>{contact.note}</span></div></div>
+              <p lang="zh-CN">{contact.addressZh}</p>
+              <small>{contact.addressRu}</small>
+              <div className="consular-actions">
+                <a href={`tel:${contact.emergencyPhone.replace(/\s/g, '')}`}><Phone size={18}/>Экстренный звонок</a>
+                <button onClick={() => onCopy(contactText)}><Copy size={18}/>Копировать</button>
+              </div>
+              <a className="regular-phone" href={`tel:${contact.phone.replace(/\s/g, '')}`}>Обычный телефон: {contact.phone}</a>
+            </article>
+          )
+        })}
+      </div>
+      <p className="consular-hint">Экстренный номер предназначен для угрозы жизни, задержания, утраты документов и других чрезвычайных ситуаций. Контакты сверены по данным МИД РФ 2 июля 2026 года.</p>
 
       <div className="private-card">
         <div className="private-card-head"><div><LockKeyhole/><span>Приватные данные</span><small>Только на этом устройстве</small></div><button onClick={() => setEditing(!editing)}>{editing ? <X/> : <Pencil/>}{editing ? 'Закрыть' : 'Заполнить'}</button></div>
