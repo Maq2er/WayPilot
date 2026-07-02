@@ -1,0 +1,56 @@
+import type { Phrase, PhraseCategory } from '../types'
+
+export const phraseCategoryLabels: Record<PhraseCategory, string> = {
+  basic: 'Базовые',
+  taxi: 'Такси',
+  restaurant: 'Ресторан',
+  hotel: 'Отель',
+  shopping: 'Магазин',
+  emergency: 'Экстренно',
+}
+
+export const phrases: Phrase[] = [
+  { id:'hello', category:'basic', ru:'Здравствуйте', zh:'你好', pinyin:'nǐ hǎo', audio:null },
+  { id:'thank-you', category:'basic', ru:'Спасибо', zh:'谢谢', pinyin:'xiè xie', audio:null },
+  { id:'sorry', category:'basic', ru:'Извините', zh:'不好意思', pinyin:'bù hǎo yì si', audio:null },
+  { id:'dont-understand', category:'basic', ru:'Я не понимаю', zh:'我听不懂', pinyin:'wǒ tīng bù dǒng', audio:null },
+  { id:'slowly', category:'basic', ru:'Говорите, пожалуйста, медленнее', zh:'请说慢一点', pinyin:'qǐng shuō màn yì diǎn', audio:null },
+  { id:'write-it', category:'basic', ru:'Напишите, пожалуйста', zh:'请写下来', pinyin:'qǐng xiě xià lái', audio:null },
+
+  { id:'taxi-here', category:'taxi', ru:'Отвезите меня сюда', zh:'请送我到这里', pinyin:'qǐng sòng wǒ dào zhè lǐ', audio:'assets/audio/phrases/taxi/take-me-here.mp3', critical:true },
+  { id:'taxi-hotel', category:'taxi', ru:'Отвезите меня в этот отель', zh:'请送我去这家酒店', pinyin:'qǐng sòng wǒ qù zhè jiā jiǔ diàn', audio:'assets/audio/phrases/taxi/take-me-to-this-hotel.mp3', critical:true },
+  { id:'taxi-airport', category:'taxi', ru:'Отвезите меня в международный аэропорт', zh:'请送我去三亚凤凰国际机场国际出发', pinyin:'qǐng sòng wǒ qù Sānyà Fènghuáng guójì jīchǎng guójì chūfā', audio:'assets/audio/phrases/taxi/take-me-to-the-international-airport.mp3', critical:true },
+  { id:'stop-here', category:'taxi', ru:'Остановите здесь, пожалуйста', zh:'请在这里停车', pinyin:'qǐng zài zhè lǐ tíng chē', audio:null },
+  { id:'air-conditioner', category:'taxi', ru:'Включите кондиционер, пожалуйста', zh:'请开空调', pinyin:'qǐng kāi kōng tiáo', audio:null },
+  { id:'how-long', category:'taxi', ru:'Сколько времени займёт дорога?', zh:'要多长时间？', pinyin:'yào duō cháng shí jiān?', audio:null },
+
+  { id:'bill', category:'restaurant', ru:'Счёт, пожалуйста', zh:'请结账', pinyin:'qǐng jié zhàng', audio:'assets/audio/phrases/restaurant/bill-please.mp3', critical:true },
+  { id:'not-spicy', category:'restaurant', ru:'Не остро, пожалуйста', zh:'不要辣', pinyin:'bú yào là', audio:'assets/audio/phrases/restaurant/not-spicy-please.mp3', critical:true },
+  { id:'no-cilantro', category:'restaurant', ru:'Без кинзы', zh:'不要香菜', pinyin:'bú yào xiāng cài', audio:'assets/audio/phrases/restaurant/no-cilantro.mp3', critical:true },
+  { id:'pictures-menu', category:'restaurant', ru:'Есть меню с картинками?', zh:'有图片菜单吗？', pinyin:'yǒu tú piàn cài dān ma?', audio:null },
+  { id:'recommend-food', category:'restaurant', ru:'Что вы рекомендуете?', zh:'你推荐什么？', pinyin:'nǐ tuī jiàn shén me?', audio:null },
+  { id:'water', category:'restaurant', ru:'Воду, пожалуйста', zh:'请给我水', pinyin:'qǐng gěi wǒ shuǐ', audio:null },
+  { id:'allergy', category:'restaurant', ru:'У меня аллергия', zh:'我有食物过敏', pinyin:'wǒ yǒu shí wù guò mǐn', audio:null },
+
+  { id:'reservation', category:'hotel', ru:'У меня есть бронирование', zh:'我有预订', pinyin:'wǒ yǒu yù dìng', audio:null },
+  { id:'passport-checkin', category:'hotel', ru:'Вот мой паспорт для регистрации', zh:'这是我的护照，办理入住', pinyin:'zhè shì wǒ de hù zhào, bàn lǐ rù zhù', audio:null },
+  { id:'room-key', category:'hotel', ru:'Я потерял ключ от номера', zh:'我丢了房卡', pinyin:'wǒ diū le fáng kǎ', audio:null },
+  { id:'wifi', category:'hotel', ru:'Какой пароль от Wi‑Fi?', zh:'Wi‑Fi密码是什么？', pinyin:'Wi‑Fi mì mǎ shì shén me?', audio:null },
+  { id:'late-checkout', category:'hotel', ru:'Можно продлить выезд?', zh:'可以延迟退房吗？', pinyin:'kě yǐ yán chí tuì fáng ma?', audio:null },
+  { id:'call-taxi', category:'hotel', ru:'Помогите вызвать такси', zh:'请帮我叫出租车', pinyin:'qǐng bāng wǒ jiào chū zū chē', audio:null },
+
+  { id:'how-much', category:'shopping', ru:'Сколько стоит?', zh:'多少钱？', pinyin:'duō shao qián?', audio:'assets/audio/phrases/shopping/how-much-is-it.mp3', critical:true },
+  { id:'total-price', category:'shopping', ru:'Сначала скажите итоговую цену', zh:'请先告诉我总价', pinyin:'qǐng xiān gào su wǒ zǒng jià', audio:'assets/audio/phrases/shopping/tell-me-the-total-price-first.mp3', critical:true },
+  { id:'too-expensive', category:'shopping', ru:'Слишком дорого', zh:'太贵了', pinyin:'tài guì le', audio:null },
+  { id:'cheaper', category:'shopping', ru:'Можно дешевле?', zh:'可以便宜一点吗？', pinyin:'kě yǐ pián yi yì diǎn ma?', audio:null },
+  { id:'per-jin', category:'shopping', ru:'Сколько за 500 граммов?', zh:'多少钱一斤？', pinyin:'duō shao qián yì jīn?', audio:null },
+  { id:'dont-want', category:'shopping', ru:'Нет, спасибо, мне не нужно', zh:'不用了，谢谢', pinyin:'bú yòng le, xiè xie', audio:null },
+
+  { id:'need-help', category:'emergency', ru:'Мне нужна помощь', zh:'我需要帮助', pinyin:'wǒ xū yào bāng zhù', audio:'assets/audio/phrases/emergency/i-need-help.mp3', critical:true },
+  { id:'ambulance', category:'emergency', ru:'Вызовите скорую помощь', zh:'请叫救护车', pinyin:'qǐng jiào jiù hù chē', audio:'assets/audio/phrases/emergency/call-an-ambulance.mp3', critical:true },
+  { id:'police', category:'emergency', ru:'Вызовите полицию', zh:'请报警', pinyin:'qǐng bào jǐng', audio:'assets/audio/phrases/emergency/call-the-police.mp3', critical:true },
+  { id:'lost', category:'emergency', ru:'Я потерялся', zh:'我迷路了', pinyin:'wǒ mí lù le', audio:'assets/audio/phrases/emergency/i-am-lost.mp3', critical:true },
+  { id:'call-hotel', category:'emergency', ru:'Позвоните в мой отель', zh:'请给我的酒店打电话', pinyin:'qǐng gěi wǒ de jiǔ diàn dǎ diàn huà', audio:'assets/audio/phrases/emergency/call-my-hotel.mp3', critical:true },
+  { id:'feel-sick', category:'emergency', ru:'Мне плохо', zh:'我不舒服', pinyin:'wǒ bù shū fu', audio:'assets/audio/phrases/emergency/i-feel-sick.mp3', critical:true },
+  { id:'hospital', category:'emergency', ru:'Где ближайшая больница?', zh:'最近的医院在哪里？', pinyin:'zuì jìn de yī yuàn zài nǎ lǐ?', audio:null },
+]

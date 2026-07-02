@@ -1,0 +1,1762 @@
+<!doctype html>
+<html lang='ru'>
+<head>
+<meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1, viewport-fit=cover'>
+<title>Санья 5-14 июля: офлайн-гид v3</title>
+<meta name='theme-color' content='#075985'>
+<meta name='description' content='Автономный путеводитель по Санье: маршруты, места, адреса, бюджет и SOS.'>
+<link rel='manifest' href='manifest.webmanifest'>
+<style>
+:root { --bg:#f3f7f8; --ink:#102a2f; --muted:#526970; --card:#ffffff; --line:#d8e3e5; --brand:#075985; --brand-2:#0f766e; --soft:#e7f4f5; --accent:#f59e0b; --danger:#b91c1c; --shadow:0 10px 32px rgba(16,42,47,.08); --nav-h:68px; }
+* { box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body { margin:0; font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Arial,sans-serif; color:var(--ink); background:var(--bg); line-height:1.55; padding-bottom:calc(var(--nav-h) + env(safe-area-inset-bottom) + 16px); }
+a { color:var(--brand); text-decoration:none; }
+button,input,textarea { font:inherit; }
+button,a { -webkit-tap-highlight-color:transparent; }
+button:focus-visible,a:focus-visible,input:focus-visible,textarea:focus-visible,summary:focus-visible { outline:3px solid #fbbf24; outline-offset:3px; }
+header { background:linear-gradient(145deg,#063b4c,#075985 58%,#0f766e); color:white; padding:calc(22px + env(safe-area-inset-top)) max(18px,calc((100vw - 1080px)/2)) 24px; }
+header h1 { max-width:780px; margin:0 0 10px; font-size:clamp(28px,5vw,46px); line-height:1.08; letter-spacing:-.035em; }
+header p { max-width:820px; margin:8px 0; color:#e6f6f7; }
+.hero-svg { display:none; }
+nav.top { position:sticky; top:0; z-index:30; display:flex; overflow-x:auto; scrollbar-width:none; gap:8px; padding:10px max(12px,calc((100vw - 1080px)/2)); background:rgba(255,255,255,.96); border-bottom:1px solid var(--line); backdrop-filter:blur(12px); }
+nav.top::-webkit-scrollbar { display:none; }
+nav.top a { flex:0 0 auto; white-space:nowrap; border:1px solid var(--line); border-radius:999px; padding:9px 14px; background:white; color:#29474d; font-size:14px; font-weight:650; min-height:42px; }
+.bottomnav { position:fixed; left:0; right:0; bottom:0; z-index:50; display:grid; grid-template-columns:repeat(5,1fr); min-height:var(--nav-h); background:rgba(6,44,58,.97); color:white; padding:6px 6px max(7px,env(safe-area-inset-bottom)); box-shadow:0 -8px 30px rgba(15,23,42,.16); backdrop-filter:blur(14px); }
+.bottomnav a { color:white; text-align:center; font-size:11px; font-weight:650; padding:6px 2px 4px; border-radius:12px; min-height:54px; }
+.bottomnav a:active,.bottomnav a.current { background:rgba(255,255,255,.13); }
+.bottomnav span { display:block; font-size:21px; line-height:1.1; margin-bottom:3px; }
+main { max-width:1080px; margin:0 auto; padding:18px; }
+section { margin:28px 0; scroll-margin-top:72px; }
+h2 { margin:0 0 14px; font-size:clamp(23px,4vw,30px); line-height:1.18; letter-spacing:-.025em; }
+h3 { margin:12px 0 6px; line-height:1.28; }
+.card, .panel { background:white; border:1px solid var(--line); border-radius:22px; padding:20px; box-shadow:var(--shadow); margin:14px 0; }
+.notice { background:#fff8e8; border:1px solid #f6d89a; padding:13px 14px; border-radius:15px; margin:12px 0; color:#5e4717; }
+.success { background:#edfdf7; border:1px solid #a7e7d0; }
+.warning { background:#fff2f2; border:1px solid #f3baba; }
+.table-scroll { width:100%; overflow-x:auto; border:1px solid var(--line); border-radius:16px; background:white; box-shadow:0 3px 14px rgba(16,42,47,.05); -webkit-overflow-scrolling:touch; }
+table { border-collapse:collapse; width:100%; min-width:680px; background:white; margin:0; }
+th,td { padding:12px; border-bottom:1px solid var(--line); vertical-align:top; font-size:14px; }
+th { background:var(--soft); text-align:left; color:#173e45; }
+tr:last-child td { border-bottom:none; }
+.quickbar, .filterbar { display:flex; flex-wrap:wrap; gap:8px; margin:10px 0; }
+.quickbar button, .filterbar button, .links button, .smallbtn, .secondary-btn { border:1px solid #b9cace; background:white; color:#173e45; border-radius:999px; padding:10px 14px; min-height:44px; cursor:pointer; font-weight:650; }
+.quickbar button.active, .filterbar button.active { background:var(--brand); color:white; border-color:var(--brand); }
+.recbox { background:#eaf5ff; border:1px solid #b9d8ed; border-radius:17px; padding:14px; margin:12px 0; }
+.day { background:white; border:1px solid var(--line); border-radius:18px; margin:12px 0; overflow:hidden; box-shadow:0 4px 18px rgba(16,42,47,.05); }
+.day summary { padding:16px; font-weight:750; cursor:pointer; background:#eef7f8; min-height:54px; }
+.day summary span { color:var(--brand); }
+.day-content { padding:16px; }
+.idea { color:#334155; font-style:italic; margin-top:0; }
+.route-grid, .dashboard-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.route-grid div, .dashboard-grid div { background:#f7fafb; border:1px solid var(--line); border-radius:14px; padding:12px; }
+.place-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.place-card { position:relative; background:white; border:1px solid var(--line); border-radius:20px; padding:16px; box-shadow:0 6px 22px rgba(16,42,47,.06); }
+.place-card h3 { padding-right:44px; font-size:19px; }
+.place-card.hidden { display:none; }
+.star { position:absolute; right:10px; top:10px; border:1px solid #d5e0e2; background:#f7fafb; color:#71868b; border-radius:50%; width:44px; height:44px; font-size:23px; cursor:pointer; }
+.star.on { color:#9a6200; background:#fff4cf; border-color:#f0c65a; }
+.badge { display:inline-block; font-size:12px; color:#23464d; background:#e7f1f2; border-radius:999px; padding:5px 9px; margin-bottom:6px; font-weight:700; }
+.zh { color:#475569; font-weight:600; }
+.coords code { background:#f1f5f9; padding:3px 5px; border-radius:6px; }
+.links { display:flex; gap:8px; flex-wrap:wrap; margin-top:8px; }
+.links a, .links button, .copybtn { display:inline-flex; align-items:center; justify-content:center; background:var(--brand); color:white; border:0; min-height:44px; padding:10px 13px; border-radius:12px; font-size:14px; font-weight:700; cursor:pointer; }
+.links button.taxiBtn { background:#6d28d9; }
+.links a[href^='https://www.google'] { display:none; }
+.card-toggle { width:100%; margin:8px 0 4px; background:#edf4f5; border:0; border-radius:12px; color:#27474d; min-height:44px; font-weight:700; cursor:pointer; }
+.place-card.compact > p:not(.zh),.place-card.compact > .coords { display:none; }
+.search-tools { position:sticky; top:62px; z-index:20; background:rgba(243,247,248,.96); padding:8px 0; backdrop-filter:blur(10px); }
+.search { width:100%; min-height:48px; padding:12px 46px 12px 14px; border:1px solid #aebfc3; border-radius:15px; font-size:16px; background:white; }
+.search-wrap { position:relative; }
+.search-clear { position:absolute; right:4px; top:4px; width:40px; height:40px; border:0; border-radius:12px; background:transparent; color:#526970; font-size:20px; cursor:pointer; }
+.result-count { color:var(--muted); font-size:13px; margin:7px 2px 0; }
+.checklist { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:8px; }
+.checklist label { display:flex; gap:10px; align-items:center; background:white; border:1px solid var(--line); border-radius:14px; padding:12px; min-height:48px; }
+.checklist input { width:20px; height:20px; flex:0 0 auto; accent-color:var(--brand-2); }
+.checklist label:has(input:checked) { background:#eaf8f4; color:#315b53; text-decoration:line-through; }
+.money-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.money-grid label { color:#415b61; font-size:13px; font-weight:700; }
+.money-grid input,textarea { width:100%; padding:12px; border:1px solid #afc2c6; border-radius:12px; font-size:16px; color:var(--ink); background:white; }
+.notes { min-height:140px; resize:vertical; }
+.tool-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+.tool-panel { background:#f7fafb; border:1px solid var(--line); border-radius:16px; padding:14px; }
+.tool-panel h3 { margin-top:0; }
+.action-row { display:flex; flex-wrap:wrap; gap:8px; margin-top:10px; }
+.file-btn { position:relative; overflow:hidden; }
+.file-btn input { position:absolute; inset:0; opacity:0; cursor:pointer; }
+.storage-note { color:var(--muted); font-size:13px; }
+#toast { position:fixed; left:50%; transform:translateX(-50%); bottom:calc(var(--nav-h) + env(safe-area-inset-bottom) + 14px); z-index:100; max-width:calc(100% - 28px); background:#102a2f; color:white; padding:11px 15px; border-radius:999px; display:none; box-shadow:0 8px 30px rgba(0,0,0,.25); text-align:center; }
+#modal { position:fixed; inset:0; background:rgba(15,23,42,.68); z-index:120; display:none; align-items:center; justify-content:center; padding:18px; }
+#modal .box { background:white; border-radius:22px; padding:18px; width:min(680px,100%); max-height:calc(100vh - 36px); overflow:auto; box-shadow:0 20px 80px rgba(0,0,0,.35); }
+#taxiText { font-size:28px; line-height:1.35; white-space:pre-wrap; font-weight:700; }
+.footer { font-size:12px; color:#64748b; border-top:1px solid var(--line); padding-top:12px; }
+@media (max-width:760px) {
+  header { padding-left:18px; padding-right:18px; }
+  header h1 { font-size:30px; }
+  header p { font-size:14px; }
+  main { padding:14px 12px; }
+  section { margin:22px 0; }
+  .card,.panel { padding:16px; border-radius:19px; }
+  .route-grid,.place-grid,.checklist,.money-grid,.dashboard-grid,.tool-grid { grid-template-columns:1fr; }
+  .dashboard-grid { display:flex; overflow-x:auto; scroll-snap-type:x mandatory; padding-bottom:4px; }
+  .dashboard-grid div { min-width:82%; scroll-snap-align:start; }
+  th,td { font-size:13px; padding:9px; }
+  #taxiText { font-size:22px; }
+  .quickbar,.filterbar { flex-wrap:nowrap; overflow-x:auto; padding-bottom:5px; scrollbar-width:none; }
+  .quickbar::-webkit-scrollbar,.filterbar::-webkit-scrollbar { display:none; }
+  .quickbar button,.filterbar button { flex:0 0 auto; }
+  #places { scroll-margin-top:118px; }
+  .search-tools { top:61px; }
+  .place-card h3 { font-size:18px; }
+}
+@media print { nav, .bottomnav, .quickbar, .filterbar, .star, .card-toggle, .links button, #modal, #toast, .no-print, #my-tools { display:none!important; } body { background:white; padding-bottom:0; } section, .day, .place-card { page-break-inside:avoid; } .place-card.compact>p { display:block!important; } .place-grid,.route-grid,.money-grid,.dashboard-grid { grid-template-columns:1fr; } .table-scroll { overflow:visible; } table { min-width:0; } }
+</style>
+</head>
+<body>
+<header id='top'>
+<h1>Санья / Хайнань 5-14 июля<br>офлайн-гид v3</h1>
+<p>Для молодой пары: маршруты по вайбу, адреса для такси, координаты, избранное, бюджет, еда, бары, SOS. Всё в одном HTML без интернета.</p>
+<p><b>Курс для быстрых расчётов:</b> начальное значение 1 CNY ≈ 13 ₽ можно изменить в бюджете. <b>Важно:</b> для такси используйте китайское название — координаты Google/Apple и Amap/DiDi могут отличаться.</p>
+<div class='hero-svg'><svg viewBox='0 0 900 360' xmlns='http://www.w3.org/2000/svg'><defs><linearGradient id='g' x1='0' y1='0' x2='1' y2='1'><stop stop-color='#0f172a'/><stop offset='.5' stop-color='#0e7490'/><stop offset='1' stop-color='#22c55e'/></linearGradient></defs><rect width='900' height='360' rx='0' fill='url(#g)'/><circle cx='735' cy='75' r='46' fill='#fde68a'/><path d='M0 260 C145 210 260 295 420 250 C590 205 690 285 900 220 L900 360 L0 360Z' fill='#f59e0b' opacity='.85'/><path d='M0 232 C170 190 310 250 455 218 C590 188 700 225 900 196' fill='none' stroke='#dbeafe' stroke-width='15' opacity='.9'/><text x='38' y='72' font-size='38' fill='white' font-family='Arial' font-weight='700'>Sanya offline travel cockpit v3</text><text x='42' y='122' font-size='20' fill='#e0f2fe' font-family='Arial'>всё работает без интернета: маршруты, адреса, избранное, бюджет и SOS</text></svg></div>
+</header>
+<nav class='top no-print'>
+<a href='#cockpit'>Сейчас</a><a href='#days'>Дни</a><a href='#nearby'>Рядом</a><a href='#places'>Точки</a><a href='#menu'>Меню</a><a href='#food'>Еда</a><a href='#bars'>Алко</a><a href='#budget'>Бюджет</a><a href='#sos'>SOS</a><a href='#phrases'>Фразы</a>
+</nav>
+<main>
+<section id='cockpit' class='card'>
+<h2>Что делать сейчас?</h2>
+<p>Выберите состояние — гид покажет лучший план на сегодня. Работает офлайн.</p>
+<div class='quickbar'><button class='vibe' data-vibe='море'>море</button><button class='vibe' data-vibe='остров'>остров</button><button class='vibe' data-vibe='дождь'>дождь</button><button class='vibe' data-vibe='жара'>жара</button><button class='vibe' data-vibe='устали'>устали</button><button class='vibe' data-vibe='поздно'>поздно</button><button class='vibe' data-vibe='еда'>еда</button><button class='vibe' data-vibe='бар'>бар</button><button class='vibe' data-vibe='шопинг'>шопинг</button><button class='vibe' data-vibe='рядом'>рядом</button></div>
+<div id='recbox' class='recbox'><b>Нажмите вайб выше.</b> Например: дождь, жара, поздно, еда или бар.</div>
+<div class='dashboard-grid'>
+ <div><b>Есть 2 часа утром:</b><br>Linchunling / Dadonghai / фрукты / кофе / аптека.</div>
+ <div><b>Есть 3 часа вечером:</b><br>Luhuitou / FreeGen / Dolphin / Sanya Bay sunset.</div>
+ <div><b>Есть полдня:</b><br>Yalong Bay / CDF / Atlantis / чай + массаж.</div>
+ <div><b>Есть целый день:</b><br>West Island / Wanning / Yanoda / Wuzhizhou.</div>
+</div>
+</section>
+
+<section id='route' class='card'>
+<h2>Карта маршрута 5-14 июля</h2>
+<table><thead><tr><th>Дата</th><th>Основной день</th><th>Если дождь/устали</th><th>Вечер</th></tr></thead><tbody>
+<tr><td>5 июля</td><td>Прилет + Dadonghai</td><td>сон + ТЦ + массаж</td><td>FreeGen / Dolphin</td></tr>
+<tr><td>6 июля</td><td>West Island</td><td>Joy City + еда</td><td>Luhuitou</td></tr>
+<tr><td>7 июля</td><td>Yalong Bay + Forest Park</td><td>Atlantis / CDF</td><td>Dadonghai</td></tr>
+<tr><td>8 июля</td><td>Yanoda</td><td>Tea + food + massage</td><td>Seafood</td></tr>
+<tr><td>9 июля</td><td>Wanning / Riyue</td><td>Atlantis + CDF</td><td>спокойный ужин</td></tr>
+<tr><td>10 июля</td><td>Houhai + Haitang</td><td>Lost Chambers + CDF</td><td>Houhai bars</td></tr>
+<tr><td>11 июля</td><td>CDF + Atlantis</td><td>идеальный indoor day</td><td>Sky Bar EDITION</td></tr>
+<tr><td>12 июля</td><td>Nanshan + Sanya Bay</td><td>чай/массаж/ТЦ</td><td>романтичный ужин</td></tr>
+<tr><td>13 июля</td><td>Финальный chill</td><td>массаж + покупки</td><td>ранний сон</td></tr>
+<tr><td>14 июля</td><td>Выезд 02:30-03:00</td><td>-</td><td>аэропорт</td></tr>
+</tbody></table>
+</section>
+
+<section id='days'>
+<h2>Детальные дни</h2>
+
+<details class='day' open data-day='5' data-tags='прилёт, dadonghai, фрукты и первый бар мягкая адаптация после прилёта в 04:35. не геройствовать.'>
+<summary><span>5 июля</span> · Прилёт, Dadonghai, фрукты и первый бар</summary>
+<div class='day-content'>
+  <p class='idea'>Мягкая адаптация после прилёта в 04:35. Не геройствовать.</p>
+  <div class='route-grid'>
+    <div><b>Основной:</b><br>Аэропорт → Ascott → багаж/early check-in → сон → Dadonghai после 16:30 → фрукты/SPF → FreeGen или Dolphin.</div>
+    <div><b>Активно:</b><br>Dadonghai + ужин coconut chicken + FreeGen.</div>
+    <div><b>Лайт:</b><br>Сон, супермаркет, массаж ног 60 мин, ранний ужин.</div>
+    <div><b>Дождь/жара:</b><br>Joy City/Summer Mall + чай/кофе + массаж.</div>
+    <div><b>Поздно встали:</b><br>Сразу ужин и один бар, без пляжной гонки.</div>
+    <div><b>Вечер:</b><br>FreeGen для моря или Dolphin для понятного бара.</div>
+    <div><b>Full-day альтернатива:</b><br>Нет full-day альтернативы: день восстановления.</div>
+    <div><b>План Б:</b><br>Если номер не готов: багаж на ресепшен, завтрак/лобби, короткий променад и сон после заселения.</div>
+  </div>
+</div>
+</details>
+
+
+<details class='day' open data-day='6' data-tags='west island + luhuitou первый остров и sunset рядом с отелем.'>
+<summary><span>6 июля</span> · West Island + Luhuitou</summary>
+<div class='day-content'>
+  <p class='idea'>Первый остров и sunset рядом с отелем.</p>
+  <div class='route-grid'>
+    <div><b>Основной:</b><br>08:00 выезд → West Island Tourist Center → остров/Niuwangling → 16:30 отель → 17:45 Luhuitou.</div>
+    <div><b>Активно:</b><br>Добавить SUP/каяк/снорклинг по погоде.</div>
+    <div><b>Лайт:</b><br>Остров без активностей: деревня, кокос, фото, купание.</div>
+    <div><b>Дождь/жара:</b><br>Не плыть. Joy City + еда + массаж + FreeGen.</div>
+    <div><b>Поздно встали:</b><br>West Island отменить; Luhuitou + seafood.</div>
+    <div><b>Вечер:</b><br>Luhuitou на закат или FreeGen.</div>
+    <div><b>Full-day альтернатива:</b><br>Indoor day: Joy City + чай + массаж + бар.</div>
+    <div><b>План Б:</b><br>Если лодки не ходят: Yalong Bay после 15:30 или Atlantis/CDF.</div>
+  </div>
+</div>
+</details>
+
+
+<details class='day' open data-day='7' data-tags='yalong bay + forest park / sun bay красивое море, виды, пляжный день.'>
+<summary><span>7 июля</span> · Yalong Bay + Forest Park / Sun Bay</summary>
+<div class='day-content'>
+  <p class='idea'>Красивое море, виды, пляжный день.</p>
+  <div class='route-grid'>
+    <div><b>Основной:</b><br>08:00 Forest Park → обед → 15:30 Yalong Bay beach → ужин в Dadonghai.</div>
+    <div><b>Активно:</b><br>Forest Park + Sun Bay viewpoint + Yalong Bay.</div>
+    <div><b>Лайт:</b><br>Только Yalong Bay после 15:30.</div>
+    <div><b>Дождь/жара:</b><br>Atlantis Lost Chambers или CDF.</div>
+    <div><b>Поздно встали:</b><br>Yalong Bay на закат + ужин.</div>
+    <div><b>Вечер:</b><br>Dadonghai dinner или спокойный бар.</div>
+    <div><b>Full-day альтернатива:</b><br>Wuzhizhou full-day при идеальном море.</div>
+    <div><b>План Б:</b><br>Если парк душный/мокрый: сразу на Yalong Bay после 16:00.</div>
+  </div>
+</div>
+</details>
+
+
+<details class='day' open data-day='8' data-tags='yanoda или лёгкий тропический день джунгли, если хочется активной природы.'>
+<summary><span>8 июля</span> · Yanoda или лёгкий тропический день</summary>
+<div class='day-content'>
+  <p class='idea'>Джунгли, если хочется активной природы.</p>
+  <div class='route-grid'>
+    <div><b>Основной:</b><br>07:30 выезд → Yanoda → 16:00 отель → seafood/massage.</div>
+    <div><b>Активно:</b><br>Yanoda + верёвочные/водные активности, если не ливень.</div>
+    <div><b>Лайт:</b><br>Linchunling утром + массаж + ужин.</div>
+    <div><b>Дождь/жара:</b><br>Лёгкий дождь ОК, ливень — tea + food + massage day.</div>
+    <div><b>Поздно встали:</b><br>Tea + food + massage day.</div>
+    <div><b>Вечер:</b><br>Seafood или массаж.</div>
+    <div><b>Full-day альтернатива:</b><br>Tea + food + massage full-day.</div>
+    <div><b>План Б:</b><br>Если тропы скользкие: не геройствовать, заменить на чай/еда/массаж.</div>
+  </div>
+</div>
+</details>
+
+
+<details class='day' open data-day='9' data-tags='wanning: shimei + riyue + shenzhou самый не-пакетный день: серф, кафе, другое побережье.'>
+<summary><span>9 июля</span> · Wanning: Shimei + Riyue + Shenzhou</summary>
+<div class='day-content'>
+  <p class='idea'>Самый не-пакетный день: серф, кафе, другое побережье.</p>
+  <div class='route-grid'>
+    <div><b>Основной:</b><br>Sanya Station → Wanning/Shenzhou → Shimei Bay → Riyue Bay → поезд назад.</div>
+    <div><b>Активно:</b><br>Добавить beginner surf lesson.</div>
+    <div><b>Лайт:</b><br>Только Shimei Bay + обед + назад.</div>
+    <div><b>Дождь/жара:</b><br>Не ехать. Atlantis + CDF.</div>
+    <div><b>Поздно встали:</b><br>Отменить Wanning; Yalong или Atlantis.</div>
+    <div><b>Вечер:</b><br>Спокойный ужин после поезда.</div>
+    <div><b>Full-day альтернатива:</b><br>Atlantis + CDF + Sky Bar.</div>
+    <div><b>План Б:</b><br>Если нет удобных билетов обратно: не ехать, сделать Yalong/Atlantis.</div>
+  </div>
+</div>
+</details>
+
+
+<details class='day' open data-day='10' data-tags='houhai + haitang / wuzhizhou по погоде молодой морской вайб и пляжные бары.'>
+<summary><span>10 июля</span> · Houhai + Haitang / Wuzhizhou по погоде</summary>
+<div class='day-content'>
+  <p class='idea'>Молодой морской вайб и пляжные бары.</p>
+  <div class='route-grid'>
+    <div><b>Основной:</b><br>Houhai после 11:00 → кофе/серф-вайб → CDF/Haitang → бар.</div>
+    <div><b>Активно:</b><br>Серф-проба в Houhai или Wuzhizhou при идеальном море.</div>
+    <div><b>Лайт:</b><br>Houhai только после 16:00 + бар.</div>
+    <div><b>Дождь/жара:</b><br>Atlantis Lost Chambers + CDF.</div>
+    <div><b>Поздно встали:</b><br>Dadonghai + массаж + FreeGen.</div>
+    <div><b>Вечер:</b><br>Houhai bars / Casa Corona style.</div>
+    <div><b>Full-day альтернатива:</b><br>Wuzhizhou full-day.</div>
+    <div><b>План Б:</b><br>Если Houhai шумный/не зашёл: CDF + EDITION или обратно в Dadonghai.</div>
+  </div>
+</div>
+</details>
+
+
+<details class='day' open data-day='11' data-tags='cdf + atlantis + edition лучший день для дождя/жары: duty free, океанариум, красивый бар.'>
+<summary><span>11 июля</span> · CDF + Atlantis + EDITION</summary>
+<div class='day-content'>
+  <p class='idea'>Лучший день для дождя/жары: duty free, океанариум, красивый бар.</p>
+  <div class='route-grid'>
+    <div><b>Основной:</b><br>10:30 выезд → CDF → Lost Chambers Aquarium → Sky Bar EDITION.</div>
+    <div><b>Активно:</b><br>Добавить Aquaventure вместо части CDF.</div>
+    <div><b>Лайт:</b><br>Только CDF + ужин.</div>
+    <div><b>Дождь/жара:</b><br>Идеальный дождевой день.</div>
+    <div><b>Поздно встали:</b><br>Atlantis + Sky Bar без CDF.</div>
+    <div><b>Вечер:</b><br>Sky Bar EDITION или другой красивый бар Haitang.</div>
+    <div><b>Full-day альтернатива:</b><br>Aquaventure full-day.</div>
+    <div><b>План Б:</b><br>Если CDF не зашёл: Atlantis + хороший ужин/бар.</div>
+  </div>
+</div>
+</details>
+
+
+<details class='day' open data-day='12' data-tags='nanshan + sanya bay sunset культура и архитектура без религиозного перегруза.'>
+<summary><span>12 июля</span> · Nanshan + Sanya Bay sunset</summary>
+<div class='day-content'>
+  <p class='idea'>Культура и архитектура без религиозного перегруза.</p>
+  <div class='route-grid'>
+    <div><b>Основной:</b><br>08:30 Nanshan → отдых → Sanya Bay/Coconut Dream Corridor sunset → романтический ужин.</div>
+    <div><b>Активно:</b><br>Nanshan + Sanya Bay + ужин.</div>
+    <div><b>Лайт:</b><br>Только Sanya Bay sunset + ужин.</div>
+    <div><b>Дождь/жара:</b><br>Чай/массаж/Atlantis/CDF.</div>
+    <div><b>Поздно встали:</b><br>Не ехать в Nanshan; Yalong/Sanya Bay sunset.</div>
+    <div><b>Вечер:</b><br>Романтический ужин.</div>
+    <div><b>Full-day альтернатива:</b><br>Boundary Island только при идеальной погоде.</div>
+    <div><b>План Б:</b><br>Если жарко: сократить Nanshan, взять электрокар и уйти к обеду.</div>
+  </div>
+</div>
+</details>
+
+
+<details class='day' open data-day='13' data-tags='финальный chill не сорвать ранний вылет.'>
+<summary><span>13 июля</span> · Финальный chill</summary>
+<div class='day-content'>
+  <p class='idea'>Не сорвать ранний вылет.</p>
+  <div class='route-grid'>
+    <div><b>Основной:</b><br>Любимый пляж утром → чай/фрукты/подарки → массаж → сборы → ранний ужин.</div>
+    <div><b>Активно:</b><br>Короткий повтор Yalong/Dadonghai до обеда.</div>
+    <div><b>Лайт:</b><br>Отель, массаж, покупки рядом.</div>
+    <div><b>Дождь/жара:</b><br>Чай + Summer/Joy + массаж.</div>
+    <div><b>Поздно встали:</b><br>Сборы + ранний ужин.</div>
+    <div><b>Вечер:</b><br>Ранний ужин и сон.</div>
+    <div><b>Full-day альтернатива:</b><br>Не ставить дальние выезды.</div>
+    <div><b>План Б:</b><br>Если хочется “ещё”: только 1 близкая точка до 14:00.</div>
+  </div>
+</div>
+</details>
+
+</section>
+
+<section id='planb' class='card'>
+<h2>Быстрые замены: если всё пошло не так</h2>
+<table><thead><tr><th>Хотели</th><th>Но</th><th>Заменить на</th></tr></thead><tbody><tr><td>West Island</td><td>ветер/ливень/лодки не ходят</td><td>Joy City + чай + массаж + FreeGen</td></tr><tr><td>Wanning</td><td>дождь или поздний старт</td><td>Atlantis + CDF или Yalong Bay</td></tr><tr><td>Yanoda</td><td>ливень/скользко/духота</td><td>Tea + food + massage day</td></tr><tr><td>Wuzhizhou</td><td>очереди/мутное море/ветер</td><td>West Island в другой день или Houhai + CDF</td></tr><tr><td>CDF</td><td>надоело/дорого/нет нужных брендов</td><td>Atlantis + Sky Bar или вернуться в Dadonghai</td></tr><tr><td>Nanshan</td><td>жара/нет настроения на культуру</td><td>Sanya Bay sunset + ужин</td></tr><tr><td>Ресторан seafood</td><td>завышают цену/нет понятного прайса</td><td>уходить; MS.LIN/A Lang/сетевой ресторан</td></tr></tbody></table>
+</section>
+
+<section id='nearby'>
+<h2>Рядом с отелем: когда нет сил</h2>
+<p class='notice'>Открывать в первый день, после активностей или в дождь. Всё близко к Dadonghai/Ascott.</p>
+<div class='place-grid'>
+<article class='place-card' data-place-id='p100' data-cat='База' data-tags='бар море рядом' data-name='ascott dadonghai bay sanya' data-zh='三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓'>
+  <button class='star' data-fav='p100' aria-label='favorite'>☆</button>
+  <div class='badge'>🏨 База</div>
+  <h3>Ascott Dadonghai Bay Sanya</h3>
+  <p class='zh'>三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓</p>
+  <p><b>Роль:</b> Отель / база<br><b>Когда:</b> каждый день<br><b>Вердикт:</b> База отличная: Dadonghai, пляж, бары, DiDi</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22100, 109.52070</code></p>
+  <p>Адрес: 海韵路66号, 大东海. Координаты приблизительные; в Amap ищите китайское название.</p>
+  <div class='links'>
+    <a href='geo:18.221,109.5207?q=18.221,109.5207(Ascott Dadonghai Bay Sanya)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.221,109.5207&q=Ascott Dadonghai Bay Sanya'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.221,109.5207'>Google</a>
+    <button onclick='copyText("三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓\nAscott Dadonghai Bay Sanya\nАдрес: 海韵路66号, 大东海. Координаты приблизительные; в Amap ищите китайское название.\n坐标: 18.221, 109.5207")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓\nAscott Dadonghai Bay Sanya\n坐标：18.221, 109.5207")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p102' data-cat='Пляж' data-tags='жара море рядом' data-name='dadonghai beach' data-zh='大东海'>
+  <button class='star' data-fav='p102' aria-label='favorite'>☆</button>
+  <div class='badge'>🏖️ Пляж</div>
+  <h3>Dadonghai Beach</h3>
+  <p class='zh'>大东海</p>
+  <p><b>Роль:</b> Домашний пляж<br><b>Когда:</b> утро/вечер<br><b>Вердикт:</b> Удобно, но не самый вау пляж</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22230, 109.51950</code></p>
+  <p>Купаться только в разрешённых зонах и по флагам.</p>
+  <div class='links'>
+    <a href='geo:18.2223,109.5195?q=18.2223,109.5195(Dadonghai Beach)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2223,109.5195&q=Dadonghai Beach'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2223,109.5195'>Google</a>
+    <button onclick='copyText("大东海\nDadonghai Beach\nКупаться только в разрешённых зонах и по флагам.\n坐标: 18.2223, 109.5195")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n大东海\nDadonghai Beach\n坐标：18.2223, 109.5195")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p103' data-cat='Вид' data-tags='жара природа рядом фото' data-name='luhuitou scenic area' data-zh='鹿回头风景区'>
+  <button class='star' data-fav='p103' aria-label='favorite'>☆</button>
+  <div class='badge'>🌅 Вид</div>
+  <h3>Luhuitou Scenic Area</h3>
+  <p class='zh'>鹿回头风景区</p>
+  <p><b>Роль:</b> Закат / вид на город<br><b>Когда:</b> 17:30-20:00<br><b>Вердикт:</b> Точно стоит как лёгкий вечер</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22060, 109.49900</code></p>
+  <p>Не полдня, а sunset-стоп рядом с Dadonghai.</p>
+  <div class='links'>
+    <a href='geo:18.2206,109.499?q=18.2206,109.499(Luhuitou Scenic Area)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2206,109.499&q=Luhuitou Scenic Area'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2206,109.499'>Google</a>
+    <button onclick='copyText("鹿回头风景区\nLuhuitou Scenic Area\nНе полдня, а sunset-стоп рядом с Dadonghai.\n坐标: 18.2206, 109.499")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n鹿回头风景区\nLuhuitou Scenic Area\n坐标：18.2206, 109.499")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p106' data-cat='Пляж' data-tags='жара море рядом' data-name='yalong bay beach' data-zh='亚龙湾海滩'>
+  <button class='star' data-fav='p106' aria-label='favorite'>☆</button>
+  <div class='badge'>🏖️ Пляж</div>
+  <h3>Yalong Bay Beach</h3>
+  <p class='zh'>亚龙湾海滩</p>
+  <p><b>Роль:</b> Лучший классический пляж<br><b>Когда:</b> утро или после 16:00<br><b>Вердикт:</b> Точно стоит для купания</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22660, 109.62520</code></p>
+  <p>Красивее Dadonghai, но днём жарко.</p>
+  <div class='links'>
+    <a href='geo:18.2266,109.6252?q=18.2266,109.6252(Yalong Bay Beach)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2266,109.6252&q=Yalong Bay Beach'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2266,109.6252'>Google</a>
+    <button onclick='copyText("亚龙湾海滩\nYalong Bay Beach\nКрасивее Dadonghai, но днём жарко.\n坐标: 18.2266, 109.6252")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n亚龙湾海滩\nYalong Bay Beach\n坐标：18.2266, 109.6252")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p123' data-cat='Шопинг' data-tags='дождь жара рядом шопинг' data-name='summer mall' data-zh='夏日百货'>
+  <button class='star' data-fav='p123' aria-label='favorite'>☆</button>
+  <div class='badge'>🛍️ Шопинг</div>
+  <h3>Summer Mall</h3>
+  <p class='zh'>夏日百货</p>
+  <p><b>Роль:</b> ТЦ рядом<br><b>Когда:</b> если рядом/дождь<br><b>Вердикт:</b> Удобно, не вау</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22522, 109.51904</code></p>
+  <p>Tax refund mall, не offshore duty free.</p>
+  <div class='links'>
+    <a href='geo:18.22522,109.51904?q=18.22522,109.51904(Summer Mall)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.22522,109.51904&q=Summer Mall'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.22522,109.51904'>Google</a>
+    <button onclick='copyText("夏日百货\nSummer Mall\nTax refund mall, не offshore duty free.\n坐标: 18.22522, 109.51904")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n夏日百货\nSummer Mall\n坐标：18.22522, 109.51904")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p124' data-cat='Шопинг' data-tags='дождь рядом шопинг' data-name='pineapple shopping center' data-zh='大菠萝 / 三亚1号港湾城'>
+  <button class='star' data-fav='p124' aria-label='favorite'>☆</button>
+  <div class='badge'>🛍️ Шопинг</div>
+  <h3>Pineapple Shopping Center</h3>
+  <p class='zh'>大菠萝 / 三亚1号港湾城</p>
+  <p><b>Роль:</b> ТЦ рядом / landmark<br><b>Когда:</b> если рядом<br><b>Вердикт:</b> Не делать главным</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22376, 109.52490</code></p>
+  <p>Отзывы смешанные; зайти по пути.</p>
+  <div class='links'>
+    <a href='geo:18.22376,109.5249?q=18.22376,109.5249(Pineapple Shopping Center)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.22376,109.5249&q=Pineapple Shopping Center'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.22376,109.5249'>Google</a>
+    <button onclick='copyText("大菠萝 / 三亚1号港湾城\nPineapple Shopping Center\nОтзывы смешанные; зайти по пути.\n坐标: 18.22376, 109.5249")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n大菠萝 / 三亚1号港湾城\nPineapple Shopping Center\n坐标：18.22376, 109.5249")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p127' data-cat='Еда' data-tags='бар еда жара рядом фото' data-name='dolphin sports bar &amp; grill' data-zh='Dolphin海豚美式西餐厅'>
+  <button class='star' data-fav='p127' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Dolphin Sports Bar &amp; Grill</h3>
+  <p class='zh'>Dolphin海豚美式西餐厅</p>
+  <p><b>Роль:</b> Пиво/бар/fallback<br><b>Когда:</b> вечер<br><b>Вердикт:</b> Надёжно, не локально</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22400, 109.51800</code></p>
+  <p>Yuya Road 99; бургеры, wings, пиво, спорт-бар.</p>
+  <div class='links'>
+    <a href='geo:18.224,109.518?q=18.224,109.518(Dolphin Sports Bar &amp; Grill)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.224,109.518&q=Dolphin Sports Bar &amp; Grill'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.224,109.518'>Google</a>
+    <button onclick='copyText("Dolphin海豚美式西餐厅\nDolphin Sports Bar & Grill\nYuya Road 99; бургеры, wings, пиво, спорт-бар.\n坐标: 18.224, 109.518")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\nDolphin海豚美式西餐厅\nDolphin Sports Bar & Grill\n坐标：18.224, 109.518")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p128' data-cat='Бар' data-tags='бар жара море рядом фото' data-name='freegen beach bar' data-zh='FreeGen Beach Bar'>
+  <button class='star' data-fav='p128' aria-label='favorite'>☆</button>
+  <div class='badge'>🍸 Бар</div>
+  <h3>FreeGen Beach Bar</h3>
+  <p class='zh'>FreeGen Beach Bar</p>
+  <p><b>Роль:</b> Пляжный бар<br><b>Когда:</b> закат/вечер<br><b>Вердикт:</b> Первый вечер / sunset</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22170, 109.52060</code></p>
+  <p>Dadonghai beachfront; коктейли, простой ужин.</p>
+  <div class='links'>
+    <a href='geo:18.2217,109.5206?q=18.2217,109.5206(FreeGen Beach Bar)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2217,109.5206&q=FreeGen Beach Bar'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2217,109.5206'>Google</a>
+    <button onclick='copyText("FreeGen Beach Bar\nFreeGen Beach Bar\nDadonghai beachfront; коктейли, простой ужин.\n坐标: 18.2217, 109.5206")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\nFreeGen Beach Bar\nFreeGen Beach Bar\n坐标：18.2217, 109.5206")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p131' data-cat='Чай' data-tags='дождь рядом чай' data-name='tenfu tea / tea shops' data-zh='天福茗茶 / 茶叶 / 茶馆'>
+  <button class='star' data-fav='p131' aria-label='favorite'>☆</button>
+  <div class='badge'>🍵 Чай</div>
+  <h3>Tenfu Tea / tea shops</h3>
+  <p class='zh'>天福茗茶 / 茶叶 / 茶馆</p>
+  <p><b>Роль:</b> Чай/покупки<br><b>Когда:</b> дождь/устали<br><b>Вердикт:</b> Лучше небольшие дегустации</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22520, 109.51900</code></p>
+  <p>Пуэр/улун/белый чай; не покупать дорогой aged puer вслепую.</p>
+  <div class='links'>
+    <a href='geo:18.2252,109.519?q=18.2252,109.519(Tenfu Tea / tea shops)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2252,109.519&q=Tenfu Tea / tea shops'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2252,109.519'>Google</a>
+    <button onclick='copyText("天福茗茶 / 茶叶 / 茶馆\nTenfu Tea / tea shops\nПуэр/улун/белый чай; не покупать дорогой aged puer вслепую.\n坐标: 18.2252, 109.519")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n天福茗茶 / 茶叶 / 茶馆\nTenfu Tea / tea shops\n坐标：18.2252, 109.519")'>таксисту</button>
+  </div>
+</article>
+</div>
+</section>
+
+<section id='places'>
+<h2>Координаты и точки для навигатора</h2>
+<div class='notice'>Для DiDi/Amap лучше копировать китайское название. Кнопка “таксисту” показывает адрес крупным шрифтом.</div>
+<div class='search-tools no-print'>
+<label for='search'><b>Найти место</b></label>
+<div class='search-wrap'><input id='search' class='search' placeholder='Название, китайский текст или тег…' autocomplete='off'><button id='searchClear' class='search-clear' type='button' aria-label='Очистить поиск'>×</button></div>
+<div class='filterbar'><button class='filter' data-filter='все'>Все</button><button class='filter' data-filter='рядом'>Рядом</button><button class='filter' data-filter='море'>Море</button><button class='filter' data-filter='еда'>Еда</button><button class='filter' data-filter='бар'>Бары</button><button class='filter' data-filter='шопинг'>Шопинг</button><button class='filter' data-filter='природа'>Природа</button><button class='filter' data-filter='дождь'>Дождь</button><button class='filter' data-filter='жара'>Жара</button><button class='filter' data-filter='фото'>Фото</button><button class='filter' data-filter='транспорт'>Транспорт</button><button class='filter' data-filter='чай'>Чай</button><button class='filter' data-filter='напитки'>Напитки</button><button class='filter' data-filter='резерв'>Резерв</button></div>
+<div id='resultCount' class='result-count' aria-live='polite'></div>
+</div>
+<div id='placeGrid' class='place-grid'>
+<article class='place-card' data-place-id='p0' data-cat='База' data-tags='бар море рядом' data-name='ascott dadonghai bay sanya' data-zh='三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓'>
+  <button class='star' data-fav='p0' aria-label='favorite'>☆</button>
+  <div class='badge'>🏨 База</div>
+  <h3>Ascott Dadonghai Bay Sanya</h3>
+  <p class='zh'>三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓</p>
+  <p><b>Роль:</b> Отель / база<br><b>Когда:</b> каждый день<br><b>Вердикт:</b> База отличная: Dadonghai, пляж, бары, DiDi</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22100, 109.52070</code></p>
+  <p>Адрес: 海韵路66号, 大东海. Координаты приблизительные; в Amap ищите китайское название.</p>
+  <div class='links'>
+    <a href='geo:18.221,109.5207?q=18.221,109.5207(Ascott Dadonghai Bay Sanya)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.221,109.5207&q=Ascott Dadonghai Bay Sanya'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.221,109.5207'>Google</a>
+    <button onclick='copyText("三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓\nAscott Dadonghai Bay Sanya\nАдрес: 海韵路66号, 大东海. Координаты приблизительные; в Amap ищите китайское название.\n坐标: 18.221, 109.5207")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓\nAscott Dadonghai Bay Sanya\n坐标：18.221, 109.5207")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p1' data-cat='Транспорт' data-tags='транспорт' data-name='sanya phoenix international airport' data-zh='三亚凤凰国际机场'>
+  <button class='star' data-fav='p1' aria-label='favorite'>☆</button>
+  <div class='badge'>✈️ Транспорт</div>
+  <h3>Sanya Phoenix International Airport</h3>
+  <p class='zh'>三亚凤凰国际机场</p>
+  <p><b>Роль:</b> Аэропорт<br><b>Когда:</b> 5 и 14 июля<br><b>Вердикт:</b> DiDi/такси, не автобус для раннего рейса</p>
+  <p class='coords'><b>Координаты:</b> <code>18.30290, 109.41230</code></p>
+  <p>Для вылета: 国际出发 / international departures.</p>
+  <div class='links'>
+    <a href='geo:18.3029,109.4123?q=18.3029,109.4123(Sanya Phoenix International Airport)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3029,109.4123&q=Sanya Phoenix International Airport'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3029,109.4123'>Google</a>
+    <button onclick='copyText("三亚凤凰国际机场\nSanya Phoenix International Airport\nДля вылета: 国际出发 / international departures.\n坐标: 18.3029, 109.4123")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚凤凰国际机场\nSanya Phoenix International Airport\n坐标：18.3029, 109.4123")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p2' data-cat='Пляж' data-tags='жара море рядом' data-name='dadonghai beach' data-zh='大东海'>
+  <button class='star' data-fav='p2' aria-label='favorite'>☆</button>
+  <div class='badge'>🏖️ Пляж</div>
+  <h3>Dadonghai Beach</h3>
+  <p class='zh'>大东海</p>
+  <p><b>Роль:</b> Домашний пляж<br><b>Когда:</b> утро/вечер<br><b>Вердикт:</b> Удобно, но не самый вау пляж</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22230, 109.51950</code></p>
+  <p>Купаться только в разрешённых зонах и по флагам.</p>
+  <div class='links'>
+    <a href='geo:18.2223,109.5195?q=18.2223,109.5195(Dadonghai Beach)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2223,109.5195&q=Dadonghai Beach'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2223,109.5195'>Google</a>
+    <button onclick='copyText("大东海\nDadonghai Beach\nКупаться только в разрешённых зонах и по флагам.\n坐标: 18.2223, 109.5195")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n大东海\nDadonghai Beach\n坐标：18.2223, 109.5195")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p3' data-cat='Вид' data-tags='жара природа рядом фото' data-name='luhuitou scenic area' data-zh='鹿回头风景区'>
+  <button class='star' data-fav='p3' aria-label='favorite'>☆</button>
+  <div class='badge'>🌅 Вид</div>
+  <h3>Luhuitou Scenic Area</h3>
+  <p class='zh'>鹿回头风景区</p>
+  <p><b>Роль:</b> Закат / вид на город<br><b>Когда:</b> 17:30-20:00<br><b>Вердикт:</b> Точно стоит как лёгкий вечер</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22060, 109.49900</code></p>
+  <p>Не полдня, а sunset-стоп рядом с Dadonghai.</p>
+  <div class='links'>
+    <a href='geo:18.2206,109.499?q=18.2206,109.499(Luhuitou Scenic Area)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2206,109.499&q=Luhuitou Scenic Area'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2206,109.499'>Google</a>
+    <button onclick='copyText("鹿回头风景区\nLuhuitou Scenic Area\nНе полдня, а sunset-стоп рядом с Dadonghai.\n坐标: 18.2206, 109.499")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n鹿回头风景区\nLuhuitou Scenic Area\n坐标：18.2206, 109.499")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p4' data-cat='Остров' data-tags='жара море транспорт' data-name='west island tourist center' data-zh='西岛游客中心'>
+  <button class='star' data-fav='p4' aria-label='favorite'>☆</button>
+  <div class='badge'>🏝️ Остров</div>
+  <h3>West Island Tourist Center</h3>
+  <p class='zh'>西岛游客中心</p>
+  <p><b>Роль:</b> Причал на West Island<br><b>Когда:</b> лучше утром<br><b>Вердикт:</b> Остров №1 для поездки</p>
+  <p class='coords'><b>Координаты:</b> <code>18.26340, 109.37330</code></p>
+  <p>Если ветер/ливень - не плыть.</p>
+  <div class='links'>
+    <a href='geo:18.2634,109.3733?q=18.2634,109.3733(West Island Tourist Center)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2634,109.3733&q=West Island Tourist Center'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2634,109.3733'>Google</a>
+    <button onclick='copyText("西岛游客中心\nWest Island Tourist Center\nЕсли ветер/ливень - не плыть.\n坐标: 18.2634, 109.3733")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n西岛游客中心\nWest Island Tourist Center\n坐标：18.2634, 109.3733")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p5' data-cat='Остров' data-tags='море фото' data-name='west island / niuwangling' data-zh='西岛 / 牛王岭'>
+  <button class='star' data-fav='p5' aria-label='favorite'>☆</button>
+  <div class='badge'>🏝️ Остров</div>
+  <h3>West Island / Niuwangling</h3>
+  <p class='zh'>西岛 / 牛王岭</p>
+  <p><b>Роль:</b> Остров, фото, купание<br><b>Когда:</b> 08:30-15:30<br><b>Вердикт:</b> Точно стоит</p>
+  <p class='coords'><b>Координаты:</b> <code>18.23150, 109.38080</code></p>
+  <p>Рыбацкая деревня + фото + море; меньше конвейера, чем Wuzhizhou.</p>
+  <div class='links'>
+    <a href='geo:18.2315,109.3808?q=18.2315,109.3808(West Island / Niuwangling)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2315,109.3808&q=West Island / Niuwangling'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2315,109.3808'>Google</a>
+    <button onclick='copyText("西岛 / 牛王岭\nWest Island / Niuwangling\nРыбацкая деревня + фото + море; меньше конвейера, чем Wuzhizhou.\n坐标: 18.2315, 109.3808")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n西岛 / 牛王岭\nWest Island / Niuwangling\n坐标：18.2315, 109.3808")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p6' data-cat='Пляж' data-tags='жара море рядом' data-name='yalong bay beach' data-zh='亚龙湾海滩'>
+  <button class='star' data-fav='p6' aria-label='favorite'>☆</button>
+  <div class='badge'>🏖️ Пляж</div>
+  <h3>Yalong Bay Beach</h3>
+  <p class='zh'>亚龙湾海滩</p>
+  <p><b>Роль:</b> Лучший классический пляж<br><b>Когда:</b> утро или после 16:00<br><b>Вердикт:</b> Точно стоит для купания</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22660, 109.62520</code></p>
+  <p>Красивее Dadonghai, но днём жарко.</p>
+  <div class='links'>
+    <a href='geo:18.2266,109.6252?q=18.2266,109.6252(Yalong Bay Beach)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2266,109.6252&q=Yalong Bay Beach'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2266,109.6252'>Google</a>
+    <button onclick='copyText("亚龙湾海滩\nYalong Bay Beach\nКрасивее Dadonghai, но днём жарко.\n坐标: 18.2266, 109.6252")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n亚龙湾海滩\nYalong Bay Beach\n坐标：18.2266, 109.6252")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p7' data-cat='Природа' data-tags='море природа фото' data-name='yalong bay tropical paradise forest park' data-zh='亚龙湾热带天堂森林公园'>
+  <button class='star' data-fav='p7' aria-label='favorite'>☆</button>
+  <div class='badge'>🌿 Природа</div>
+  <h3>Yalong Bay Tropical Paradise Forest Park</h3>
+  <p class='zh'>亚龙湾热带天堂森林公园</p>
+  <p><b>Роль:</b> Виды / лесной парк<br><b>Когда:</b> 08:00-12:30<br><b>Вердикт:</b> Стоит 1 раз, туристично</p>
+  <p class='coords'><b>Координаты:</b> <code>18.24780, 109.64230</code></p>
+  <p>Доплаты за мосты/аттракционы; не идти в ливень.</p>
+  <div class='links'>
+    <a href='geo:18.2478,109.6423?q=18.2478,109.6423(Yalong Bay Tropical Paradise Forest Park)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2478,109.6423&q=Yalong Bay Tropical Paradise Forest Park'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2478,109.6423'>Google</a>
+    <button onclick='copyText("亚龙湾热带天堂森林公园\nYalong Bay Tropical Paradise Forest Park\nДоплаты за мосты/аттракционы; не идти в ливень.\n坐标: 18.2478, 109.6423")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n亚龙湾热带天堂森林公园\nYalong Bay Tropical Paradise Forest Park\n坐标：18.2478, 109.6423")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p8' data-cat='Фото' data-tags='жара море фото' data-name='sun bay road viewpoint' data-zh='太阳湾路观景点'>
+  <button class='star' data-fav='p8' aria-label='favorite'>☆</button>
+  <div class='badge'>📸 Фото</div>
+  <h3>Sun Bay Road viewpoint</h3>
+  <p class='zh'>太阳湾路观景点</p>
+  <p><b>Роль:</b> Coastal road / фото<br><b>Когда:</b> утро/закат<br><b>Вердикт:</b> Красиво как фотостоп</p>
+  <p class='coords'><b>Координаты:</b> <code>18.20730, 109.64220</code></p>
+  <p>Лучше совмещать с Yalong Bay.</p>
+  <div class='links'>
+    <a href='geo:18.2073,109.6422?q=18.2073,109.6422(Sun Bay Road viewpoint)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2073,109.6422&q=Sun Bay Road viewpoint'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2073,109.6422'>Google</a>
+    <button onclick='copyText("太阳湾路观景点\nSun Bay Road viewpoint\nЛучше совмещать с Yalong Bay.\n坐标: 18.2073, 109.6422")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n太阳湾路观景点\nSun Bay Road viewpoint\n坐标：18.2073, 109.6422")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p9' data-cat='Природа' data-tags='дождь жара природа' data-name='yanoda rainforest' data-zh='呀诺达热带雨林文化旅游区'>
+  <button class='star' data-fav='p9' aria-label='favorite'>☆</button>
+  <div class='badge'>🌿 Природа</div>
+  <h3>Yanoda Rainforest</h3>
+  <p class='zh'>呀诺达热带雨林文化旅游区</p>
+  <p><b>Роль:</b> Джунгли<br><b>Когда:</b> утром<br><b>Вердикт:</b> Возможно стоит</p>
+  <p class='coords'><b>Координаты:</b> <code>18.40150, 109.67380</code></p>
+  <p>Хорошо в лёгкий дождь, плохо в ливень/духоту.</p>
+  <div class='links'>
+    <a href='geo:18.4015,109.6738?q=18.4015,109.6738(Yanoda Rainforest)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.4015,109.6738&q=Yanoda Rainforest'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.4015,109.6738'>Google</a>
+    <button onclick='copyText("呀诺达热带雨林文化旅游区\nYanoda Rainforest\nХорошо в лёгкий дождь, плохо в ливень/духоту.\n坐标: 18.4015, 109.6738")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n呀诺达热带雨林文化旅游区\nYanoda Rainforest\n坐标：18.4015, 109.6738")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p10' data-cat='Поезд' data-tags='транспорт' data-name='sanya railway station' data-zh='三亚站'>
+  <button class='star' data-fav='p10' aria-label='favorite'>☆</button>
+  <div class='badge'>🚄 Поезд</div>
+  <h3>Sanya Railway Station</h3>
+  <p class='zh'>三亚站</p>
+  <p><b>Роль:</b> Поезд на Wanning/Lingshui<br><b>Когда:</b> дальние выезды<br><b>Вердикт:</b> Нужен для Wanning</p>
+  <p class='coords'><b>Координаты:</b> <code>18.30930, 109.49170</code></p>
+  <p>Билеты в Trip.com/12306, паспорт обязателен.</p>
+  <div class='links'>
+    <a href='geo:18.3093,109.4917?q=18.3093,109.4917(Sanya Railway Station)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3093,109.4917&q=Sanya Railway Station'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3093,109.4917'>Google</a>
+    <button onclick='copyText("三亚站\nSanya Railway Station\nБилеты в Trip.com/12306, паспорт обязателен.\n坐标: 18.3093, 109.4917")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚站\nSanya Railway Station\n坐标：18.3093, 109.4917")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p11' data-cat='Wanning' data-tags='море' data-name='riyue bay' data-zh='日月湾'>
+  <button class='star' data-fav='p11' aria-label='favorite'>☆</button>
+  <div class='badge'>🏄 Wanning</div>
+  <h3>Riyue Bay</h3>
+  <p class='zh'>日月湾</p>
+  <p><b>Роль:</b> Серф-вайб<br><b>Когда:</b> день Wanning<br><b>Вердикт:</b> Точно стоит, если погода норм</p>
+  <p class='coords'><b>Координаты:</b> <code>18.62980, 110.21560</code></p>
+  <p>Серф-проба, кафе, волны; осторожно с рипами.</p>
+  <div class='links'>
+    <a href='geo:18.6298,110.2156?q=18.6298,110.2156(Riyue Bay)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.6298,110.2156&q=Riyue Bay'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.6298,110.2156'>Google</a>
+    <button onclick='copyText("日月湾\nRiyue Bay\nСерф-проба, кафе, волны; осторожно с рипами.\n坐标: 18.6298, 110.2156")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n日月湾\nRiyue Bay\n坐标：18.6298, 110.2156")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p12' data-cat='Wanning' data-tags='море природа фото шопинг' data-name='shimei bay' data-zh='石梅湾'>
+  <button class='star' data-fav='p12' aria-label='favorite'>☆</button>
+  <div class='badge'>🏄 Wanning</div>
+  <h3>Shimei Bay</h3>
+  <p class='zh'>石梅湾</p>
+  <p><b>Роль:</b> Спокойная красивая бухта<br><b>Когда:</b> день Wanning<br><b>Вердикт:</b> Стоит как часть выезда</p>
+  <p class='coords'><b>Координаты:</b> <code>18.66865, 110.28058</code></p>
+  <p>Не шопинг, а побережье/кафе/вид.</p>
+  <div class='links'>
+    <a href='geo:18.66865,110.28058?q=18.66865,110.28058(Shimei Bay)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.66865,110.28058&q=Shimei Bay'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.66865,110.28058'>Google</a>
+    <button onclick='copyText("石梅湾\nShimei Bay\nНе шопинг, а побережье/кафе/вид.\n坐标: 18.66865, 110.28058")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n石梅湾\nShimei Bay\n坐标：18.66865, 110.28058")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p13' data-cat='Wanning' data-tags='море природа фото' data-name='shenzhou peninsula' data-zh='神州半岛'>
+  <button class='star' data-fav='p13' aria-label='favorite'>☆</button>
+  <div class='badge'>🏄 Wanning</div>
+  <h3>Shenzhou Peninsula</h3>
+  <p class='zh'>神州半岛</p>
+  <p><b>Роль:</b> Пляж/маяк/вид<br><b>Когда:</b> день Wanning<br><b>Вердикт:</b> Возможно стоит</p>
+  <p class='coords'><b>Координаты:</b> <code>18.68400, 110.32800</code></p>
+  <p>Смотреть по времени и погоде.</p>
+  <div class='links'>
+    <a href='geo:18.684,110.328?q=18.684,110.328(Shenzhou Peninsula)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.684,110.328&q=Shenzhou Peninsula'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.684,110.328'>Google</a>
+    <button onclick='copyText("神州半岛\nShenzhou Peninsula\nСмотреть по времени и погоде.\n坐标: 18.684, 110.328")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n神州半岛\nShenzhou Peninsula\n坐标：18.684, 110.328")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p14' data-cat='Море' data-tags='бар жара море' data-name='houhai village' data-zh='后海村 / 藤海渔村'>
+  <button class='star' data-fav='p14' aria-label='favorite'>☆</button>
+  <div class='badge'>🌊 Море</div>
+  <h3>Houhai Village</h3>
+  <p class='zh'>后海村 / 藤海渔村</p>
+  <p><b>Роль:</b> Surf village / бары<br><b>Когда:</b> после 15:00<br><b>Вердикт:</b> Молодой вайб, не главный swim-day</p>
+  <p class='coords'><b>Координаты:</b> <code>18.30160, 109.75270</code></p>
+  <p>Шумно вечером, хорошо для серфа/кафе/баров.</p>
+  <div class='links'>
+    <a href='geo:18.3016,109.7527?q=18.3016,109.7527(Houhai Village)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3016,109.7527&q=Houhai Village'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3016,109.7527'>Google</a>
+    <button onclick='copyText("后海村 / 藤海渔村\nHouhai Village\nШумно вечером, хорошо для серфа/кафе/баров.\n坐标: 18.3016, 109.7527")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n后海村 / 藤海渔村\nHouhai Village\n坐标：18.3016, 109.7527")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p15' data-cat='Остров' data-tags='море' data-name='wuzhizhou island tourist center' data-zh='蜈支洲岛游客中心'>
+  <button class='star' data-fav='p15' aria-label='favorite'>☆</button>
+  <div class='badge'>🏝️ Остров</div>
+  <h3>Wuzhizhou Island Tourist Center</h3>
+  <p class='zh'>蜈支洲岛游客中心</p>
+  <p><b>Роль:</b> Причал Wuzhizhou<br><b>Когда:</b> только ясное море<br><b>Вердикт:</b> Возможно стоит</p>
+  <p class='coords'><b>Координаты:</b> <code>18.30310, 109.75350</code></p>
+  <p>Красиво, но коммерчески и дорого.</p>
+  <div class='links'>
+    <a href='geo:18.3031,109.7535?q=18.3031,109.7535(Wuzhizhou Island Tourist Center)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3031,109.7535&q=Wuzhizhou Island Tourist Center'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3031,109.7535'>Google</a>
+    <button onclick='copyText("蜈支洲岛游客中心\nWuzhizhou Island Tourist Center\nКрасиво, но коммерчески и дорого.\n坐标: 18.3031, 109.7535")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n蜈支洲岛游客中心\nWuzhizhou Island Tourist Center\n坐标：18.3031, 109.7535")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p16' data-cat='Остров' data-tags='жара море' data-name='wuzhizhou island' data-zh='蜈支洲岛'>
+  <button class='star' data-fav='p16' aria-label='favorite'>☆</button>
+  <div class='badge'>🏝️ Остров</div>
+  <h3>Wuzhizhou Island</h3>
+  <p class='zh'>蜈支洲岛</p>
+  <p><b>Роль:</b> Остров/водные активности<br><b>Когда:</b> утром<br><b>Вердикт:</b> Не в плохую погоду</p>
+  <p class='coords'><b>Координаты:</b> <code>18.31350, 109.77000</code></p>
+  <p>Толпы, очереди, доплаты.</p>
+  <div class='links'>
+    <a href='geo:18.3135,109.77?q=18.3135,109.77(Wuzhizhou Island)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3135,109.77&q=Wuzhizhou Island'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3135,109.77'>Google</a>
+    <button onclick='copyText("蜈支洲岛\nWuzhizhou Island\nТолпы, очереди, доплаты.\n坐标: 18.3135, 109.77")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n蜈支洲岛\nWuzhizhou Island\n坐标：18.3135, 109.77")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p17' data-cat='Шопинг' data-tags='дождь жара шопинг' data-name='cdf sanya international duty free city' data-zh='三亚国际免税城'>
+  <button class='star' data-fav='p17' aria-label='favorite'>☆</button>
+  <div class='badge'>🛍️ Шопинг</div>
+  <h3>CDF Sanya International Duty Free City</h3>
+  <p class='zh'>三亚国际免税城</p>
+  <p><b>Роль:</b> Duty free<br><b>Когда:</b> дождь/жара/шопинг<br><b>Вердикт:</b> Стоит, если есть список покупок</p>
+  <p class='coords'><b>Координаты:</b> <code>18.32970, 109.73580</code></p>
+  <p>Адрес: 海棠北路118号. Паспорт + данные вылета.</p>
+  <div class='links'>
+    <a href='geo:18.3297,109.7358?q=18.3297,109.7358(CDF Sanya International Duty Free City)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3297,109.7358&q=CDF Sanya International Duty Free City'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3297,109.7358'>Google</a>
+    <button onclick='copyText("三亚国际免税城\nCDF Sanya International Duty Free City\nАдрес: 海棠北路118号. Паспорт + данные вылета.\n坐标: 18.3297, 109.7358")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚国际免税城\nCDF Sanya International Duty Free City\n坐标：18.3297, 109.7358")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p18' data-cat='Indoor' data-tags='дождь жара шопинг' data-name='atlantis sanya lost chambers aquarium' data-zh='三亚亚特兰蒂斯失落的空间水族馆'>
+  <button class='star' data-fav='p18' aria-label='favorite'>☆</button>
+  <div class='badge'>☔ Indoor</div>
+  <h3>Atlantis Sanya Lost Chambers Aquarium</h3>
+  <p class='zh'>三亚亚特兰蒂斯失落的空间水族馆</p>
+  <p><b>Роль:</b> Океанариум<br><b>Когда:</b> дождь/жара<br><b>Вердикт:</b> Стоит как вау-indoor</p>
+  <p class='coords'><b>Координаты:</b> <code>18.33780, 109.73280</code></p>
+  <p>30 экспозиций, большой аквариум; лучше совмещать с CDF.</p>
+  <div class='links'>
+    <a href='geo:18.3378,109.7328?q=18.3378,109.7328(Atlantis Sanya Lost Chambers Aquarium)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3378,109.7328&q=Atlantis Sanya Lost Chambers Aquarium'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3378,109.7328'>Google</a>
+    <button onclick='copyText("三亚亚特兰蒂斯失落的空间水族馆\nAtlantis Sanya Lost Chambers Aquarium\n30 экспозиций, большой аквариум; лучше совмещать с CDF.\n坐标: 18.3378, 109.7328")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚亚特兰蒂斯失落的空间水族馆\nAtlantis Sanya Lost Chambers Aquarium\n坐标：18.3378, 109.7328")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p19' data-cat='Бар' data-tags='бар жара' data-name='the sanya edition sky bar' data-zh='三亚艾迪逊酒店 Sky Bar'>
+  <button class='star' data-fav='p19' aria-label='favorite'>☆</button>
+  <div class='badge'>🍸 Бар</div>
+  <h3>The Sanya EDITION Sky Bar</h3>
+  <p class='zh'>三亚艾迪逊酒店 Sky Bar</p>
+  <p><b>Роль:</b> Красивый бар<br><b>Когда:</b> вечер Haitang<br><b>Вердикт:</b> Один вау-вечер</p>
+  <p class='coords'><b>Координаты:</b> <code>18.33470, 109.73550</code></p>
+  <p>Дороже, adults-only вайб.</p>
+  <div class='links'>
+    <a href='geo:18.3347,109.7355?q=18.3347,109.7355(The Sanya EDITION Sky Bar)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3347,109.7355&q=The Sanya EDITION Sky Bar'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3347,109.7355'>Google</a>
+    <button onclick='copyText("三亚艾迪逊酒店 Sky Bar\nThe Sanya EDITION Sky Bar\nДороже, adults-only вайб.\n坐标: 18.3347, 109.7355")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚艾迪逊酒店 Sky Bar\nThe Sanya EDITION Sky Bar\n坐标：18.3347, 109.7355")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p20' data-cat='Культура' data-tags='жара природа фото' data-name='nanshan cultural tourism zone' data-zh='南山文化旅游区'>
+  <button class='star' data-fav='p20' aria-label='favorite'>☆</button>
+  <div class='badge'>🏯 Культура</div>
+  <h3>Nanshan Cultural Tourism Zone</h3>
+  <p class='zh'>南山文化旅游区</p>
+  <p><b>Роль:</b> Культура/архитектура<br><b>Когда:</b> утро<br><b>Вердикт:</b> Возможно стоит</p>
+  <p class='coords'><b>Координаты:</b> <code>18.29480, 109.21190</code></p>
+  <p>Не религиозно, а масштаб/вид/архитектура.</p>
+  <div class='links'>
+    <a href='geo:18.2948,109.2119?q=18.2948,109.2119(Nanshan Cultural Tourism Zone)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2948,109.2119&q=Nanshan Cultural Tourism Zone'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2948,109.2119'>Google</a>
+    <button onclick='copyText("南山文化旅游区\nNanshan Cultural Tourism Zone\nНе религиозно, а масштаб/вид/архитектура.\n坐标: 18.2948, 109.2119")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n南山文化旅游区\nNanshan Cultural Tourism Zone\n坐标：18.2948, 109.2119")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p21' data-cat='Закат' data-tags='еда жара море фото' data-name='sanya bay coconut dream corridor' data-zh='三亚湾椰梦长廊'>
+  <button class='star' data-fav='p21' aria-label='favorite'>☆</button>
+  <div class='badge'>🌅 Закат</div>
+  <h3>Sanya Bay Coconut Dream Corridor</h3>
+  <p class='zh'>三亚湾椰梦长廊</p>
+  <p><b>Роль:</b> Закат/прогулка<br><b>Когда:</b> 17:30-19:30<br><b>Вердикт:</b> Только вечер</p>
+  <p class='coords'><b>Координаты:</b> <code>18.27400, 109.45200</code></p>
+  <p>Не главный пляж для купания.</p>
+  <div class='links'>
+    <a href='geo:18.274,109.452?q=18.274,109.452(Sanya Bay Coconut Dream Corridor)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.274,109.452&q=Sanya Bay Coconut Dream Corridor'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.274,109.452'>Google</a>
+    <button onclick='copyText("三亚湾椰梦长廊\nSanya Bay Coconut Dream Corridor\nНе главный пляж для купания.\n坐标: 18.274, 109.452")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚湾椰梦长廊\nSanya Bay Coconut Dream Corridor\n坐标：18.274, 109.452")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p22' data-cat='Шопинг' data-tags='дождь жара шопинг' data-name='sanya joy city' data-zh='三亚大悦城'>
+  <button class='star' data-fav='p22' aria-label='favorite'>☆</button>
+  <div class='badge'>🛍️ Шопинг</div>
+  <h3>Sanya Joy City</h3>
+  <p class='zh'>三亚大悦城</p>
+  <p><b>Роль:</b> Современный ТЦ<br><b>Когда:</b> дождь/жара<br><b>Вердикт:</b> Лучше Ананаса для indoor-day</p>
+  <p class='coords'><b>Координаты:</b> <code>18.28389, 109.51484</code></p>
+  <p>Адрес: 迎宾路233号.</p>
+  <div class='links'>
+    <a href='geo:18.28389,109.51484?q=18.28389,109.51484(Sanya Joy City)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.28389,109.51484&q=Sanya Joy City'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.28389,109.51484'>Google</a>
+    <button onclick='copyText("三亚大悦城\nSanya Joy City\nАдрес: 迎宾路233号.\n坐标: 18.28389, 109.51484")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚大悦城\nSanya Joy City\n坐标：18.28389, 109.51484")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p23' data-cat='Шопинг' data-tags='дождь жара рядом шопинг' data-name='summer mall' data-zh='夏日百货'>
+  <button class='star' data-fav='p23' aria-label='favorite'>☆</button>
+  <div class='badge'>🛍️ Шопинг</div>
+  <h3>Summer Mall</h3>
+  <p class='zh'>夏日百货</p>
+  <p><b>Роль:</b> ТЦ рядом<br><b>Когда:</b> если рядом/дождь<br><b>Вердикт:</b> Удобно, не вау</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22522, 109.51904</code></p>
+  <p>Tax refund mall, не offshore duty free.</p>
+  <div class='links'>
+    <a href='geo:18.22522,109.51904?q=18.22522,109.51904(Summer Mall)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.22522,109.51904&q=Summer Mall'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.22522,109.51904'>Google</a>
+    <button onclick='copyText("夏日百货\nSummer Mall\nTax refund mall, не offshore duty free.\n坐标: 18.22522, 109.51904")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n夏日百货\nSummer Mall\n坐标：18.22522, 109.51904")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p24' data-cat='Шопинг' data-tags='дождь рядом шопинг' data-name='pineapple shopping center' data-zh='大菠萝 / 三亚1号港湾城'>
+  <button class='star' data-fav='p24' aria-label='favorite'>☆</button>
+  <div class='badge'>🛍️ Шопинг</div>
+  <h3>Pineapple Shopping Center</h3>
+  <p class='zh'>大菠萝 / 三亚1号港湾城</p>
+  <p><b>Роль:</b> ТЦ рядом / landmark<br><b>Когда:</b> если рядом<br><b>Вердикт:</b> Не делать главным</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22376, 109.52490</code></p>
+  <p>Отзывы смешанные; зайти по пути.</p>
+  <div class='links'>
+    <a href='geo:18.22376,109.5249?q=18.22376,109.5249(Pineapple Shopping Center)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.22376,109.5249&q=Pineapple Shopping Center'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.22376,109.5249'>Google</a>
+    <button onclick='copyText("大菠萝 / 三亚1号港湾城\nPineapple Shopping Center\nОтзывы смешанные; зайти по пути.\n坐标: 18.22376, 109.5249")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n大菠萝 / 三亚1号港湾城\nPineapple Shopping Center\n坐标：18.22376, 109.5249")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p25' data-cat='Еда' data-tags='еда жара' data-name='first market / xinmin street' data-zh='第一市场 / 新民街'>
+  <button class='star' data-fav='p25' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>First Market / Xinmin Street</h3>
+  <p class='zh'>第一市场 / 新民街</p>
+  <p><b>Роль:</b> Seafood + фрукты<br><b>Когда:</b> вечер/обед<br><b>Вердикт:</b> Колоритно, но туристично</p>
+  <p class='coords'><b>Координаты:</b> <code>18.25130, 109.50870</code></p>
+  <p>Цена за 斤 и обработку до заказа.</p>
+  <div class='links'>
+    <a href='geo:18.2513,109.5087?q=18.2513,109.5087(First Market / Xinmin Street)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2513,109.5087&q=First Market / Xinmin Street'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2513,109.5087'>Google</a>
+    <button onclick='copyText("第一市场 / 新民街\nFirst Market / Xinmin Street\nЦена за 斤 и обработку до заказа.\n坐标: 18.2513, 109.5087")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n第一市场 / 新民街\nFirst Market / Xinmin Street\n坐标：18.2513, 109.5087")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p26' data-cat='Еда' data-tags='еда' data-name='ms.lin&#x27;s seafood / linjie' data-zh='林姐香味海鲜'>
+  <button class='star' data-fav='p26' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>MS.LIN&#x27;S Seafood / Linjie</h3>
+  <p class='zh'>林姐香味海鲜</p>
+  <p><b>Роль:</b> Seafood processing<br><b>Когда:</b> обед/ужин<br><b>Вердикт:</b> Кандидат seafood</p>
+  <p class='coords'><b>Координаты:</b> <code>18.25100, 109.50850</code></p>
+  <p>No.139 Xinmin Street; фиксировать итоговую цену.</p>
+  <div class='links'>
+    <a href='geo:18.251,109.5085?q=18.251,109.5085(MS.LIN&#x27;S Seafood / Linjie)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.251,109.5085&q=MS.LIN&#x27;S Seafood / Linjie'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.251,109.5085'>Google</a>
+    <button onclick='copyText("林姐香味海鲜\nMS.LIN'S Seafood / Linjie\nNo.139 Xinmin Street; фиксировать итоговую цену.\n坐标: 18.251, 109.5085")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n林姐香味海鲜\nMS.LIN'S Seafood / Linjie\n坐标：18.251, 109.5085")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p27' data-cat='Еда' data-tags='бар еда жара рядом фото' data-name='dolphin sports bar &amp; grill' data-zh='Dolphin海豚美式西餐厅'>
+  <button class='star' data-fav='p27' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Dolphin Sports Bar &amp; Grill</h3>
+  <p class='zh'>Dolphin海豚美式西餐厅</p>
+  <p><b>Роль:</b> Пиво/бар/fallback<br><b>Когда:</b> вечер<br><b>Вердикт:</b> Надёжно, не локально</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22400, 109.51800</code></p>
+  <p>Yuya Road 99; бургеры, wings, пиво, спорт-бар.</p>
+  <div class='links'>
+    <a href='geo:18.224,109.518?q=18.224,109.518(Dolphin Sports Bar &amp; Grill)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.224,109.518&q=Dolphin Sports Bar &amp; Grill'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.224,109.518'>Google</a>
+    <button onclick='copyText("Dolphin海豚美式西餐厅\nDolphin Sports Bar & Grill\nYuya Road 99; бургеры, wings, пиво, спорт-бар.\n坐标: 18.224, 109.518")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\nDolphin海豚美式西餐厅\nDolphin Sports Bar & Grill\n坐标：18.224, 109.518")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p28' data-cat='Бар' data-tags='бар жара море рядом фото' data-name='freegen beach bar' data-zh='FreeGen Beach Bar'>
+  <button class='star' data-fav='p28' aria-label='favorite'>☆</button>
+  <div class='badge'>🍸 Бар</div>
+  <h3>FreeGen Beach Bar</h3>
+  <p class='zh'>FreeGen Beach Bar</p>
+  <p><b>Роль:</b> Пляжный бар<br><b>Когда:</b> закат/вечер<br><b>Вердикт:</b> Первый вечер / sunset</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22170, 109.52060</code></p>
+  <p>Dadonghai beachfront; коктейли, простой ужин.</p>
+  <div class='links'>
+    <a href='geo:18.2217,109.5206?q=18.2217,109.5206(FreeGen Beach Bar)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2217,109.5206&q=FreeGen Beach Bar'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2217,109.5206'>Google</a>
+    <button onclick='copyText("FreeGen Beach Bar\nFreeGen Beach Bar\nDadonghai beachfront; коктейли, простой ужин.\n坐标: 18.2217, 109.5206")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\nFreeGen Beach Bar\nFreeGen Beach Bar\n坐标：18.2217, 109.5206")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p29' data-cat='Еда' data-tags='еда' data-name='yanjiang hainan cuisine' data-zh='沿江海南菜'>
+  <button class='star' data-fav='p29' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Yanjiang Hainan Cuisine</h3>
+  <p class='zh'>沿江海南菜</p>
+  <p><b>Роль:</b> Хайнаньская кухня<br><b>Когда:</b> обед/ужин<br><b>Вердикт:</b> Хороший ввод в локальные блюда</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22400, 109.52450</code></p>
+  <p>Ищите актуальную точку в Amap/Dianping: 沿江海南菜.</p>
+  <div class='links'>
+    <a href='geo:18.224,109.5245?q=18.224,109.5245(Yanjiang Hainan Cuisine)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.224,109.5245&q=Yanjiang Hainan Cuisine'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.224,109.5245'>Google</a>
+    <button onclick='copyText("沿江海南菜\nYanjiang Hainan Cuisine\nИщите актуальную точку в Amap/Dianping: 沿江海南菜.\n坐标: 18.224, 109.5245")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n沿江海南菜\nYanjiang Hainan Cuisine\n坐标：18.224, 109.5245")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p30' data-cat='Еда' data-tags='еда' data-name='coconut chicken candidate' data-zh='椰小鸡 / 嗲嗲的椰子鸡'>
+  <button class='star' data-fav='p30' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Coconut Chicken candidate</h3>
+  <p class='zh'>椰小鸡 / 嗲嗲的椰子鸡</p>
+  <p><b>Роль:</b> Кокосовая курица<br><b>Когда:</b> первый ужин<br><b>Вердикт:</b> Обязательно попробовать</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22420, 109.52420</code></p>
+  <p>Ищите ближайшую точку в Amap/Dianping по названию.</p>
+  <div class='links'>
+    <a href='geo:18.2242,109.5242?q=18.2242,109.5242(Coconut Chicken candidate)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2242,109.5242&q=Coconut Chicken candidate'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2242,109.5242'>Google</a>
+    <button onclick='copyText("椰小鸡 / 嗲嗲的椰子鸡\nCoconut Chicken candidate\nИщите ближайшую точку в Amap/Dianping по названию.\n坐标: 18.2242, 109.5242")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n椰小鸡 / 嗲嗲的椰子鸡\nCoconut Chicken candidate\n坐标：18.2242, 109.5242")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p31' data-cat='Чай' data-tags='дождь рядом чай' data-name='tenfu tea / tea shops' data-zh='天福茗茶 / 茶叶 / 茶馆'>
+  <button class='star' data-fav='p31' aria-label='favorite'>☆</button>
+  <div class='badge'>🍵 Чай</div>
+  <h3>Tenfu Tea / tea shops</h3>
+  <p class='zh'>天福茗茶 / 茶叶 / 茶馆</p>
+  <p><b>Роль:</b> Чай/покупки<br><b>Когда:</b> дождь/устали<br><b>Вердикт:</b> Лучше небольшие дегустации</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22520, 109.51900</code></p>
+  <p>Пуэр/улун/белый чай; не покупать дорогой aged puer вслепую.</p>
+  <div class='links'>
+    <a href='geo:18.2252,109.519?q=18.2252,109.519(Tenfu Tea / tea shops)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2252,109.519&q=Tenfu Tea / tea shops'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2252,109.519'>Google</a>
+    <button onclick='copyText("天福茗茶 / 茶叶 / 茶馆\nTenfu Tea / tea shops\nПуэр/улун/белый чай; не покупать дорогой aged puer вслепую.\n坐标: 18.2252, 109.519")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n天福茗茶 / 茶叶 / 茶馆\nTenfu Tea / tea shops\n坐标：18.2252, 109.519")'>таксисту</button>
+  </div>
+</article>
+
+<article class='place-card' data-place-id='p32' data-cat='Еда' data-tags='дождь еда' data-name='tai qiong zao-po vinegar hotpot (mingzhu)' data-zh='太琼糟粕醋·海南酸汤火锅（明珠广场店）'>
+  <button class='star' data-fav='p32' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Tai Qiong Zao-po Vinegar Hotpot (Mingzhu)</h3>
+  <p class='zh'>太琼糟粕醋·海南酸汤火锅（明珠广场店）</p>
+  <p><b>Роль:</b> Кислый seafood hotpot<br><b>Когда:</b> ужин / дождь / после города<br><b>Вердикт:</b> Стоит как яркий локальный вкус</p>
+  <p class='coords'><b>Координаты:</b> <code>18.25760, 109.50980</code></p>
+  <p>地址: 解放三路668号明珠广场7楼7-1号。Брать: 糟粕醋酸汤锅, seafood platter, shrimp, beef, seaweed.</p>
+  <div class='links'>
+    <a href='geo:18.2576,109.5098?q=18.2576,109.5098(Tai Qiong Zao-po Vinegar Hotpot (Mingzhu))'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2576,109.5098&q=Tai Qiong Zao-po Vinegar Hotpot (Mingzhu)'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2576,109.5098'>Google</a>
+    <button onclick='copyText("太琼糟粕醋·海南酸汤火锅（明珠广场店）\nTai Qiong Zao-po Vinegar Hotpot (Mingzhu)\n地址: 解放三路668号明珠广场7楼7-1号。Брать: 糟粕醋酸汤锅, seafood platter, shrimp, beef, seaweed.\n坐标: 18.2576, 109.5098")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n太琼糟粕醋·海南酸汤火锅（明珠广场店）\nTai Qiong Zao-po Vinegar Hotpot (Mingzhu)\n坐标：18.2576, 109.5098")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p33' data-cat='Еда' data-tags='еда резерв' data-name='qiongxiangge hainan cuisine' data-zh='琼乡阁海南菜'>
+  <button class='star' data-fav='p33' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Qiongxiangge Hainan Cuisine</h3>
+  <p class='zh'>琼乡阁海南菜</p>
+  <p><b>Роль:</b> Хайнаньская кухня backup<br><b>Когда:</b> обед/ужин, если хочется локального без рынка<br><b>Вердикт:</b> Стоит проверить по Amap/Dianping</p>
+  <p class='coords'><b>Координаты:</b> <code>18.27680, 109.49730</code></p>
+  <p>Брать: 文昌鸡, 菠萝蜜烤文昌鸡, 海南粉, 椰子饭, mango/coconut rolls. Координаты приблизительные: ищите ближайший branch.</p>
+  <div class='links'>
+    <a href='geo:18.2768,109.4973?q=18.2768,109.4973(Qiongxiangge Hainan Cuisine)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2768,109.4973&q=Qiongxiangge Hainan Cuisine'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2768,109.4973'>Google</a>
+    <button onclick='copyText("琼乡阁海南菜\nQiongxiangge Hainan Cuisine\nБрать: 文昌鸡, 菠萝蜜烤文昌鸡, 海南粉, 椰子饭, mango/coconut rolls. Координаты приблизительные: ищите ближайший branch.\n坐标: 18.2768, 109.4973")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n琼乡阁海南菜\nQiongxiangge Hainan Cuisine\n坐标：18.2768, 109.4973")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p34' data-cat='Еда' data-tags='еда жара резерв шопинг' data-name='a lang seafood / a lang processing' data-zh='阿浪海鲜 / 阿浪海鲜连锁加工'>
+  <button class='star' data-fav='p34' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>A Lang Seafood / A Lang processing</h3>
+  <p class='zh'>阿浪海鲜 / 阿浪海鲜连锁加工</p>
+  <p><b>Роль:</b> Seafood backup у First Market<br><b>Когда:</b> seafood-вечер<br><b>Вердикт:</b> Резерв к MS.LIN</p>
+  <p class='coords'><b>Координаты:</b> <code>18.25140, 109.50890</code></p>
+  <p>Брать: 蒜蓉扇贝, 白灼虾, 清蒸石斑鱼, 香辣蟹. Сначала цена за 斤 + processing fee.</p>
+  <div class='links'>
+    <a href='geo:18.2514,109.5089?q=18.2514,109.5089(A Lang Seafood / A Lang processing)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2514,109.5089&q=A Lang Seafood / A Lang processing'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2514,109.5089'>Google</a>
+    <button onclick='copyText("阿浪海鲜 / 阿浪海鲜连锁加工\nA Lang Seafood / A Lang processing\nБрать: 蒜蓉扇贝, 白灼虾, 清蒸石斑鱼, 香辣蟹. Сначала цена за 斤 + processing fee.\n坐标: 18.2514, 109.5089")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n阿浪海鲜 / 阿浪海鲜连锁加工\nA Lang Seafood / A Lang processing\n坐标：18.2514, 109.5089")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p35' data-cat='Еда' data-tags='еда жара' data-name='zheng apo qingbuliang' data-zh='郑阿婆清补凉（第一市场店）'>
+  <button class='star' data-fav='p35' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Zheng Apo Qingbuliang</h3>
+  <p class='zh'>郑阿婆清补凉（第一市场店）</p>
+  <p><b>Роль:</b> Холодный кокосовый десерт<br><b>Когда:</b> жара / после рынка<br><b>Вердикт:</b> Стоит как десерт</p>
+  <p class='coords'><b>Координаты:</b> <code>18.25180, 109.50890</code></p>
+  <p>地址: 解放路98/100号. Брать: 传统椰奶清补凉, 芒果冰球清补凉, 椰奶冰球清补凉.</p>
+  <div class='links'>
+    <a href='geo:18.2518,109.5089?q=18.2518,109.5089(Zheng Apo Qingbuliang)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2518,109.5089&q=Zheng Apo Qingbuliang'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2518,109.5089'>Google</a>
+    <button onclick='copyText("郑阿婆清补凉（第一市场店）\nZheng Apo Qingbuliang\n地址: 解放路98/100号. Брать: 传统椰奶清补凉, 芒果冰球清补凉, 椰奶冰球清补凉.\n坐标: 18.2518, 109.5089")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n郑阿婆清补凉（第一市场店）\nZheng Apo Qingbuliang\n坐标：18.2518, 109.5089")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p36' data-cat='Еда' data-tags='еда жара шопинг' data-name='aju cold drink' data-zh='阿菊冷饮店（第一市场店）'>
+  <button class='star' data-fav='p36' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Aju Cold Drink</h3>
+  <p class='zh'>阿菊冷饮店（第一市场店）</p>
+  <p><b>Роль:</b> Mango ice / qingbuliang<br><b>Когда:</b> десерт после First Market<br><b>Вердикт:</b> Стоит, если нет очереди</p>
+  <p class='coords'><b>Координаты:</b> <code>18.25090, 109.50770</code></p>
+  <p>地址: 红旗街一巷19号. Брать: 芒果炒冰, 榴莲炒冰, 清补凉. Популярно;炒冰 может ждать долго.</p>
+  <div class='links'>
+    <a href='geo:18.2509,109.5077?q=18.2509,109.5077(Aju Cold Drink)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2509,109.5077&q=Aju Cold Drink'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2509,109.5077'>Google</a>
+    <button onclick='copyText("阿菊冷饮店（第一市场店）\nAju Cold Drink\n地址: 红旗街一巷19号. Брать: 芒果炒冰, 榴莲炒冰, 清补凉. Популярно;炒冰 может ждать долго.\n坐标: 18.2509, 109.5077")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n阿菊冷饮店（第一市场店）\nAju Cold Drink\n坐标：18.2509, 109.5077")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p37' data-cat='Еда' data-tags='бар еда жара резерв рядом фото' data-name='gongman xiting dadonghai' data-zh='宫满西廷（大东海店）'>
+  <button class='star' data-fav='p37' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Gongman Xiting Dadonghai</h3>
+  <p class='zh'>宫满西廷（大东海店）</p>
+  <p><b>Роль:</b> Фотогеничный fusion-ужин рядом<br><b>Когда:</b> вечер рядом с отелем<br><b>Вердикт:</b> Резерв, если хочется красиво и недалеко</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22410, 109.51820</code></p>
+  <p>地址: 榆亚路99-8号, рядом с Dolphin. Брать: 秘制生拌蓬蒿菜, 牛仔粒, 宫廷一品红烧肉, 蟹粉豆腐, 酸汤肥牛.</p>
+  <div class='links'>
+    <a href='geo:18.2241,109.5182?q=18.2241,109.5182(Gongman Xiting Dadonghai)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2241,109.5182&q=Gongman Xiting Dadonghai'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2241,109.5182'>Google</a>
+    <button onclick='copyText("宫满西廷（大东海店）\nGongman Xiting Dadonghai\n地址: 榆亚路99-8号, рядом с Dolphin. Брать: 秘制生拌蓬蒿菜, 牛仔粒, 宫廷一品红烧肉, 蟹粉豆腐, 酸汤肥牛.\n坐标: 18.2241, 109.5182")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n宫满西廷（大东海店）\nGongman Xiting Dadonghai\n坐标：18.2241, 109.5182")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p38' data-cat='Еда' data-tags='еда' data-name='baoluo fen / hainan noodles search' data-zh='抱罗粉 / 海南粉'>
+  <button class='star' data-fav='p38' aria-label='favorite'>☆</button>
+  <div class='badge'>🍜 Еда</div>
+  <h3>Baoluo Fen / Hainan noodles search</h3>
+  <p class='zh'>抱罗粉 / 海南粉</p>
+  <p><b>Роль:</b> Локальная лапша<br><b>Когда:</b> завтрак/обед без ресторана<br><b>Вердикт:</b> Искать ближайшую точку</p>
+  <p class='coords'><b>Координаты:</b> <code>18.25080, 109.50820</code></p>
+  <p>Брать: 抱罗粉, 海南粉, 后安粉. Ориентир 15-35 CNY. Используйте Amap/Dianping search.</p>
+  <div class='links'>
+    <a href='geo:18.2508,109.5082?q=18.2508,109.5082(Baoluo Fen / Hainan noodles search)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2508,109.5082&q=Baoluo Fen / Hainan noodles search'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2508,109.5082'>Google</a>
+    <button onclick='copyText("抱罗粉 / 海南粉\nBaoluo Fen / Hainan noodles search\nБрать: 抱罗粉, 海南粉, 后安粉. Ориентир 15-35 CNY. Используйте Amap/Dianping search.\n坐标: 18.2508, 109.5082")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n抱罗粉 / 海南粉\nBaoluo Fen / Hainan noodles search\n坐标：18.2508, 109.5082")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p39' data-cat='Indoor' data-tags='дождь жара шопинг' data-name='atlantis aquaventure waterpark' data-zh='三亚亚特兰蒂斯水世界'>
+  <button class='star' data-fav='p39' aria-label='favorite'>☆</button>
+  <div class='badge'>☔ Indoor</div>
+  <h3>Atlantis Aquaventure Waterpark</h3>
+  <p class='zh'>三亚亚特兰蒂斯水世界</p>
+  <p><b>Роль:</b> Аквапарк full-day<br><b>Когда:</b> жара/дождь, если хочется аттракционов<br><b>Вердикт:</b> Альтернатива, не must</p>
+  <p class='coords'><b>Координаты:</b> <code>18.33820, 109.73340</code></p>
+  <p>Обычно 10:00-20:00, но сверить в день. Нужен купальник, SPF, водозащита.</p>
+  <div class='links'>
+    <a href='geo:18.3382,109.7334?q=18.3382,109.7334(Atlantis Aquaventure Waterpark)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3382,109.7334&q=Atlantis Aquaventure Waterpark'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3382,109.7334'>Google</a>
+    <button onclick='copyText("三亚亚特兰蒂斯水世界\nAtlantis Aquaventure Waterpark\nОбычно 10:00-20:00, но сверить в день. Нужен купальник, SPF, водозащита.\n坐标: 18.3382, 109.7334")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚亚特兰蒂斯水世界\nAtlantis Aquaventure Waterpark\n坐标：18.3382, 109.7334")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p40' data-cat='Бар' data-tags='бар жара напитки природа фото чай' data-name='mandarin oriental sunset bar' data-zh='三亚文华东方酒店 Sunset Bar / 日落吧'>
+  <button class='star' data-fav='p40' aria-label='favorite'>☆</button>
+  <div class='badge'>🍸 Бар</div>
+  <h3>Mandarin Oriental Sunset Bar</h3>
+  <p class='zh'>三亚文华东方酒店 Sunset Bar / 日落吧</p>
+  <p><b>Роль:</b> Романтичный закат и коктейли<br><b>Когда:</b> спокойный красивый вечер<br><b>Вердикт:</b> Комфорт/вау, не каждый день</p>
+  <p class='coords'><b>Координаты:</b> <code>18.20570, 109.50680</code></p>
+  <p>地址: 榆海路12号. Брать: tropical/classic cocktails, afternoon tea, light bites. Ради вида, не ради дешёвого алкоголя.</p>
+  <div class='links'>
+    <a href='geo:18.2057,109.5068?q=18.2057,109.5068(Mandarin Oriental Sunset Bar)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2057,109.5068&q=Mandarin Oriental Sunset Bar'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2057,109.5068'>Google</a>
+    <button onclick='copyText("三亚文华东方酒店 Sunset Bar / 日落吧\nMandarin Oriental Sunset Bar\n地址: 榆海路12号. Брать: tropical/classic cocktails, afternoon tea, light bites. Ради вида, не ради дешёвого алкоголя.\n坐标: 18.2057, 109.5068")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n三亚文华东方酒店 Sunset Bar / 日落吧\nMandarin Oriental Sunset Bar\n坐标：18.2057, 109.5068")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p41' data-cat='Бар' data-tags='бар жара море напитки резерв рядом' data-name='casa corona sanya' data-zh='Casa Corona / 卡萨科罗娜酒吧'>
+  <button class='star' data-fav='p41' aria-label='favorite'>☆</button>
+  <div class='badge'>🍸 Бар</div>
+  <h3>Casa Corona Sanya</h3>
+  <p class='zh'>Casa Corona / 卡萨科罗娜酒吧</p>
+  <p><b>Роль:</b> Beach club / pool bar Dadonghai<br><b>Когда:</b> вечер с музыкой/party vibe<br><b>Вердикт:</b> Резерв, если хочется движ</p>
+  <p class='coords'><b>Координаты:</b> <code>18.22120, 109.51660</code></p>
+  <p>The Shanhaitian Resort Sanya, Autograph Collection, 海韵路77号. Брать: Corona, margarita, tacos/snacks; может быть шумно.</p>
+  <div class='links'>
+    <a href='geo:18.2212,109.5166?q=18.2212,109.5166(Casa Corona Sanya)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2212,109.5166&q=Casa Corona Sanya'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2212,109.5166'>Google</a>
+    <button onclick='copyText("Casa Corona / 卡萨科罗娜酒吧\nCasa Corona Sanya\nThe Shanhaitian Resort Sanya, Autograph Collection, 海韵路77号. Брать: Corona, margarita, tacos/snacks; может быть шумно.\n坐标: 18.2212, 109.5166")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\nCasa Corona / 卡萨科罗娜酒吧\nCasa Corona Sanya\n坐标：18.2212, 109.5166")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p42' data-cat='Бар' data-tags='бар дождь жара напитки резерв шопинг' data-name='tikki lounge &amp; bar atlantis' data-zh='Tikki Lounge &amp; Bar / 三亚亚特兰蒂斯 Tikki酒吧'>
+  <button class='star' data-fav='p42' aria-label='favorite'>☆</button>
+  <div class='badge'>🍸 Бар</div>
+  <h3>Tikki Lounge &amp; Bar Atlantis</h3>
+  <p class='zh'>Tikki Lounge &amp; Bar / 三亚亚特兰蒂斯 Tikki酒吧</p>
+  <p><b>Роль:</b> Live music / brewpub / Atlantis<br><b>Когда:</b> после Atlantis/CDF<br><b>Вердикт:</b> Резерв к EDITION</p>
+  <p class='coords'><b>Координаты:</b> <code>18.33780, 109.73290</code></p>
+  <p>Брать: craft beer, signature cocktails, Asian tapas. Сверить часы на месте.</p>
+  <div class='links'>
+    <a href='geo:18.3378,109.7329?q=18.3378,109.7329(Tikki Lounge &amp; Bar Atlantis)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3378,109.7329&q=Tikki Lounge &amp; Bar Atlantis'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3378,109.7329'>Google</a>
+    <button onclick='copyText("Tikki Lounge & Bar / 三亚亚特兰蒂斯 Tikki酒吧\nTikki Lounge & Bar Atlantis\nБрать: craft beer, signature cocktails, Asian tapas. Сверить часы на месте.\n坐标: 18.3378, 109.7329")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\nTikki Lounge & Bar / 三亚亚特兰蒂斯 Tikki酒吧\nTikki Lounge & Bar Atlantis\n坐标：18.3378, 109.7329")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p43' data-cat='Остров' data-tags='море' data-name='boundary island tourist center' data-zh='分界洲岛游客中心'>
+  <button class='star' data-fav='p43' aria-label='favorite'>☆</button>
+  <div class='badge'>🏝️ Остров</div>
+  <h3>Boundary Island Tourist Center</h3>
+  <p class='zh'>分界洲岛游客中心</p>
+  <p><b>Роль:</b> Второй островный день<br><b>Когда:</b> только при идеальной погоде<br><b>Вердикт:</b> Не основной, далеко</p>
+  <p class='coords'><b>Координаты:</b> <code>18.57890, 110.19050</code></p>
+  <p>Красиво, но логистика сложнее. Не ставить перед вылетом; уточнить про animal shows.</p>
+  <div class='links'>
+    <a href='geo:18.5789,110.1905?q=18.5789,110.1905(Boundary Island Tourist Center)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.5789,110.1905&q=Boundary Island Tourist Center'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.5789,110.1905'>Google</a>
+    <button onclick='copyText("分界洲岛游客中心\nBoundary Island Tourist Center\nКрасиво, но логистика сложнее. Не ставить перед вылетом; уточнить про animal shows.\n坐标: 18.5789, 110.1905")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n分界洲岛游客中心\nBoundary Island Tourist Center\n坐标：18.5789, 110.1905")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p44' data-cat='Природа' data-tags='море природа резерв' data-name='nanwan monkey island' data-zh='南湾猴岛'>
+  <button class='star' data-fav='p44' aria-label='favorite'>☆</button>
+  <div class='badge'>🌿 Природа</div>
+  <h3>Nanwan Monkey Island</h3>
+  <p class='zh'>南湾猴岛</p>
+  <p><b>Роль:</b> Обезьяний остров / канатка<br><b>Когда:</b> только если очень хочется<br><b>Вердикт:</b> Скорее не рекомендую</p>
+  <p class='coords'><b>Координаты:</b> <code>18.39440, 109.97520</code></p>
+  <p>Этика животных, шоу, отзывы спорные. Включено как “известное, но осознанно не выбрали”.</p>
+  <div class='links'>
+    <a href='geo:18.3944,109.9752?q=18.3944,109.9752(Nanwan Monkey Island)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3944,109.9752&q=Nanwan Monkey Island'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3944,109.9752'>Google</a>
+    <button onclick='copyText("南湾猴岛\nNanwan Monkey Island\nЭтика животных, шоу, отзывы спорные. Включено как “известное, но осознанно не выбрали”.\n坐标: 18.3944, 109.9752")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n南湾猴岛\nNanwan Monkey Island\n坐标：18.3944, 109.9752")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p45' data-cat='Природа' data-tags='море природа резерв рядом транспорт' data-name='hainan tropical wildlife park' data-zh='海南热带野生动植物园'>
+  <button class='star' data-fav='p45' aria-label='favorite'>☆</button>
+  <div class='badge'>🌿 Природа</div>
+  <h3>Hainan Tropical Wildlife Park</h3>
+  <p class='zh'>海南热带野生动植物园</p>
+  <p><b>Роль:</b> Зоопарк у Хайкоу<br><b>Когда:</b> не для этой поездки<br><b>Вердикт:</b> Скорее не стоит из Саньи</p>
+  <p class='coords'><b>Координаты:</b> <code>19.89790, 110.25260</code></p>
+  <p>Слишком далеко от Dadonghai; день лучше потратить на Wanning/Yanoda/West Island.</p>
+  <div class='links'>
+    <a href='geo:19.8979,110.2526?q=19.8979,110.2526(Hainan Tropical Wildlife Park)'>geo</a>
+    <a href='https://maps.apple.com/?ll=19.8979,110.2526&q=Hainan Tropical Wildlife Park'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=19.8979,110.2526'>Google</a>
+    <button onclick='copyText("海南热带野生动植物园\nHainan Tropical Wildlife Park\nСлишком далеко от Dadonghai; день лучше потратить на Wanning/Yanoda/West Island.\n坐标: 19.8979, 110.2526")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n海南热带野生动植物园\nHainan Tropical Wildlife Park\n坐标：19.8979, 110.2526")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p46' data-cat='Фото' data-tags='бар море напитки природа резерв фото' data-name='pink beach / hyatt tianli bay candidate' data-zh='粉色沙滩 / 三亚天丽湾凯悦酒店附近'>
+  <button class='star' data-fav='p46' aria-label='favorite'>☆</button>
+  <div class='badge'>📸 Фото</div>
+  <h3>Pink Beach / Hyatt Tianli Bay candidate</h3>
+  <p class='zh'>粉色沙滩 / 三亚天丽湾凯悦酒店附近</p>
+  <p><b>Роль:</b> Фотозона, не природное чудо<br><b>Когда:</b> только если по пути<br><b>Вердикт:</b> Не ехать специально</p>
+  <p class='coords'><b>Координаты:</b> <code>18.28820, 109.37390</code></p>
+  <p>Вероятнее hotel/photo setup. Для вау-фото лучше West Island, Luhuitou, Sun Bay, Sanya Bay sunset.</p>
+  <div class='links'>
+    <a href='geo:18.2882,109.3739?q=18.2882,109.3739(Pink Beach / Hyatt Tianli Bay candidate)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.2882,109.3739&q=Pink Beach / Hyatt Tianli Bay candidate'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.2882,109.3739'>Google</a>
+    <button onclick='copyText("粉色沙滩 / 三亚天丽湾凯悦酒店附近\nPink Beach / Hyatt Tianli Bay candidate\nВероятнее hotel/photo setup. Для вау-фото лучше West Island, Luhuitou, Sun Bay, Sanya Bay sunset.\n坐标: 18.2882, 109.3739")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n粉色沙滩 / 三亚天丽湾凯悦酒店附近\nPink Beach / Hyatt Tianli Bay candidate\n坐标：18.2882, 109.3739")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p47' data-cat='Транспорт' data-tags='море резерв рядом транспорт' data-name='yalong bay railway station' data-zh='亚龙湾站'>
+  <button class='star' data-fav='p47' aria-label='favorite'>☆</button>
+  <div class='badge'>✈️ Транспорт</div>
+  <h3>Yalong Bay Railway Station</h3>
+  <p class='zh'>亚龙湾站</p>
+  <p><b>Роль:</b> Ж/д станция<br><b>Когда:</b> редко, если удобнее для Yalong/Wanning<br><b>Вердикт:</b> Резерв</p>
+  <p class='coords'><b>Координаты:</b> <code>18.30690, 109.62380</code></p>
+  <p>Иногда удобна, но из Dadonghai часто проще DiDi до Sanya Station.</p>
+  <div class='links'>
+    <a href='geo:18.3069,109.6238?q=18.3069,109.6238(Yalong Bay Railway Station)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.3069,109.6238&q=Yalong Bay Railway Station'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.3069,109.6238'>Google</a>
+    <button onclick='copyText("亚龙湾站\nYalong Bay Railway Station\nИногда удобна, но из Dadonghai часто проще DiDi до Sanya Station.\n坐标: 18.3069, 109.6238")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n亚龙湾站\nYalong Bay Railway Station\n坐标：18.3069, 109.6238")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p48' data-cat='Транспорт' data-tags='море транспорт' data-name='shenzhou railway station' data-zh='神州站'>
+  <button class='star' data-fav='p48' aria-label='favorite'>☆</button>
+  <div class='badge'>✈️ Транспорт</div>
+  <h3>Shenzhou Railway Station</h3>
+  <p class='zh'>神州站</p>
+  <p><b>Роль:</b> Ж/д для Shenzhou/Wanning<br><b>Когда:</b> Wanning day<br><b>Вердикт:</b> Полезно для day trip</p>
+  <p class='coords'><b>Координаты:</b> <code>18.69080, 110.33680</code></p>
+  <p>Сверять поезд в Trip.com/12306. После станции нужен DiDi до пляжа.</p>
+  <div class='links'>
+    <a href='geo:18.6908,110.3368?q=18.6908,110.3368(Shenzhou Railway Station)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.6908,110.3368&q=Shenzhou Railway Station'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.6908,110.3368'>Google</a>
+    <button onclick='copyText("神州站\nShenzhou Railway Station\nСверять поезд в Trip.com/12306. После станции нужен DiDi до пляжа.\n坐标: 18.6908, 110.3368")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n神州站\nShenzhou Railway Station\n坐标：18.6908, 110.3368")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p49' data-cat='Транспорт' data-tags='транспорт' data-name='wanning railway station' data-zh='万宁站'>
+  <button class='star' data-fav='p49' aria-label='favorite'>☆</button>
+  <div class='badge'>✈️ Транспорт</div>
+  <h3>Wanning Railway Station</h3>
+  <p class='zh'>万宁站</p>
+  <p><b>Роль:</b> Ж/д для Wanning<br><b>Когда:</b> Wanning day<br><b>Вердикт:</b> Полезно для day trip</p>
+  <p class='coords'><b>Координаты:</b> <code>18.79590, 110.38950</code></p>
+  <p>Больше транспорта, чем на маленьких станциях; дальше DiDi.</p>
+  <div class='links'>
+    <a href='geo:18.7959,110.3895?q=18.7959,110.3895(Wanning Railway Station)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.7959,110.3895&q=Wanning Railway Station'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.7959,110.3895'>Google</a>
+    <button onclick='copyText("万宁站\nWanning Railway Station\nБольше транспорта, чем на маленьких станциях; дальше DiDi.\n坐标: 18.7959, 110.3895")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n万宁站\nWanning Railway Station\n坐标：18.7959, 110.3895")'>таксисту</button>
+  </div>
+</article>
+
+
+<article class='place-card' data-place-id='p50' data-cat='Транспорт' data-tags='море природа резерв транспорт' data-name='lingshui railway station' data-zh='陵水站'>
+  <button class='star' data-fav='p50' aria-label='favorite'>☆</button>
+  <div class='badge'>✈️ Транспорт</div>
+  <h3>Lingshui Railway Station</h3>
+  <p class='zh'>陵水站</p>
+  <p><b>Роль:</b> Ж/д для Boundary/Monkey<br><b>Когда:</b> только если едете в Lingshui<br><b>Вердикт:</b> Резерв</p>
+  <p class='coords'><b>Координаты:</b> <code>18.50570, 110.03780</code></p>
+  <p>Для Boundary/Monkey нужен ещё такси/трансфер.</p>
+  <div class='links'>
+    <a href='geo:18.5057,110.0378?q=18.5057,110.0378(Lingshui Railway Station)'>geo</a>
+    <a href='https://maps.apple.com/?ll=18.5057,110.0378&q=Lingshui Railway Station'>Apple</a>
+    <a href='https://www.google.com/maps/search/?api=1&query=18.5057,110.0378'>Google</a>
+    <button onclick='copyText("陵水站\nLingshui Railway Station\nДля Boundary/Monkey нужен ещё такси/трансфер.\n坐标: 18.5057, 110.0378")'>копировать</button>
+    <button class='taxiBtn' onclick='showTaxi("请送我们去这里：\n陵水站\nLingshui Railway Station\n坐标：18.5057, 110.0378")'>таксисту</button>
+  </div>
+</article>
+
+</div>
+</section>
+
+<section id='favorites' class='card'>
+<h2>⭐ Мой shortlist</h2>
+<p>Нажмите звёздочку на карточке места. Избранное сохраняется в этом браузере офлайн.</p>
+<div id='favList' class='place-grid'></div>
+</section>
+
+<section id='my-tools' class='card'>
+<h2>Моё: заметки и резервная копия</h2>
+<div class='tool-grid'>
+ <div class='tool-panel'>
+  <h3>Заметки поездки</h3>
+  <label for='tripNotes' class='storage-note'>Сохраняются автоматически на этом устройстве</label>
+  <textarea id='tripNotes' class='notes' placeholder='Номер комнаты, где вкусно, что купить, планы на завтра…'></textarea>
+ </div>
+ <div class='tool-panel'>
+  <h3>Перенос данных</h3>
+  <p class='storage-note'>Экспорт сохраняет избранное, бюджет, заметки и чек-листы в небольшой JSON-файл.</p>
+  <div class='action-row'>
+   <button id='exportData' class='smallbtn' type='button'>Экспортировать</button>
+   <label class='smallbtn file-btn'>Импортировать<input id='importData' type='file' accept='application/json,.json'></label>
+  </div>
+  <p id='storageStatus' class='storage-note' aria-live='polite'></p>
+ </div>
+</div>
+<div class='notice'><b>Офлайн:</b> сохраните этот HTML в «Файлы» и проверьте его в авиарежиме. Если открыть папку через HTTPS, гид также можно установить на домашний экран как PWA; single-file версия при этом остаётся основной.</div>
+</section>
+
+
+<section id='menu' class='card'>
+<h2>Меню заведений: что брать, что пить, что пропустить</h2>
+<div class='notice'>Это не полное меню, а “боевой заказ”: что стоит попробовать в конкретном месте, сколько закладывать и когда место подходит. Цены ориентировочные; перед заказом сверяйте меню/Amap/Dianping.</div>
+<div class='menu-grid'>
+
+<article class='panel menu-card'>
+  <h3>Dolphin Sports Bar &amp; Grill</h3>
+  <p class='zh'>Dolphin海豚美式西餐厅</p>
+  <p><b>Когда идти:</b> Первый вечер / устали от китайского / пиво</p>
+  <p><b>Брать:</b> burgers, wings, ribs/BBQ, wraps/burrito, fries; из напитков - IPA/импорт, Hoegaarden/сидр/peach beer, простые коктейли</p>
+  <p><b>Пропустить/осторожно:</b> Не идти за локальной кухней; вечером может быть очередь, лучше до 20:00</p>
+  <p><b>Чек:</b> еда+напиток 120-220 CNY/чел</p>
+  <p class='small'><b>Основа:</b> Trip.com: 99 Yuya Rd, 11:00-02:00, средний чек около 150 CNY, American/European/Mexican cuisine</p>
+</article>
+
+<article class='panel menu-card'>
+  <h3>FreeGen Beach Bar</h3>
+  <p class='zh'>FreeGen Beach Bar / 大东海海边酒吧</p>
+  <p><b>Когда идти:</b> Пляжный sunset и “отпуск начался”</p>
+  <p><b>Брать:</b> tropical cocktails, coconut, простые mains 70-100 CNY, snacks; можно брать 1-2 напитка и сидеть у моря</p>
+  <p><b>Пропустить/осторожно:</b> Не ожидать гастро-уровня; возможен кальян/дым; проверять happy hour</p>
+  <p><b>Чек:</b> 100-200 CNY/чел</p>
+  <p class='small'><b>Основа:</b> TripAdvisor/Trip.com: beachfront, коктейли, main courses 70-100 CNY, средний чек около 130-150 CNY</p>
+</article>
+
+<article class='panel menu-card'>
+  <h3>Tai Qiong Zao-po Vinegar Seafood Hotpot</h3>
+  <p class='zh'>太琼糟粕醋·海南酸汤火锅</p>
+  <p><b>Когда идти:</b> Самый необычный локальный вкус</p>
+  <p><b>Брать:</b> 糟粕醋酸汤锅, 海鲜拼盘, shrimp, pomfret, beef, seaweed/kelp; просить mild spice, если не уверены</p>
+  <p><b>Пропустить/осторожно:</b> Не брать огромный сет вслепую; кислый вкус может не зайти</p>
+  <p><b>Чек:</b> 120-220 CNY/чел</p>
+  <p class='small'><b>Основа:</b> Trip.com по Tai Qiong: Mingzhu Plaza branch 11:00-22:00, отзывы про кислый seafood hotpot</p>
+</article>
+
+<article class='panel menu-card'>
+  <h3>Chicken inside Coconut / Yexiaoji / Diadia</h3>
+  <p class='zh'>椰子鸡 / 椰小鸡 / 嗲嗲的椰子鸡</p>
+  <p><b>Когда идти:</b> Мягкий первый локальный ужин</p>
+  <p><b>Брать:</b> original coconut chicken, chicken oil rice, coconut rice, shrimp paste, mushrooms, greens; соус собрать с лаймом/чесноком/имбирём</p>
+  <p><b>Пропустить/осторожно:</b> Не ждать острого “азиатского взрыва”; это мягко и сладко</p>
+  <p><b>Чек:</b> 100-180 CNY/чел; сет на двоих около 288 CNY встречается в отзывах</p>
+  <p class='small'><b>Основа:</b> Trip.com: Chicken inside Coconut 4.9/5; Meng Da Da set for two 288 CNY with chicken, shrimp paste, beef, coconut/chicken rice</p>
+</article>
+
+<article class='panel menu-card'>
+  <h3>Yanjiang / Qiongxiangge Hainan Cuisine</h3>
+  <p class='zh'>沿江海南菜 / 琼乡阁海南菜</p>
+  <p><b>Когда идти:</b> Хайнаньская кухня без рынка</p>
+  <p><b>Брать:</b> Wenchang chicken, Hainan noodles, coconut rice, pineapple/jackfruit roast Wenchang chicken, zao-po vinegar seafood, mango/coconut rolls</p>
+  <p><b>Пропустить/осторожно:</b> Если видите только туристические сеты без понятного меню - проверять Dianping</p>
+  <p><b>Чек:</b> 100-200 CNY/чел</p>
+  <p class='small'><b>Основа:</b> Trip.com: Yanjiang 4.6/5; Qiongxiangge 5/5 and recommendations: Wenchang chicken, pineapple fried rice, coconut mango roll</p>
+</article>
+
+<article class='panel menu-card'>
+  <h3>MS.LIN / A Lang Seafood</h3>
+  <p class='zh'>林姐香味海鲜 / 阿浪海鲜</p>
+  <p><b>Когда идти:</b> Seafood-вечер</p>
+  <p><b>Брать:</b> garlic scallops, steamed grouper, white-boiled shrimp, spicy crab, mantis shrimp, oysters; готовка: steamed/garlic лучше для первого раза</p>
+  <p><b>Пропустить/осторожно:</b> Зазывалы и неясный итоговый счёт; всегда цена за 斤 + processing fee до заказа</p>
+  <p><b>Чек:</b> 150-350 CNY/чел, зависит от веса/вида seafood</p>
+  <p class='small'><b>Основа:</b> Trip.com: A Lang 4.9/5 с 3400 отзывами; seafood processing у First Market</p>
+</article>
+
+<article class='panel menu-card'>
+  <h3>Gongman Xiting Dadonghai</h3>
+  <p class='zh'>宫满西廷（大东海店）</p>
+  <p><b>Когда идти:</b> Красивый backup-ужин рядом с Dolphin</p>
+  <p><b>Брать:</b> 秘制生拌蓬蒿菜, 牛仔粒, 宫廷一品红烧肉, 蟹粉豆腐, 酸汤肥牛, creative crispy pork</p>
+  <p><b>Пропустить/осторожно:</b> Если очередь и вы голодные - не ждать час, идти в Dolphin/FreeGen/другой backup</p>
+  <p><b>Чек:</b> около 100-180 CNY/чел</p>
+  <p class='small'><b>Основа:</b> Trip.com/Ctrip: Yuya Road 99-8, рядом с Dolphin, 4.6/5, 546 reviews, рекомендуемые блюда</p>
+</article>
+
+<article class='panel menu-card'>
+  <h3>Zheng Apo / Aju desserts</h3>
+  <p class='zh'>郑阿婆清补凉 / 阿菊冷饮店</p>
+  <p><b>Когда идти:</b> Жара, десерт после рынка</p>
+  <p><b>Брать:</b> 传统椰奶清补凉, 芒果冰球清补凉, 芒果炒冰, 榴莲炒冰, coconut milk dessert</p>
+  <p><b>Пропустить/осторожно:</b> Нарезку/десерты, которые долго стоят на жаре; у Aju炒冰 может быть очередь</p>
+  <p><b>Чек:</b> 15-35 CNY, Aju около 24 CNY/чел по отзывам</p>
+  <p class='small'><b>Основа:</b> Trip.com/Ctrip/360: Zheng Apo Jiefang Rd 98/100; Aju Hongqi Street Lane 19, average 24 CNY</p>
+</article>
+
+<article class='panel menu-card'>
+  <h3>Mandarin Sunset Bar / EDITION / Tikki</h3>
+  <p class='zh'>日落吧 / Sky Bar / Tikki Lounge</p>
+  <p><b>Когда идти:</b> Красивые напитки, когда хочется “вау”</p>
+  <p><b>Брать:</b> Mandarin: classic/tropical cocktails + afternoon tea; EDITION: signature cocktails; Tikki: craft beer + Asian tapas + live music</p>
+  <p><b>Пропустить/осторожно:</b> Не идти ради бюджетного алкоголя; проверять часы/дресс-код/погоду</p>
+  <p><b>Чек:</b> 150-400+ CNY/чел</p>
+  <p class='small'><b>Основа:</b> Mandarin official: cocktails, light bites, afternoon tea, sunset views; Atlantis Tikki: brewpub/live music/craft beer</p>
+</article>
+
+<article class='panel menu-card'>
+  <h3>Casa Corona</h3>
+  <p class='zh'>Casa Corona / 卡萨科罗娜</p>
+  <p><b>Когда идти:</b> Dadonghai party/pool-bar резерв</p>
+  <p><b>Брать:</b> Corona, margarita, tacos/snacks, happy hour if active</p>
+  <p><b>Пропустить/осторожно:</b> Если не хотите шум/party/show - выбрать FreeGen или Sunset Bar</p>
+  <p><b>Чек:</b> 130-260 CNY/чел</p>
+  <p class='small'><b>Основа:</b> Casa Corona sources: beach club/pool bar, Mexican cuisine, signature cocktails, DJ/fire show; hours vary</p>
+</article>
+
+</div>
+<div class='notice'><b>Фразы для заказа:</b><br><span class='zh'>不要辣 / 微辣 / 不要香菜 / 菜单有图片吗？ / 请先告诉我总价。</span><br>Не остро / чуть остро / без кинзы / есть меню с картинками? / сначала скажите итоговую цену.</div>
+</section>
+
+<section id='food' class='card'>
+<h2>Еда по блюдам</h2>
+<table><thead><tr><th>Блюдо</th><th>Что это</th><th>Где искать</th><th>Чек</th><th>Совет</th></tr></thead><tbody><tr><td><b>椰子鸡 / Coconut chicken</b></td><td>Мягкий hotpot с курицей в кокосовом бульоне</td><td>椰小鸡 / 嗲嗲的椰子鸡</td><td>100-180 CNY/чел</td><td>Обязательно в первые дни</td></tr><tr><td><b>文昌鸡 / Wenchang chicken</b></td><td>Хайнаньская курица, часто white-cut</td><td>Yanjiang / Qiongxiangge</td><td>100-200 CNY/чел</td><td>Просить не остро, соус отдельно</td></tr><tr><td><b>糟粕醋海鲜锅 / Zao-po vinegar seafood</b></td><td>Кислый яркий seafood hotpot</td><td>Tai Qiong / локальные hotpot</td><td>100-180 CNY/чел</td><td>Вкус необычный, не всем</td></tr><tr><td><b>抱罗粉 / Baoluo fen</b></td><td>Рисовая лапша, быстрый локальный завтрак</td><td>Лавки 抱罗粉 / 海南粉</td><td>15-35 CNY</td><td>Отлично днём, если устали от ресторанов</td></tr><tr><td><b>清补凉 / Qingbuliang</b></td><td>Холодный кокосовый десерт</td><td>Aju / Zheng Apo / dessert shops</td><td>15-35 CNY</td><td>Идеально в жару</td></tr><tr><td><b>海鲜 / Seafood</b></td><td>Краб, креветки, scallops, рыба</td><td>First Market / MS.LIN / A Lang</td><td>150-350 CNY/чел</td><td>Цена за 斤 + обработка до заказа</td></tr><tr><td><b>水果 / Fruits</b></td><td>Манго, мангостин, рамбутан, драгонфрут</td><td>Фруктовые лавки / First Market</td><td>10-60 CNY/покупка</td><td>Уточнять цену за 斤 = 500 г</td></tr><tr><td><b>茶 / Tea</b></td><td>Шу/шэн пуэр, улун, белый, 鹧鸪茶</td><td>Tenfu Tea / tea shops</td><td>50-300 CNY за покупку</td><td>Не брать дорогой aged puer вслепую</td></tr></tbody></table>
+<div class='notice'><b>Seafood-фраза:</b><br><span class='zh'>这个多少钱一斤？加工费多少钱？请先告诉我总价。</span><br>Сколько за 500 г? Сколько готовка? Сначала скажите итоговую цену.</div>
+</section>
+
+<section id='bars' class='card'>
+<h2>Алкогольная карта</h2>
+<table><thead><tr><th>Что пить</th><th>Вкус/смысл</th><th>Где</th><th>Чек</th><th>Вердикт</th></tr></thead><tbody><tr><td><b>Tsingtao / 青岛</b></td><td>лёгкий китайский лагер</td><td>Dolphin, магазины, бары</td><td>20-50 CNY</td><td>База для сравнения</td></tr><tr><td><b>Snow / 雪花</b></td><td>очень массовое лёгкое пиво</td><td>магазины/простые бары</td><td>10-30 CNY</td><td>Не вау, но Китай</td></tr><tr><td><b>Wusu / 乌苏</b></td><td>крепче, “китайская легенда”</td><td>магазины/бары</td><td>15-40 CNY</td><td>Пробовать аккуратно</td></tr><tr><td><b>IPA / craft</b></td><td>крафт/импорт</td><td>Dolphin, Houhai bars</td><td>45-90 CNY</td><td>Лучший шанс после РФ-пива</td></tr><tr><td><b>Peach beer / cider</b></td><td>фруктовое/сидр</td><td>Dolphin/пляжные бары</td><td>35-70 CNY</td><td>Лёгкий отпускной вариант</td></tr><tr><td><b>Tropical cocktail</b></td><td>коктейль у моря</td><td>FreeGen</td><td>60-120 CNY</td><td>Пить ради вида</td></tr><tr><td><b>Signature cocktail</b></td><td>красивый бар</td><td>EDITION / Mandarin</td><td>120-250+ CNY</td><td>Один вау-вечер</td></tr></tbody></table>
+<p class='notice'>Логика: Dolphin — пиво/fallback, FreeGen — вид и коктейль, Houhai — surf/bar vibe, EDITION — один красивый вечер.</p>
+</section>
+
+<section id='shopping' class='card'>
+<h2>Шопинг быстро</h2>
+<table><thead><tr><th>Место</th><th>Тип</th><th>Зачем</th><th>Вердикт</th></tr></thead><tbody>
+<tr><td>CDF Sanya</td><td>offshore duty free</td><td>skincare, парфюм, люкс по списку</td><td>стоит, но сравнивать цены</td></tr>
+<tr><td>Joy City</td><td>обычный современный ТЦ</td><td>еда, бренды, дождь/жара</td><td>лучше Ананаса для indoor-day</td></tr>
+<tr><td>Summer Mall</td><td>ТЦ рядом + tax refund</td><td>быстрые покупки</td><td>если рядом</td></tr>
+<tr><td>Pineapple / Ананас</td><td>ordinary mall/landmark</td><td>Miniso, еда, кондиционер</td><td>не делать главным</td></tr>
+<tr><td>Wanning</td><td>не шопинг</td><td>серф/побережье</td><td>ехать ради вайба, не покупок</td></tr>
+</tbody></table>
+</section>
+
+<section id='budget' class='card'>
+<h2>Мини-бюджет трекер</h2>
+<p>Простой офлайн-счётчик. Введите траты в CNY, HTML сохранит данные на телефоне.</p>
+<div class='money-grid'>
+ <label>Наличка старт, CNY<input id='cashStart' type='number' inputmode='decimal' value='2500'></label>
+ <label>Курс ₽ за 1 CNY<input id='exchangeRate' type='number' inputmode='decimal' value='13' step='0.1'></label>
+ <label>Транспорт<input id='mTransport' type='number' inputmode='decimal'></label>
+ <label>Еда<input id='mFood' type='number' inputmode='decimal'></label>
+ <label>Бары<input id='mBars' type='number' inputmode='decimal'></label>
+ <label>Активности<input id='mAct' type='number' inputmode='decimal'></label>
+ <label>Массаж/спа<input id='mSpa' type='number' inputmode='decimal'></label>
+ <label>Шопинг отдельно<input id='mShop' type='number' inputmode='decimal'></label>
+ <label>Прочее<input id='mOther' type='number' inputmode='decimal'></label>
+</div>
+<div class='recbox' id='moneyOut'>Введите траты.</div>
+<button class='smallbtn' onclick='clearBudget()'>сбросить бюджет</button>
+</section>
+
+<section id='sos' class='card warning'>
+<h2>SOS / аварийный режим</h2>
+<div class='route-grid'>
+ <div><b>Адрес отеля крупно:</b><br><span class='zh'>三亚雅诗阁山海天服务公寓，大东海，海韵路66号。</span><br><button class='copybtn' onclick='showTaxi("请送我们去三亚雅诗阁山海天服务公寓，大东海，海韵路66号。")'>показать таксисту</button></div>
+ <div><b>Экстренные номера:</b><br>110 полиция<br>119 пожар<br>120 скорая<br>Просите отель/персонал звонить за вас.</div>
+ <div><b>Мне плохо:</b><br><span class='zh'>我不舒服，需要帮助。请帮我联系酒店/医院。</span><br>Мне плохо, нужна помощь. Позвоните в отель/больницу.</div>
+ <div><b>Потеряли связь:</b><br>Открыть этот HTML → адрес отеля → таксисту. Оплата: Alipay → WeChat → UnionPay → наличные.</div>
+</div>
+</section>
+
+<section id='phrases' class='card'>
+<h2>Фразы и карточки</h2>
+<table><thead><tr><th>Русский</th><th>Китайский</th><th></th></tr></thead><tbody>
+<tr><td>Отвезите нас сюда</td><td class='zh'>请送我们到这里。</td><td><button class='copybtn' onclick='copyText("请送我们到这里。")'>копировать</button></td></tr>
+<tr><td>Включите кондиционер</td><td class='zh'>请开空调。</td><td><button class='copybtn' onclick='copyText("请开空调。")'>копировать</button></td></tr>
+<tr><td>Не остро</td><td class='zh'>不要辣。</td><td><button class='copybtn' onclick='copyText("不要辣。")'>копировать</button></td></tr>
+<tr><td>Без кинзы</td><td class='zh'>不要香菜。</td><td><button class='copybtn' onclick='copyText("不要香菜。")'>копировать</button></td></tr>
+<tr><td>Есть меню с картинками?</td><td class='zh'>有图片菜单吗？</td><td><button class='copybtn' onclick='copyText("有图片菜单吗？")'>копировать</button></td></tr>
+<tr><td>Можно попробовать чай?</td><td class='zh'>可以试喝茶吗？</td><td><button class='copybtn' onclick='copyText("可以试喝茶吗？")'>копировать</button></td></tr>
+<tr><td>Сколько за 500 г?</td><td class='zh'>多少钱一斤？</td><td><button class='copybtn' onclick='copyText("多少钱一斤？")'>копировать</button></td></tr>
+<tr><td>Нарежьте фрукты, пожалуйста</td><td class='zh'>请帮我切一下水果。</td><td><button class='copybtn' onclick='copyText("请帮我切一下水果。")'>копировать</button></td></tr>
+</tbody></table>
+</section>
+
+<section id='checklists' class='card'>
+<h2>Чек-листы</h2>
+<h3>Каждый день</h3>
+<div class='checklist'>
+<label><input type='checkbox'> вода</label><label><input type='checkbox'> SPF 50</label><label><input type='checkbox'> панама/очки</label><label><input type='checkbox'> power bank</label><label><input type='checkbox'> Alipay/WeChat</label><label><input type='checkbox'> 200-500 CNY наличными</label><label><input type='checkbox'> адрес отеля на китайском</label><label><input type='checkbox'> зонт/пончо</label><label><input type='checkbox'> купальник/полотенце</label><label><input type='checkbox'> переводчик</label>
+</div>
+<h3>Купить 5 июля</h3>
+<div class='checklist'>
+<label><input type='checkbox'> вода 5-10 л</label><label><input type='checkbox'> электролиты 电解质水</label><label><input type='checkbox'> SPF/after sun 芦荟胶</label><label><input type='checkbox'> репеллент 驱蚊液</label><label><input type='checkbox'> пластыри/антисептик</label><label><input type='checkbox'> фрукты</label><label><input type='checkbox'> лёгкие снеки</label><label><input type='checkbox'> средство от желудка</label>
+</div>
+</section>
+
+<section class='footer'>
+<p>Собрано v3: 01.07.2026. Основа: ваши исследования, финальный маршрут и доппроверка. Часы/цены/погода меняются: перед билетными днями утром сверяйте Trip.com/Amap/Dianping. HTML хранит избранное и бюджет только в браузере вашего телефона.</p>
+</section>
+</main>
+
+<nav class='bottomnav no-print' aria-label='Основная навигация'>
+<a href='#cockpit'><span aria-hidden='true'>🧭</span>Сейчас</a><a href='#days'><span aria-hidden='true'>📅</span>Дни</a><a href='#places'><span aria-hidden='true'>📍</span>Места</a><a href='#favorites'><span aria-hidden='true'>⭐</span>Моё</a><a href='#sos'><span aria-hidden='true'>🆘</span>SOS</a>
+</nav>
+<div id='toast' role='status' aria-live='polite'></div>
+<div id='modal' role='dialog' aria-modal='true' aria-labelledby='modalTitle' onclick='closeModal(event)'><div class='box'><h2 id='modalTitle'>Показать водителю / персоналу</h2><div id='taxiText'></div><div class='links'><button onclick='copyTaxi()'>Копировать</button><button id='modalClose' onclick='hideModal()'>Закрыть</button></div></div></div>
+<script>
+const VIBE_RECS={"море": ["Yalong Bay после 16:00", "Dadonghai утром", "West Island, если море спокойное", "Не выбирать Haitang как главный swim-day"], "остров": ["West Island — остров №1", "Wuzhizhou только при ясном море и раннем старте", "Boundary — не обязательный, только если прям хочется второго острова"], "дождь": ["Atlantis Lost Chambers + CDF", "Joy City + чай + массаж", "Dolphin/FreeGen вечером", "Не плыть на острова и не ехать в Wanning"], "жара": ["Outdoor до 10:30 и после 16:30", "CDF/Joy City/Atlantis в середине дня", "Массаж 60-90 мин", "Электролиты + пауза в отеле"], "устали": ["Tea + food + massage day", "Dadonghai + FreeGen", "Короткий Sanya Bay sunset", "Не пытаться догнать пропущенный остров"], "поздно": ["Не ехать в Wanning/West Island/Yanoda", "Yalong Bay на закат", "Luhuitou + seafood", "Atlantis + Sky Bar"], "еда": ["Coconut chicken", "Seafood с фиксацией цены", "Qingbuliang", "Фрукты + чайная дегустация"], "бар": ["FreeGen — море и закат", "Dolphin — безопасный sports bar", "EDITION Sky Bar — вау-вечер", "Houhai — молодёжный surf/bar вайб"], "шопинг": ["CDF — duty free только со списком", "Joy City — нормальный ТЦ в дождь/жару", "Pineapple/Summer — только если рядом", "Wanning не ради шопинга"], "рядом": ["Dadonghai beach", "FreeGen", "Dolphin", "Summer Mall/Pineapple", "Фрукты/аптека/массаж вокруг отеля"]};
+const PLACES=[{"cat": "База", "name": "Ascott Dadonghai Bay Sanya", "zh": "三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓", "lat": 18.221, "lon": 109.5207, "role": "Отель / база", "when": "каждый день", "verdict": "База отличная: Dadonghai, пляж, бары, DiDi", "note": "Адрес: 海韵路66号, 大东海. Координаты приблизительные; в Amap ищите китайское название.", "tags": ["бар", "море", "рядом"]}, {"cat": "Транспорт", "name": "Sanya Phoenix International Airport", "zh": "三亚凤凰国际机场", "lat": 18.3029, "lon": 109.4123, "role": "Аэропорт", "when": "5 и 14 июля", "verdict": "DiDi/такси, не автобус для раннего рейса", "note": "Для вылета: 国际出发 / international departures.", "tags": ["транспорт"]}, {"cat": "Пляж", "name": "Dadonghai Beach", "zh": "大东海", "lat": 18.2223, "lon": 109.5195, "role": "Домашний пляж", "when": "утро/вечер", "verdict": "Удобно, но не самый вау пляж", "note": "Купаться только в разрешённых зонах и по флагам.", "tags": ["жара", "море", "рядом"]}, {"cat": "Вид", "name": "Luhuitou Scenic Area", "zh": "鹿回头风景区", "lat": 18.2206, "lon": 109.499, "role": "Закат / вид на город", "when": "17:30-20:00", "verdict": "Точно стоит как лёгкий вечер", "note": "Не полдня, а sunset-стоп рядом с Dadonghai.", "tags": ["жара", "природа", "рядом", "фото"]}, {"cat": "Остров", "name": "West Island Tourist Center", "zh": "西岛游客中心", "lat": 18.2634, "lon": 109.3733, "role": "Причал на West Island", "when": "лучше утром", "verdict": "Остров №1 для поездки", "note": "Если ветер/ливень - не плыть.", "tags": ["жара", "море", "транспорт"]}, {"cat": "Остров", "name": "West Island / Niuwangling", "zh": "西岛 / 牛王岭", "lat": 18.2315, "lon": 109.3808, "role": "Остров, фото, купание", "when": "08:30-15:30", "verdict": "Точно стоит", "note": "Рыбацкая деревня + фото + море; меньше конвейера, чем Wuzhizhou.", "tags": ["море", "фото"]}, {"cat": "Пляж", "name": "Yalong Bay Beach", "zh": "亚龙湾海滩", "lat": 18.2266, "lon": 109.6252, "role": "Лучший классический пляж", "when": "утро или после 16:00", "verdict": "Точно стоит для купания", "note": "Красивее Dadonghai, но днём жарко.", "tags": ["жара", "море", "рядом"]}, {"cat": "Природа", "name": "Yalong Bay Tropical Paradise Forest Park", "zh": "亚龙湾热带天堂森林公园", "lat": 18.2478, "lon": 109.6423, "role": "Виды / лесной парк", "when": "08:00-12:30", "verdict": "Стоит 1 раз, туристично", "note": "Доплаты за мосты/аттракционы; не идти в ливень.", "tags": ["море", "природа", "фото"]}, {"cat": "Фото", "name": "Sun Bay Road viewpoint", "zh": "太阳湾路观景点", "lat": 18.2073, "lon": 109.6422, "role": "Coastal road / фото", "when": "утро/закат", "verdict": "Красиво как фотостоп", "note": "Лучше совмещать с Yalong Bay.", "tags": ["жара", "море", "фото"]}, {"cat": "Природа", "name": "Yanoda Rainforest", "zh": "呀诺达热带雨林文化旅游区", "lat": 18.4015, "lon": 109.6738, "role": "Джунгли", "when": "утром", "verdict": "Возможно стоит", "note": "Хорошо в лёгкий дождь, плохо в ливень/духоту.", "tags": ["дождь", "жара", "природа"]}, {"cat": "Поезд", "name": "Sanya Railway Station", "zh": "三亚站", "lat": 18.3093, "lon": 109.4917, "role": "Поезд на Wanning/Lingshui", "when": "дальние выезды", "verdict": "Нужен для Wanning", "note": "Билеты в Trip.com/12306, паспорт обязателен.", "tags": ["транспорт"]}, {"cat": "Wanning", "name": "Riyue Bay", "zh": "日月湾", "lat": 18.6298, "lon": 110.2156, "role": "Серф-вайб", "when": "день Wanning", "verdict": "Точно стоит, если погода норм", "note": "Серф-проба, кафе, волны; осторожно с рипами.", "tags": ["море"]}, {"cat": "Wanning", "name": "Shimei Bay", "zh": "石梅湾", "lat": 18.66865, "lon": 110.28058, "role": "Спокойная красивая бухта", "when": "день Wanning", "verdict": "Стоит как часть выезда", "note": "Не шопинг, а побережье/кафе/вид.", "tags": ["море", "природа", "фото", "шопинг"]}, {"cat": "Wanning", "name": "Shenzhou Peninsula", "zh": "神州半岛", "lat": 18.684, "lon": 110.328, "role": "Пляж/маяк/вид", "when": "день Wanning", "verdict": "Возможно стоит", "note": "Смотреть по времени и погоде.", "tags": ["море", "природа", "фото"]}, {"cat": "Море", "name": "Houhai Village", "zh": "后海村 / 藤海渔村", "lat": 18.3016, "lon": 109.7527, "role": "Surf village / бары", "when": "после 15:00", "verdict": "Молодой вайб, не главный swim-day", "note": "Шумно вечером, хорошо для серфа/кафе/баров.", "tags": ["бар", "жара", "море"]}, {"cat": "Остров", "name": "Wuzhizhou Island Tourist Center", "zh": "蜈支洲岛游客中心", "lat": 18.3031, "lon": 109.7535, "role": "Причал Wuzhizhou", "when": "только ясное море", "verdict": "Возможно стоит", "note": "Красиво, но коммерчески и дорого.", "tags": ["море"]}, {"cat": "Остров", "name": "Wuzhizhou Island", "zh": "蜈支洲岛", "lat": 18.3135, "lon": 109.77, "role": "Остров/водные активности", "when": "утром", "verdict": "Не в плохую погоду", "note": "Толпы, очереди, доплаты.", "tags": ["жара", "море"]}, {"cat": "Шопинг", "name": "CDF Sanya International Duty Free City", "zh": "三亚国际免税城", "lat": 18.3297, "lon": 109.7358, "role": "Duty free", "when": "дождь/жара/шопинг", "verdict": "Стоит, если есть список покупок", "note": "Адрес: 海棠北路118号. Паспорт + данные вылета.", "tags": ["дождь", "жара", "шопинг"]}, {"cat": "Indoor", "name": "Atlantis Sanya Lost Chambers Aquarium", "zh": "三亚亚特兰蒂斯失落的空间水族馆", "lat": 18.3378, "lon": 109.7328, "role": "Океанариум", "when": "дождь/жара", "verdict": "Стоит как вау-indoor", "note": "30 экспозиций, большой аквариум; лучше совмещать с CDF.", "tags": ["дождь", "жара", "шопинг"]}, {"cat": "Бар", "name": "The Sanya EDITION Sky Bar", "zh": "三亚艾迪逊酒店 Sky Bar", "lat": 18.3347, "lon": 109.7355, "role": "Красивый бар", "when": "вечер Haitang", "verdict": "Один вау-вечер", "note": "Дороже, adults-only вайб.", "tags": ["бар", "жара"]}, {"cat": "Культура", "name": "Nanshan Cultural Tourism Zone", "zh": "南山文化旅游区", "lat": 18.2948, "lon": 109.2119, "role": "Культура/архитектура", "when": "утро", "verdict": "Возможно стоит", "note": "Не религиозно, а масштаб/вид/архитектура.", "tags": ["жара", "природа", "фото"]}, {"cat": "Закат", "name": "Sanya Bay Coconut Dream Corridor", "zh": "三亚湾椰梦长廊", "lat": 18.274, "lon": 109.452, "role": "Закат/прогулка", "when": "17:30-19:30", "verdict": "Только вечер", "note": "Не главный пляж для купания.", "tags": ["еда", "жара", "море", "фото"]}, {"cat": "Шопинг", "name": "Sanya Joy City", "zh": "三亚大悦城", "lat": 18.28389, "lon": 109.51484, "role": "Современный ТЦ", "when": "дождь/жара", "verdict": "Лучше Ананаса для indoor-day", "note": "Адрес: 迎宾路233号.", "tags": ["дождь", "жара", "шопинг"]}, {"cat": "Шопинг", "name": "Summer Mall", "zh": "夏日百货", "lat": 18.22522, "lon": 109.51904, "role": "ТЦ рядом", "when": "если рядом/дождь", "verdict": "Удобно, не вау", "note": "Tax refund mall, не offshore duty free.", "tags": ["дождь", "жара", "рядом", "шопинг"]}, {"cat": "Шопинг", "name": "Pineapple Shopping Center", "zh": "大菠萝 / 三亚1号港湾城", "lat": 18.22376, "lon": 109.5249, "role": "ТЦ рядом / landmark", "when": "если рядом", "verdict": "Не делать главным", "note": "Отзывы смешанные; зайти по пути.", "tags": ["дождь", "рядом", "шопинг"]}, {"cat": "Еда", "name": "First Market / Xinmin Street", "zh": "第一市场 / 新民街", "lat": 18.2513, "lon": 109.5087, "role": "Seafood + фрукты", "when": "вечер/обед", "verdict": "Колоритно, но туристично", "note": "Цена за 斤 и обработку до заказа.", "tags": ["еда", "жара"]}, {"cat": "Еда", "name": "MS.LIN'S Seafood / Linjie", "zh": "林姐香味海鲜", "lat": 18.251, "lon": 109.5085, "role": "Seafood processing", "when": "обед/ужин", "verdict": "Кандидат seafood", "note": "No.139 Xinmin Street; фиксировать итоговую цену.", "tags": ["еда"]}, {"cat": "Еда", "name": "Dolphin Sports Bar & Grill", "zh": "Dolphin海豚美式西餐厅", "lat": 18.224, "lon": 109.518, "role": "Пиво/бар/fallback", "when": "вечер", "verdict": "Надёжно, не локально", "note": "Yuya Road 99; бургеры, wings, пиво, спорт-бар.", "tags": ["бар", "еда", "жара", "рядом", "фото"]}, {"cat": "Бар", "name": "FreeGen Beach Bar", "zh": "FreeGen Beach Bar", "lat": 18.2217, "lon": 109.5206, "role": "Пляжный бар", "when": "закат/вечер", "verdict": "Первый вечер / sunset", "note": "Dadonghai beachfront; коктейли, простой ужин.", "tags": ["бар", "жара", "море", "рядом", "фото"]}, {"cat": "Еда", "name": "Yanjiang Hainan Cuisine", "zh": "沿江海南菜", "lat": 18.224, "lon": 109.5245, "role": "Хайнаньская кухня", "when": "обед/ужин", "verdict": "Хороший ввод в локальные блюда", "note": "Ищите актуальную точку в Amap/Dianping: 沿江海南菜.", "tags": ["еда"]}, {"cat": "Еда", "name": "Coconut Chicken candidate", "zh": "椰小鸡 / 嗲嗲的椰子鸡", "lat": 18.2242, "lon": 109.5242, "role": "Кокосовая курица", "when": "первый ужин", "verdict": "Обязательно попробовать", "note": "Ищите ближайшую точку в Amap/Dianping по названию.", "tags": ["еда"]}, {"cat": "Чай", "name": "Tenfu Tea / tea shops", "zh": "天福茗茶 / 茶叶 / 茶馆", "lat": 18.2252, "lon": 109.519, "role": "Чай/покупки", "when": "дождь/устали", "verdict": "Лучше небольшие дегустации", "note": "Пуэр/улун/белый чай; не покупать дорогой aged puer вслепую.", "tags": ["дождь", "рядом", "чай"]}];
+const STORE_PREFIX='sanyaGuideV3:';
+let storageAvailable=true;
+function storeGet(key,fallback){
+ try { const raw=localStorage.getItem(STORE_PREFIX+key); return raw===null?fallback:JSON.parse(raw); }
+ catch(e){ storageAvailable=false; return fallback; }
+}
+function storeSet(key,value){
+ try { localStorage.setItem(STORE_PREFIX+key,JSON.stringify(value)); return true; }
+ catch(e){ storageAvailable=false; updateStorageStatus(); return false; }
+}
+function storeRemove(key){ try { localStorage.removeItem(STORE_PREFIX+key); } catch(e){ storageAvailable=false; } }
+let toastTimer;
+function toast(msg){const t=document.getElementById('toast');clearTimeout(toastTimer);t.textContent=msg;t.style.display='block';toastTimer=setTimeout(()=>t.style.display='none',2200)}
+function fallbackCopy(txt){
+ const ta=document.createElement('textarea'); ta.value=txt; ta.setAttribute('readonly',''); ta.style.position='fixed'; ta.style.opacity='0';
+ document.body.appendChild(ta); ta.select();
+ try { const ok=document.execCommand('copy'); toast(ok?'Скопировано':'Не удалось скопировать'); }
+ catch(e){ toast('Не удалось скопировать — выделите текст вручную'); }
+ ta.remove();
+}
+function copyText(txt){
+ if(navigator.clipboard&&window.isSecureContext) navigator.clipboard.writeText(txt).then(()=>toast('Скопировано')).catch(()=>fallbackCopy(txt));
+ else fallbackCopy(txt);
+}
+let currentTaxi='',lastFocused=null;
+function showTaxi(txt){lastFocused=document.activeElement;currentTaxi=txt;document.getElementById('taxiText').textContent=txt;document.getElementById('modal').style.display='flex';document.body.style.overflow='hidden';document.getElementById('modalClose').focus()}
+function hideModal(){document.getElementById('modal').style.display='none';document.body.style.overflow='';if(lastFocused&&lastFocused.focus)lastFocused.focus()}
+function closeModal(e){ if(e.target.id==='modal') hideModal(); }
+function copyTaxi(){copyText(currentTaxi)}
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&document.getElementById('modal').style.display==='flex')hideModal()});
+
+document.querySelectorAll('.vibe').forEach(btn=>btn.addEventListener('click',()=>{
+ document.querySelectorAll('.vibe').forEach(b=>b.classList.remove('active')); btn.classList.add('active');
+ const arr=VIBE_RECS[btn.dataset.vibe]||[]; document.getElementById('recbox').innerHTML='<b>'+btn.dataset.vibe.toUpperCase()+':</b><ol>'+arr.map(x=>'<li>'+x+'</li>').join('')+'</ol>';
+}));
+
+function applyFilter(f){
+ document.querySelectorAll('.filter').forEach(b=>b.classList.toggle('active',b.dataset.filter===f));
+ const q=(document.getElementById('search').value||'').toLowerCase().trim();
+ let visible=0;
+ document.querySelectorAll('#placeGrid .place-card').forEach(c=>{
+   const text=(c.dataset.name+' '+c.dataset.zh+' '+c.dataset.cat+' '+c.dataset.tags).toLowerCase();
+   let ok=(f==='все'||(c.dataset.tags||'').includes(f)||c.dataset.cat.toLowerCase().includes(f));
+   if(q) ok=ok && text.includes(q);
+   c.classList.toggle('hidden',!ok);
+   if(ok) visible++;
+ });
+ document.getElementById('resultCount').textContent=visible+' '+pluralPlaces(visible);
+}
+function pluralPlaces(n){const m=n%100;if(m>=11&&m<=14)return'мест';const x=n%10;return x===1?'место':x>=2&&x<=4?'места':'мест';}
+document.querySelectorAll('.filter').forEach(btn=>btn.addEventListener('click',()=>applyFilter(btn.dataset.filter)));
+document.getElementById('search').addEventListener('input',()=>{ const active=document.querySelector('.filter.active'); applyFilter(active?active.dataset.filter:'все'); });
+document.getElementById('searchClear').addEventListener('click',()=>{document.getElementById('search').value='';applyFilter('все');document.getElementById('search').focus()});
+
+function favs(){return storeGet('favorites',[])}
+function saveFavs(a){storeSet('favorites',a);renderFavs();}
+function setupStars(){
+ const f=favs();
+ document.querySelectorAll('.star').forEach(s=>{
+  const id=s.dataset.fav; const on=f.includes(id);s.classList.toggle('on',on);s.textContent=on?'★':'☆';s.setAttribute('aria-label',on?'Удалить из избранного':'Добавить в избранное');s.setAttribute('aria-pressed',String(on));
+  s.onclick=()=>{let a=favs(); if(a.includes(id)) a=a.filter(x=>x!==id); else a.push(id); saveFavs(a); setupStars(); };
+ });
+}
+function renderFavs(){
+ const a=favs(); const out=document.getElementById('favList'); if(!out) return;
+ if(a.length===0){out.innerHTML='<div class="notice">Пока пусто. Сохраняйте места звездой — они появятся здесь.</div>'; return;}
+ out.innerHTML=a.map(id=>{const orig=document.querySelector('#placeGrid [data-place-id="'+id+'"]'); return orig?orig.outerHTML:'';}).join('');
+ out.querySelectorAll('.place-card').forEach(card=>{delete card.dataset.enhanced;const toggle=card.querySelector('.card-toggle');if(toggle)toggle.remove()});
+ enhanceCards(out);setupStars();
+}
+
+const moneyIds=['cashStart','exchangeRate','mTransport','mFood','mBars','mAct','mSpa','mShop','mOther'];
+function readNum(id){return parseFloat(document.getElementById(id).value||'0')||0}
+function saveBudget(){let o={};moneyIds.forEach(id=>o[id]=document.getElementById(id).value);storeSet('budget',o);calcBudget();}
+function loadBudget(){const o=storeGet('budget',{});moneyIds.forEach(id=>{if(o[id]!==undefined)document.getElementById(id).value=o[id];document.getElementById(id).addEventListener('input',saveBudget)});calcBudget()}
+function calcBudget(){const total=['mTransport','mFood','mBars','mAct','mSpa','mShop','mOther'].reduce((s,id)=>s+readNum(id),0);const cash=readNum('cashStart'),rate=readNum('exchangeRate')||13,rub=Math.round(total*rate),left=Math.round((cash-total)*10)/10;document.getElementById('moneyOut').innerHTML='<b>Потрачено:</b> '+total.toFixed(0)+' CNY ≈ '+rub.toLocaleString('ru-RU')+' ₽<br><b>Остаток наличных:</b> <span style="color:'+(left<0?'#b91c1c':'#0f766e')+'">'+left+' CNY</span>'}
+function clearBudget(){storeRemove('budget');moneyIds.forEach(id=>document.getElementById(id).value=id==='cashStart'?'2500':id==='exchangeRate'?'13':'');calcBudget();toast('Бюджет сброшен')}
+function enhanceCards(root=document){
+ root.querySelectorAll('.place-card').forEach(card=>{
+  if(card.dataset.enhanced)return;card.dataset.enhanced='true';card.classList.add('compact');
+  const links=card.querySelector('.links');if(!links)return;
+  const btn=document.createElement('button');btn.type='button';btn.className='card-toggle';btn.textContent='Подробнее';
+  btn.addEventListener('click',()=>{const compact=card.classList.toggle('compact');btn.textContent=compact?'Подробнее':'Свернуть';btn.setAttribute('aria-expanded',String(!compact))});
+  links.before(btn);
+ });
+}
+function wrapTables(){document.querySelectorAll('table').forEach(t=>{if(t.parentElement.classList.contains('table-scroll'))return;const w=document.createElement('div');w.className='table-scroll';t.parentNode.insertBefore(w,t);w.appendChild(t)})}
+function setupChecklists(){
+ const boxes=[...document.querySelectorAll('#checklists input[type="checkbox"]')],saved=storeGet('checklists',[]);
+ boxes.forEach((box,i)=>{box.checked=Boolean(saved[i]);box.addEventListener('change',()=>storeSet('checklists',boxes.map(x=>x.checked)))});
+}
+function setupNotes(){const n=document.getElementById('tripNotes');n.value=storeGet('notes','');n.addEventListener('input',()=>storeSet('notes',n.value))}
+function updateStorageStatus(){document.getElementById('storageStatus').textContent=storageAvailable?'Данные сохраняются на устройстве.':'Хранилище недоступно: используйте экспорт перед закрытием.'}
+function exportData(){
+ const data={version:3,exportedAt:new Date().toISOString(),favorites:favs(),budget:storeGet('budget',{}),notes:storeGet('notes',''),checklists:storeGet('checklists',[])};
+ const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([JSON.stringify(data,null,2)],{type:'application/json'}));a.download='sanya-guide-backup.json';a.click();setTimeout(()=>URL.revokeObjectURL(a.href),1000);toast('Резервная копия готова');
+}
+function importData(file){
+ const r=new FileReader();r.onload=()=>{try{const d=JSON.parse(r.result);if(d.version!==3)throw new Error();storeSet('favorites',Array.isArray(d.favorites)?d.favorites:[]);storeSet('budget',d.budget||{});storeSet('notes',d.notes||'');storeSet('checklists',Array.isArray(d.checklists)?d.checklists:[]);location.reload()}catch(e){toast('Не удалось импортировать файл')}};r.readAsText(file);
+}
+function normalizeNearbyFavorites(){
+ const map={p100:'p0',p102:'p2',p103:'p3',p106:'p6',p123:'p23',p124:'p24',p127:'p27',p128:'p28',p131:'p31'};
+ document.querySelectorAll('#nearby .place-card').forEach(c=>{const id=map[c.dataset.placeId];if(id){c.dataset.placeId=id;const s=c.querySelector('.star');if(s)s.dataset.fav=id}});
+ const normalized=[...new Set(favs().map(id=>map[id]||id))];storeSet('favorites',normalized);
+}
+document.querySelectorAll('.vibe,.filter').forEach(b=>{b.setAttribute('aria-pressed','false');b.addEventListener('click',()=>document.querySelectorAll('.'+(b.classList.contains('vibe')?'vibe':'filter')).forEach(x=>x.setAttribute('aria-pressed',String(x===b))))});
+document.getElementById('exportData').addEventListener('click',exportData);
+document.getElementById('importData').addEventListener('change',e=>{if(e.target.files[0])importData(e.target.files[0])});
+normalizeNearbyFavorites();wrapTables();enhanceCards();setupStars();renderFavs();applyFilter('все');loadBudget();setupChecklists();setupNotes();updateStorageStatus();
+if('serviceWorker'in navigator&&location.protocol.startsWith('http'))navigator.serviceWorker.register('./sw.js').catch(()=>{});
+</script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "name": "Санья — офлайн-гид",
+  "short_name": "Санья",
+  "start_url": "./sanya_offline_guide_v3.html",
+  "display": "standalone",
+  "background_color": "#f3f7f8",
+  "theme_color": "#075985",
+  "lang": "ru",
+  "icons": [
+    {
+      "src": "sanya-guide-icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

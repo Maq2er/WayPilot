@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<kml xmlns="http://www.opengis.net/kml/2.2"><Document>
+<name>Sanya Offline Guide v3</name>
+<Folder><name>Indoor</name>
+<Placemark><name>Atlantis Sanya Lost Chambers Aquarium</name><description>三亚亚特兰蒂斯失落的空间水族馆&lt;br/&gt;Океанариум&lt;br/&gt;дождь/жара&lt;br/&gt;Стоит как вау-indoor&lt;br/&gt;30 экспозиций, большой аквариум; лучше совмещать с CDF.</description><Point><coordinates>109.7328,18.3378,0</coordinates></Point></Placemark>
+<Placemark><name>Atlantis Aquaventure Waterpark</name><description>三亚亚特兰蒂斯水世界&lt;br/&gt;Аквапарк full-day&lt;br/&gt;жара/дождь, если хочется аттракционов&lt;br/&gt;Альтернатива, не must&lt;br/&gt;Обычно 10:00-20:00, но сверить в день. Нужен купальник, SPF, водозащита.</description><Point><coordinates>109.7334,18.3382,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Wanning</name>
+<Placemark><name>Riyue Bay</name><description>日月湾&lt;br/&gt;Серф-вайб&lt;br/&gt;день Wanning&lt;br/&gt;Точно стоит, если погода норм&lt;br/&gt;Серф-проба, кафе, волны; осторожно с рипами.</description><Point><coordinates>110.2156,18.6298,0</coordinates></Point></Placemark>
+<Placemark><name>Shimei Bay</name><description>石梅湾&lt;br/&gt;Спокойная красивая бухта&lt;br/&gt;день Wanning&lt;br/&gt;Стоит как часть выезда&lt;br/&gt;Не шопинг, а побережье/кафе/вид.</description><Point><coordinates>110.28058,18.66865,0</coordinates></Point></Placemark>
+<Placemark><name>Shenzhou Peninsula</name><description>神州半岛&lt;br/&gt;Пляж/маяк/вид&lt;br/&gt;день Wanning&lt;br/&gt;Возможно стоит&lt;br/&gt;Смотреть по времени и погоде.</description><Point><coordinates>110.328,18.684,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>База</name>
+<Placemark><name>Ascott Dadonghai Bay Sanya</name><description>三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓&lt;br/&gt;Отель / база&lt;br/&gt;каждый день&lt;br/&gt;База отличная: Dadonghai, пляж, бары, DiDi&lt;br/&gt;Адрес: 海韵路66号, 大东海. Координаты приблизительные; в Amap ищите китайское название.</description><Point><coordinates>109.5207,18.221,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Бар</name>
+<Placemark><name>The Sanya EDITION Sky Bar</name><description>三亚艾迪逊酒店 Sky Bar&lt;br/&gt;Красивый бар&lt;br/&gt;вечер Haitang&lt;br/&gt;Один вау-вечер&lt;br/&gt;Дороже, adults-only вайб.</description><Point><coordinates>109.7355,18.3347,0</coordinates></Point></Placemark>
+<Placemark><name>FreeGen Beach Bar</name><description>FreeGen Beach Bar&lt;br/&gt;Пляжный бар&lt;br/&gt;закат/вечер&lt;br/&gt;Первый вечер / sunset&lt;br/&gt;Dadonghai beachfront; коктейли, простой ужин.</description><Point><coordinates>109.5206,18.2217,0</coordinates></Point></Placemark>
+<Placemark><name>Mandarin Oriental Sunset Bar</name><description>三亚文华东方酒店 Sunset Bar / 日落吧&lt;br/&gt;Романтичный закат и коктейли&lt;br/&gt;спокойный красивый вечер&lt;br/&gt;Комфорт/вау, не каждый день&lt;br/&gt;地址: 榆海路12号. Брать: tropical/classic cocktails, afternoon tea, light bites. Ради вида, не ради дешёвого алкоголя.</description><Point><coordinates>109.5068,18.2057,0</coordinates></Point></Placemark>
+<Placemark><name>Casa Corona Sanya</name><description>Casa Corona / 卡萨科罗娜酒吧&lt;br/&gt;Beach club / pool bar Dadonghai&lt;br/&gt;вечер с музыкой/party vibe&lt;br/&gt;Резерв, если хочется движ&lt;br/&gt;The Shanhaitian Resort Sanya, Autograph Collection, 海韵路77号. Брать: Corona, margarita, tacos/snacks; может быть шумно.</description><Point><coordinates>109.5166,18.2212,0</coordinates></Point></Placemark>
+<Placemark><name>Tikki Lounge &amp; Bar Atlantis</name><description>Tikki Lounge &amp; Bar / 三亚亚特兰蒂斯 Tikki酒吧&lt;br/&gt;Live music / brewpub / Atlantis&lt;br/&gt;после Atlantis/CDF&lt;br/&gt;Резерв к EDITION&lt;br/&gt;Брать: craft beer, signature cocktails, Asian tapas. Сверить часы на месте.</description><Point><coordinates>109.7329,18.3378,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Вид</name>
+<Placemark><name>Luhuitou Scenic Area</name><description>鹿回头风景区&lt;br/&gt;Закат / вид на город&lt;br/&gt;17:30-20:00&lt;br/&gt;Точно стоит как лёгкий вечер&lt;br/&gt;Не полдня, а sunset-стоп рядом с Dadonghai.</description><Point><coordinates>109.499,18.2206,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Еда</name>
+<Placemark><name>First Market / Xinmin Street</name><description>第一市场 / 新民街&lt;br/&gt;Seafood + фрукты&lt;br/&gt;вечер/обед&lt;br/&gt;Колоритно, но туристично&lt;br/&gt;Цена за 斤 и обработку до заказа.</description><Point><coordinates>109.5087,18.2513,0</coordinates></Point></Placemark>
+<Placemark><name>MS.LIN'S Seafood / Linjie</name><description>林姐香味海鲜&lt;br/&gt;Seafood processing&lt;br/&gt;обед/ужин&lt;br/&gt;Кандидат seafood&lt;br/&gt;No.139 Xinmin Street; фиксировать итоговую цену.</description><Point><coordinates>109.5085,18.251,0</coordinates></Point></Placemark>
+<Placemark><name>Dolphin Sports Bar &amp; Grill</name><description>Dolphin海豚美式西餐厅&lt;br/&gt;Пиво/бар/fallback&lt;br/&gt;вечер&lt;br/&gt;Надёжно, не локально&lt;br/&gt;Yuya Road 99; бургеры, wings, пиво, спорт-бар.</description><Point><coordinates>109.518,18.224,0</coordinates></Point></Placemark>
+<Placemark><name>Yanjiang Hainan Cuisine</name><description>沿江海南菜&lt;br/&gt;Хайнаньская кухня&lt;br/&gt;обед/ужин&lt;br/&gt;Хороший ввод в локальные блюда&lt;br/&gt;Ищите актуальную точку в Amap/Dianping: 沿江海南菜.</description><Point><coordinates>109.5245,18.224,0</coordinates></Point></Placemark>
+<Placemark><name>Coconut Chicken candidate</name><description>椰小鸡 / 嗲嗲的椰子鸡&lt;br/&gt;Кокосовая курица&lt;br/&gt;первый ужин&lt;br/&gt;Обязательно попробовать&lt;br/&gt;Ищите ближайшую точку в Amap/Dianping по названию.</description><Point><coordinates>109.5242,18.2242,0</coordinates></Point></Placemark>
+<Placemark><name>Tai Qiong Zao-po Vinegar Hotpot (Mingzhu)</name><description>太琼糟粕醋·海南酸汤火锅（明珠广场店）&lt;br/&gt;Кислый seafood hotpot&lt;br/&gt;ужин / дождь / после города&lt;br/&gt;Стоит как яркий локальный вкус&lt;br/&gt;地址: 解放三路668号明珠广场7楼7-1号。Брать: 糟粕醋酸汤锅, seafood platter, shrimp, beef, seaweed.</description><Point><coordinates>109.5098,18.2576,0</coordinates></Point></Placemark>
+<Placemark><name>Qiongxiangge Hainan Cuisine</name><description>琼乡阁海南菜&lt;br/&gt;Хайнаньская кухня backup&lt;br/&gt;обед/ужин, если хочется локального без рынка&lt;br/&gt;Стоит проверить по Amap/Dianping&lt;br/&gt;Брать: 文昌鸡, 菠萝蜜烤文昌鸡, 海南粉, 椰子饭, mango/coconut rolls. Координаты приблизительные: ищите ближайший branch.</description><Point><coordinates>109.4973,18.2768,0</coordinates></Point></Placemark>
+<Placemark><name>A Lang Seafood / A Lang processing</name><description>阿浪海鲜 / 阿浪海鲜连锁加工&lt;br/&gt;Seafood backup у First Market&lt;br/&gt;seafood-вечер&lt;br/&gt;Резерв к MS.LIN&lt;br/&gt;Брать: 蒜蓉扇贝, 白灼虾, 清蒸石斑鱼, 香辣蟹. Сначала цена за 斤 + processing fee.</description><Point><coordinates>109.5089,18.2514,0</coordinates></Point></Placemark>
+<Placemark><name>Zheng Apo Qingbuliang</name><description>郑阿婆清补凉（第一市场店）&lt;br/&gt;Холодный кокосовый десерт&lt;br/&gt;жара / после рынка&lt;br/&gt;Стоит как десерт&lt;br/&gt;地址: 解放路98/100号. Брать: 传统椰奶清补凉, 芒果冰球清补凉, 椰奶冰球清补凉.</description><Point><coordinates>109.5089,18.2518,0</coordinates></Point></Placemark>
+<Placemark><name>Aju Cold Drink</name><description>阿菊冷饮店（第一市场店）&lt;br/&gt;Mango ice / qingbuliang&lt;br/&gt;десерт после First Market&lt;br/&gt;Стоит, если нет очереди&lt;br/&gt;地址: 红旗街一巷19号. Брать: 芒果炒冰, 榴莲炒冰, 清补凉. Популярно;炒冰 может ждать долго.</description><Point><coordinates>109.5077,18.2509,0</coordinates></Point></Placemark>
+<Placemark><name>Gongman Xiting Dadonghai</name><description>宫满西廷（大东海店）&lt;br/&gt;Фотогеничный fusion-ужин рядом&lt;br/&gt;вечер рядом с отелем&lt;br/&gt;Резерв, если хочется красиво и недалеко&lt;br/&gt;地址: 榆亚路99-8号, рядом с Dolphin. Брать: 秘制生拌蓬蒿菜, 牛仔粒, 宫廷一品红烧肉, 蟹粉豆腐, 酸汤肥牛.</description><Point><coordinates>109.5182,18.2241,0</coordinates></Point></Placemark>
+<Placemark><name>Baoluo Fen / Hainan noodles search</name><description>抱罗粉 / 海南粉&lt;br/&gt;Локальная лапша&lt;br/&gt;завтрак/обед без ресторана&lt;br/&gt;Искать ближайшую точку&lt;br/&gt;Брать: 抱罗粉, 海南粉, 后安粉. Ориентир 15-35 CNY. Используйте Amap/Dianping search.</description><Point><coordinates>109.5082,18.2508,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Закат</name>
+<Placemark><name>Sanya Bay Coconut Dream Corridor</name><description>三亚湾椰梦长廊&lt;br/&gt;Закат/прогулка&lt;br/&gt;17:30-19:30&lt;br/&gt;Только вечер&lt;br/&gt;Не главный пляж для купания.</description><Point><coordinates>109.452,18.274,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Культура</name>
+<Placemark><name>Nanshan Cultural Tourism Zone</name><description>南山文化旅游区&lt;br/&gt;Культура/архитектура&lt;br/&gt;утро&lt;br/&gt;Возможно стоит&lt;br/&gt;Не религиозно, а масштаб/вид/архитектура.</description><Point><coordinates>109.2119,18.2948,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Море</name>
+<Placemark><name>Houhai Village</name><description>后海村 / 藤海渔村&lt;br/&gt;Surf village / бары&lt;br/&gt;после 15:00&lt;br/&gt;Молодой вайб, не главный swim-day&lt;br/&gt;Шумно вечером, хорошо для серфа/кафе/баров.</description><Point><coordinates>109.7527,18.3016,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Остров</name>
+<Placemark><name>West Island Tourist Center</name><description>西岛游客中心&lt;br/&gt;Причал на West Island&lt;br/&gt;лучше утром&lt;br/&gt;Остров №1 для поездки&lt;br/&gt;Если ветер/ливень - не плыть.</description><Point><coordinates>109.3733,18.2634,0</coordinates></Point></Placemark>
+<Placemark><name>West Island / Niuwangling</name><description>西岛 / 牛王岭&lt;br/&gt;Остров, фото, купание&lt;br/&gt;08:30-15:30&lt;br/&gt;Точно стоит&lt;br/&gt;Рыбацкая деревня + фото + море; меньше конвейера, чем Wuzhizhou.</description><Point><coordinates>109.3808,18.2315,0</coordinates></Point></Placemark>
+<Placemark><name>Wuzhizhou Island Tourist Center</name><description>蜈支洲岛游客中心&lt;br/&gt;Причал Wuzhizhou&lt;br/&gt;только ясное море&lt;br/&gt;Возможно стоит&lt;br/&gt;Красиво, но коммерчески и дорого.</description><Point><coordinates>109.7535,18.3031,0</coordinates></Point></Placemark>
+<Placemark><name>Wuzhizhou Island</name><description>蜈支洲岛&lt;br/&gt;Остров/водные активности&lt;br/&gt;утром&lt;br/&gt;Не в плохую погоду&lt;br/&gt;Толпы, очереди, доплаты.</description><Point><coordinates>109.77,18.3135,0</coordinates></Point></Placemark>
+<Placemark><name>Boundary Island Tourist Center</name><description>分界洲岛游客中心&lt;br/&gt;Второй островный день&lt;br/&gt;только при идеальной погоде&lt;br/&gt;Не основной, далеко&lt;br/&gt;Красиво, но логистика сложнее. Не ставить перед вылетом; уточнить про animal shows.</description><Point><coordinates>110.1905,18.5789,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Пляж</name>
+<Placemark><name>Dadonghai Beach</name><description>大东海&lt;br/&gt;Домашний пляж&lt;br/&gt;утро/вечер&lt;br/&gt;Удобно, но не самый вау пляж&lt;br/&gt;Купаться только в разрешённых зонах и по флагам.</description><Point><coordinates>109.5195,18.2223,0</coordinates></Point></Placemark>
+<Placemark><name>Yalong Bay Beach</name><description>亚龙湾海滩&lt;br/&gt;Лучший классический пляж&lt;br/&gt;утро или после 16:00&lt;br/&gt;Точно стоит для купания&lt;br/&gt;Красивее Dadonghai, но днём жарко.</description><Point><coordinates>109.6252,18.2266,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Поезд</name>
+<Placemark><name>Sanya Railway Station</name><description>三亚站&lt;br/&gt;Поезд на Wanning/Lingshui&lt;br/&gt;дальние выезды&lt;br/&gt;Нужен для Wanning&lt;br/&gt;Билеты в Trip.com/12306, паспорт обязателен.</description><Point><coordinates>109.4917,18.3093,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Природа</name>
+<Placemark><name>Yalong Bay Tropical Paradise Forest Park</name><description>亚龙湾热带天堂森林公园&lt;br/&gt;Виды / лесной парк&lt;br/&gt;08:00-12:30&lt;br/&gt;Стоит 1 раз, туристично&lt;br/&gt;Доплаты за мосты/аттракционы; не идти в ливень.</description><Point><coordinates>109.6423,18.2478,0</coordinates></Point></Placemark>
+<Placemark><name>Yanoda Rainforest</name><description>呀诺达热带雨林文化旅游区&lt;br/&gt;Джунгли&lt;br/&gt;утром&lt;br/&gt;Возможно стоит&lt;br/&gt;Хорошо в лёгкий дождь, плохо в ливень/духоту.</description><Point><coordinates>109.6738,18.4015,0</coordinates></Point></Placemark>
+<Placemark><name>Nanwan Monkey Island</name><description>南湾猴岛&lt;br/&gt;Обезьяний остров / канатка&lt;br/&gt;только если очень хочется&lt;br/&gt;Скорее не рекомендую&lt;br/&gt;Этика животных, шоу, отзывы спорные. Включено как “известное, но осознанно не выбрали”.</description><Point><coordinates>109.9752,18.3944,0</coordinates></Point></Placemark>
+<Placemark><name>Hainan Tropical Wildlife Park</name><description>海南热带野生动植物园&lt;br/&gt;Зоопарк у Хайкоу&lt;br/&gt;не для этой поездки&lt;br/&gt;Скорее не стоит из Саньи&lt;br/&gt;Слишком далеко от Dadonghai; день лучше потратить на Wanning/Yanoda/West Island.</description><Point><coordinates>110.2526,19.8979,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Транспорт</name>
+<Placemark><name>Sanya Phoenix International Airport</name><description>三亚凤凰国际机场&lt;br/&gt;Аэропорт&lt;br/&gt;5 и 14 июля&lt;br/&gt;DiDi/такси, не автобус для раннего рейса&lt;br/&gt;Для вылета: 国际出发 / international departures.</description><Point><coordinates>109.4123,18.3029,0</coordinates></Point></Placemark>
+<Placemark><name>Yalong Bay Railway Station</name><description>亚龙湾站&lt;br/&gt;Ж/д станция&lt;br/&gt;редко, если удобнее для Yalong/Wanning&lt;br/&gt;Резерв&lt;br/&gt;Иногда удобна, но из Dadonghai часто проще DiDi до Sanya Station.</description><Point><coordinates>109.6238,18.3069,0</coordinates></Point></Placemark>
+<Placemark><name>Shenzhou Railway Station</name><description>神州站&lt;br/&gt;Ж/д для Shenzhou/Wanning&lt;br/&gt;Wanning day&lt;br/&gt;Полезно для day trip&lt;br/&gt;Сверять поезд в Trip.com/12306. После станции нужен DiDi до пляжа.</description><Point><coordinates>110.3368,18.6908,0</coordinates></Point></Placemark>
+<Placemark><name>Wanning Railway Station</name><description>万宁站&lt;br/&gt;Ж/д для Wanning&lt;br/&gt;Wanning day&lt;br/&gt;Полезно для day trip&lt;br/&gt;Больше транспорта, чем на маленьких станциях; дальше DiDi.</description><Point><coordinates>110.3895,18.7959,0</coordinates></Point></Placemark>
+<Placemark><name>Lingshui Railway Station</name><description>陵水站&lt;br/&gt;Ж/д для Boundary/Monkey&lt;br/&gt;только если едете в Lingshui&lt;br/&gt;Резерв&lt;br/&gt;Для Boundary/Monkey нужен ещё такси/трансфер.</description><Point><coordinates>110.0378,18.5057,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Фото</name>
+<Placemark><name>Sun Bay Road viewpoint</name><description>太阳湾路观景点&lt;br/&gt;Coastal road / фото&lt;br/&gt;утро/закат&lt;br/&gt;Красиво как фотостоп&lt;br/&gt;Лучше совмещать с Yalong Bay.</description><Point><coordinates>109.6422,18.2073,0</coordinates></Point></Placemark>
+<Placemark><name>Pink Beach / Hyatt Tianli Bay candidate</name><description>粉色沙滩 / 三亚天丽湾凯悦酒店附近&lt;br/&gt;Фотозона, не природное чудо&lt;br/&gt;только если по пути&lt;br/&gt;Не ехать специально&lt;br/&gt;Вероятнее hotel/photo setup. Для вау-фото лучше West Island, Luhuitou, Sun Bay, Sanya Bay sunset.</description><Point><coordinates>109.3739,18.2882,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Чай</name>
+<Placemark><name>Tenfu Tea / tea shops</name><description>天福茗茶 / 茶叶 / 茶馆&lt;br/&gt;Чай/покупки&lt;br/&gt;дождь/устали&lt;br/&gt;Лучше небольшие дегустации&lt;br/&gt;Пуэр/улун/белый чай; не покупать дорогой aged puer вслепую.</description><Point><coordinates>109.519,18.2252,0</coordinates></Point></Placemark>
+</Folder>
+<Folder><name>Шопинг</name>
+<Placemark><name>CDF Sanya International Duty Free City</name><description>三亚国际免税城&lt;br/&gt;Duty free&lt;br/&gt;дождь/жара/шопинг&lt;br/&gt;Стоит, если есть список покупок&lt;br/&gt;Адрес: 海棠北路118号. Паспорт + данные вылета.</description><Point><coordinates>109.7358,18.3297,0</coordinates></Point></Placemark>
+<Placemark><name>Sanya Joy City</name><description>三亚大悦城&lt;br/&gt;Современный ТЦ&lt;br/&gt;дождь/жара&lt;br/&gt;Лучше Ананаса для indoor-day&lt;br/&gt;Адрес: 迎宾路233号.</description><Point><coordinates>109.51484,18.28389,0</coordinates></Point></Placemark>
+<Placemark><name>Summer Mall</name><description>夏日百货&lt;br/&gt;ТЦ рядом&lt;br/&gt;если рядом/дождь&lt;br/&gt;Удобно, не вау&lt;br/&gt;Tax refund mall, не offshore duty free.</description><Point><coordinates>109.51904,18.22522,0</coordinates></Point></Placemark>
+<Placemark><name>Pineapple Shopping Center</name><description>大菠萝 / 三亚1号港湾城&lt;br/&gt;ТЦ рядом / landmark&lt;br/&gt;если рядом&lt;br/&gt;Не делать главным&lt;br/&gt;Отзывы смешанные; зайти по пути.</description><Point><coordinates>109.5249,18.22376,0</coordinates></Point></Placemark>
+</Folder>
+</Document></kml>

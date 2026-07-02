@@ -1,0 +1,1025 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "База",
+        "name": "Ascott Dadonghai Bay Sanya",
+        "zh": "三亚雅诗阁山海天服务公寓 / 三亚绿发山海天雅诗阁服务公寓",
+        "role": "Отель / база",
+        "when": "каждый день",
+        "verdict": "База отличная: Dadonghai, пляж, бары, DiDi",
+        "note": "Адрес: 海韵路66号, 大东海. Координаты приблизительные; в Amap ищите китайское название.",
+        "tags": "['бар', 'море', 'рядом']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5207,
+          18.221
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Транспорт",
+        "name": "Sanya Phoenix International Airport",
+        "zh": "三亚凤凰国际机场",
+        "role": "Аэропорт",
+        "when": "5 и 14 июля",
+        "verdict": "DiDi/такси, не автобус для раннего рейса",
+        "note": "Для вылета: 国际出发 / international departures.",
+        "tags": "['транспорт']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.4123,
+          18.3029
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Пляж",
+        "name": "Dadonghai Beach",
+        "zh": "大东海",
+        "role": "Домашний пляж",
+        "when": "утро/вечер",
+        "verdict": "Удобно, но не самый вау пляж",
+        "note": "Купаться только в разрешённых зонах и по флагам.",
+        "tags": "['жара', 'море', 'рядом']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5195,
+          18.2223
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Вид",
+        "name": "Luhuitou Scenic Area",
+        "zh": "鹿回头风景区",
+        "role": "Закат / вид на город",
+        "when": "17:30-20:00",
+        "verdict": "Точно стоит как лёгкий вечер",
+        "note": "Не полдня, а sunset-стоп рядом с Dadonghai.",
+        "tags": "['жара', 'природа', 'рядом', 'фото']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.499,
+          18.2206
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Остров",
+        "name": "West Island Tourist Center",
+        "zh": "西岛游客中心",
+        "role": "Причал на West Island",
+        "when": "лучше утром",
+        "verdict": "Остров №1 для поездки",
+        "note": "Если ветер/ливень - не плыть.",
+        "tags": "['жара', 'море', 'транспорт']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.3733,
+          18.2634
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Остров",
+        "name": "West Island / Niuwangling",
+        "zh": "西岛 / 牛王岭",
+        "role": "Остров, фото, купание",
+        "when": "08:30-15:30",
+        "verdict": "Точно стоит",
+        "note": "Рыбацкая деревня + фото + море; меньше конвейера, чем Wuzhizhou.",
+        "tags": "['море', 'фото']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.3808,
+          18.2315
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Пляж",
+        "name": "Yalong Bay Beach",
+        "zh": "亚龙湾海滩",
+        "role": "Лучший классический пляж",
+        "when": "утро или после 16:00",
+        "verdict": "Точно стоит для купания",
+        "note": "Красивее Dadonghai, но днём жарко.",
+        "tags": "['жара', 'море', 'рядом']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.6252,
+          18.2266
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Природа",
+        "name": "Yalong Bay Tropical Paradise Forest Park",
+        "zh": "亚龙湾热带天堂森林公园",
+        "role": "Виды / лесной парк",
+        "when": "08:00-12:30",
+        "verdict": "Стоит 1 раз, туристично",
+        "note": "Доплаты за мосты/аттракционы; не идти в ливень.",
+        "tags": "['море', 'природа', 'фото']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.6423,
+          18.2478
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Фото",
+        "name": "Sun Bay Road viewpoint",
+        "zh": "太阳湾路观景点",
+        "role": "Coastal road / фото",
+        "when": "утро/закат",
+        "verdict": "Красиво как фотостоп",
+        "note": "Лучше совмещать с Yalong Bay.",
+        "tags": "['жара', 'море', 'фото']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.6422,
+          18.2073
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Природа",
+        "name": "Yanoda Rainforest",
+        "zh": "呀诺达热带雨林文化旅游区",
+        "role": "Джунгли",
+        "when": "утром",
+        "verdict": "Возможно стоит",
+        "note": "Хорошо в лёгкий дождь, плохо в ливень/духоту.",
+        "tags": "['дождь', 'жара', 'природа']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.6738,
+          18.4015
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Поезд",
+        "name": "Sanya Railway Station",
+        "zh": "三亚站",
+        "role": "Поезд на Wanning/Lingshui",
+        "when": "дальние выезды",
+        "verdict": "Нужен для Wanning",
+        "note": "Билеты в Trip.com/12306, паспорт обязателен.",
+        "tags": "['транспорт']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.4917,
+          18.3093
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Wanning",
+        "name": "Riyue Bay",
+        "zh": "日月湾",
+        "role": "Серф-вайб",
+        "when": "день Wanning",
+        "verdict": "Точно стоит, если погода норм",
+        "note": "Серф-проба, кафе, волны; осторожно с рипами.",
+        "tags": "['море']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.2156,
+          18.6298
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Wanning",
+        "name": "Shimei Bay",
+        "zh": "石梅湾",
+        "role": "Спокойная красивая бухта",
+        "when": "день Wanning",
+        "verdict": "Стоит как часть выезда",
+        "note": "Не шопинг, а побережье/кафе/вид.",
+        "tags": "['море', 'природа', 'фото', 'шопинг']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.28058,
+          18.66865
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Wanning",
+        "name": "Shenzhou Peninsula",
+        "zh": "神州半岛",
+        "role": "Пляж/маяк/вид",
+        "when": "день Wanning",
+        "verdict": "Возможно стоит",
+        "note": "Смотреть по времени и погоде.",
+        "tags": "['море', 'природа', 'фото']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.328,
+          18.684
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Море",
+        "name": "Houhai Village",
+        "zh": "后海村 / 藤海渔村",
+        "role": "Surf village / бары",
+        "when": "после 15:00",
+        "verdict": "Молодой вайб, не главный swim-day",
+        "note": "Шумно вечером, хорошо для серфа/кафе/баров.",
+        "tags": "['бар', 'жара', 'море']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.7527,
+          18.3016
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Остров",
+        "name": "Wuzhizhou Island Tourist Center",
+        "zh": "蜈支洲岛游客中心",
+        "role": "Причал Wuzhizhou",
+        "when": "только ясное море",
+        "verdict": "Возможно стоит",
+        "note": "Красиво, но коммерчески и дорого.",
+        "tags": "['море']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.7535,
+          18.3031
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Остров",
+        "name": "Wuzhizhou Island",
+        "zh": "蜈支洲岛",
+        "role": "Остров/водные активности",
+        "when": "утром",
+        "verdict": "Не в плохую погоду",
+        "note": "Толпы, очереди, доплаты.",
+        "tags": "['жара', 'море']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.77,
+          18.3135
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Шопинг",
+        "name": "CDF Sanya International Duty Free City",
+        "zh": "三亚国际免税城",
+        "role": "Duty free",
+        "when": "дождь/жара/шопинг",
+        "verdict": "Стоит, если есть список покупок",
+        "note": "Адрес: 海棠北路118号. Паспорт + данные вылета.",
+        "tags": "['дождь', 'жара', 'шопинг']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.7358,
+          18.3297
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Indoor",
+        "name": "Atlantis Sanya Lost Chambers Aquarium",
+        "zh": "三亚亚特兰蒂斯失落的空间水族馆",
+        "role": "Океанариум",
+        "when": "дождь/жара",
+        "verdict": "Стоит как вау-indoor",
+        "note": "30 экспозиций, большой аквариум; лучше совмещать с CDF.",
+        "tags": "['дождь', 'жара', 'шопинг']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.7328,
+          18.3378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Бар",
+        "name": "The Sanya EDITION Sky Bar",
+        "zh": "三亚艾迪逊酒店 Sky Bar",
+        "role": "Красивый бар",
+        "when": "вечер Haitang",
+        "verdict": "Один вау-вечер",
+        "note": "Дороже, adults-only вайб.",
+        "tags": "['бар', 'жара']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.7355,
+          18.3347
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Культура",
+        "name": "Nanshan Cultural Tourism Zone",
+        "zh": "南山文化旅游区",
+        "role": "Культура/архитектура",
+        "when": "утро",
+        "verdict": "Возможно стоит",
+        "note": "Не религиозно, а масштаб/вид/архитектура.",
+        "tags": "['жара', 'природа', 'фото']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.2119,
+          18.2948
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Закат",
+        "name": "Sanya Bay Coconut Dream Corridor",
+        "zh": "三亚湾椰梦长廊",
+        "role": "Закат/прогулка",
+        "when": "17:30-19:30",
+        "verdict": "Только вечер",
+        "note": "Не главный пляж для купания.",
+        "tags": "['еда', 'жара', 'море', 'фото']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.452,
+          18.274
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Шопинг",
+        "name": "Sanya Joy City",
+        "zh": "三亚大悦城",
+        "role": "Современный ТЦ",
+        "when": "дождь/жара",
+        "verdict": "Лучше Ананаса для indoor-day",
+        "note": "Адрес: 迎宾路233号.",
+        "tags": "['дождь', 'жара', 'шопинг']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.51484,
+          18.28389
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Шопинг",
+        "name": "Summer Mall",
+        "zh": "夏日百货",
+        "role": "ТЦ рядом",
+        "when": "если рядом/дождь",
+        "verdict": "Удобно, не вау",
+        "note": "Tax refund mall, не offshore duty free.",
+        "tags": "['дождь', 'жара', 'рядом', 'шопинг']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.51904,
+          18.22522
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Шопинг",
+        "name": "Pineapple Shopping Center",
+        "zh": "大菠萝 / 三亚1号港湾城",
+        "role": "ТЦ рядом / landmark",
+        "when": "если рядом",
+        "verdict": "Не делать главным",
+        "note": "Отзывы смешанные; зайти по пути.",
+        "tags": "['дождь', 'рядом', 'шопинг']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5249,
+          18.22376
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "First Market / Xinmin Street",
+        "zh": "第一市场 / 新民街",
+        "role": "Seafood + фрукты",
+        "when": "вечер/обед",
+        "verdict": "Колоритно, но туристично",
+        "note": "Цена за 斤 и обработку до заказа.",
+        "tags": "['еда', 'жара']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5087,
+          18.2513
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "MS.LIN'S Seafood / Linjie",
+        "zh": "林姐香味海鲜",
+        "role": "Seafood processing",
+        "when": "обед/ужин",
+        "verdict": "Кандидат seafood",
+        "note": "No.139 Xinmin Street; фиксировать итоговую цену.",
+        "tags": "['еда']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5085,
+          18.251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "Dolphin Sports Bar & Grill",
+        "zh": "Dolphin海豚美式西餐厅",
+        "role": "Пиво/бар/fallback",
+        "when": "вечер",
+        "verdict": "Надёжно, не локально",
+        "note": "Yuya Road 99; бургеры, wings, пиво, спорт-бар.",
+        "tags": "['бар', 'еда', 'жара', 'рядом', 'фото']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.518,
+          18.224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Бар",
+        "name": "FreeGen Beach Bar",
+        "zh": "FreeGen Beach Bar",
+        "role": "Пляжный бар",
+        "when": "закат/вечер",
+        "verdict": "Первый вечер / sunset",
+        "note": "Dadonghai beachfront; коктейли, простой ужин.",
+        "tags": "['бар', 'жара', 'море', 'рядом', 'фото']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5206,
+          18.2217
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "Yanjiang Hainan Cuisine",
+        "zh": "沿江海南菜",
+        "role": "Хайнаньская кухня",
+        "when": "обед/ужин",
+        "verdict": "Хороший ввод в локальные блюда",
+        "note": "Ищите актуальную точку в Amap/Dianping: 沿江海南菜.",
+        "tags": "['еда']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5245,
+          18.224
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "Coconut Chicken candidate",
+        "zh": "椰小鸡 / 嗲嗲的椰子鸡",
+        "role": "Кокосовая курица",
+        "when": "первый ужин",
+        "verdict": "Обязательно попробовать",
+        "note": "Ищите ближайшую точку в Amap/Dianping по названию.",
+        "tags": "['еда']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5242,
+          18.2242
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Чай",
+        "name": "Tenfu Tea / tea shops",
+        "zh": "天福茗茶 / 茶叶 / 茶馆",
+        "role": "Чай/покупки",
+        "when": "дождь/устали",
+        "verdict": "Лучше небольшие дегустации",
+        "note": "Пуэр/улун/белый чай; не покупать дорогой aged puer вслепую.",
+        "tags": "['дождь', 'рядом', 'чай']"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.519,
+          18.2252
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "Tai Qiong Zao-po Vinegar Hotpot (Mingzhu)",
+        "zh": "太琼糟粕醋·海南酸汤火锅（明珠广场店）",
+        "role": "Кислый seafood hotpot",
+        "when": "ужин / дождь / после города",
+        "verdict": "Стоит как яркий локальный вкус",
+        "note": "地址: 解放三路668号明珠广场7楼7-1号。Брать: 糟粕醋酸汤锅, seafood platter, shrimp, beef, seaweed.",
+        "tags": "дождь еда"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5098,
+          18.2576
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "Qiongxiangge Hainan Cuisine",
+        "zh": "琼乡阁海南菜",
+        "role": "Хайнаньская кухня backup",
+        "when": "обед/ужин, если хочется локального без рынка",
+        "verdict": "Стоит проверить по Amap/Dianping",
+        "note": "Брать: 文昌鸡, 菠萝蜜烤文昌鸡, 海南粉, 椰子饭, mango/coconut rolls. Координаты приблизительные: ищите ближайший branch.",
+        "tags": "еда резерв"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.4973,
+          18.2768
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "A Lang Seafood / A Lang processing",
+        "zh": "阿浪海鲜 / 阿浪海鲜连锁加工",
+        "role": "Seafood backup у First Market",
+        "when": "seafood-вечер",
+        "verdict": "Резерв к MS.LIN",
+        "note": "Брать: 蒜蓉扇贝, 白灼虾, 清蒸石斑鱼, 香辣蟹. Сначала цена за 斤 + processing fee.",
+        "tags": "еда жара резерв шопинг"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5089,
+          18.2514
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "Zheng Apo Qingbuliang",
+        "zh": "郑阿婆清补凉（第一市场店）",
+        "role": "Холодный кокосовый десерт",
+        "when": "жара / после рынка",
+        "verdict": "Стоит как десерт",
+        "note": "地址: 解放路98/100号. Брать: 传统椰奶清补凉, 芒果冰球清补凉, 椰奶冰球清补凉.",
+        "tags": "еда жара"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5089,
+          18.2518
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "Aju Cold Drink",
+        "zh": "阿菊冷饮店（第一市场店）",
+        "role": "Mango ice / qingbuliang",
+        "when": "десерт после First Market",
+        "verdict": "Стоит, если нет очереди",
+        "note": "地址: 红旗街一巷19号. Брать: 芒果炒冰, 榴莲炒冰, 清补凉. Популярно;炒冰 может ждать долго.",
+        "tags": "еда жара шопинг"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5077,
+          18.2509
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "Gongman Xiting Dadonghai",
+        "zh": "宫满西廷（大东海店）",
+        "role": "Фотогеничный fusion-ужин рядом",
+        "when": "вечер рядом с отелем",
+        "verdict": "Резерв, если хочется красиво и недалеко",
+        "note": "地址: 榆亚路99-8号, рядом с Dolphin. Брать: 秘制生拌蓬蒿菜, 牛仔粒, 宫廷一品红烧肉, 蟹粉豆腐, 酸汤肥牛.",
+        "tags": "бар еда жара резерв рядом фото"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5182,
+          18.2241
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Еда",
+        "name": "Baoluo Fen / Hainan noodles search",
+        "zh": "抱罗粉 / 海南粉",
+        "role": "Локальная лапша",
+        "when": "завтрак/обед без ресторана",
+        "verdict": "Искать ближайшую точку",
+        "note": "Брать: 抱罗粉, 海南粉, 后安粉. Ориентир 15-35 CNY. Используйте Amap/Dianping search.",
+        "tags": "еда"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5082,
+          18.2508
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Indoor",
+        "name": "Atlantis Aquaventure Waterpark",
+        "zh": "三亚亚特兰蒂斯水世界",
+        "role": "Аквапарк full-day",
+        "when": "жара/дождь, если хочется аттракционов",
+        "verdict": "Альтернатива, не must",
+        "note": "Обычно 10:00-20:00, но сверить в день. Нужен купальник, SPF, водозащита.",
+        "tags": "дождь жара шопинг"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.7334,
+          18.3382
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Бар",
+        "name": "Mandarin Oriental Sunset Bar",
+        "zh": "三亚文华东方酒店 Sunset Bar / 日落吧",
+        "role": "Романтичный закат и коктейли",
+        "when": "спокойный красивый вечер",
+        "verdict": "Комфорт/вау, не каждый день",
+        "note": "地址: 榆海路12号. Брать: tropical/classic cocktails, afternoon tea, light bites. Ради вида, не ради дешёвого алкоголя.",
+        "tags": "бар жара напитки природа фото чай"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5068,
+          18.2057
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Бар",
+        "name": "Casa Corona Sanya",
+        "zh": "Casa Corona / 卡萨科罗娜酒吧",
+        "role": "Beach club / pool bar Dadonghai",
+        "when": "вечер с музыкой/party vibe",
+        "verdict": "Резерв, если хочется движ",
+        "note": "The Shanhaitian Resort Sanya, Autograph Collection, 海韵路77号. Брать: Corona, margarita, tacos/snacks; может быть шумно.",
+        "tags": "бар жара море напитки резерв рядом"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.5166,
+          18.2212
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Бар",
+        "name": "Tikki Lounge & Bar Atlantis",
+        "zh": "Tikki Lounge & Bar / 三亚亚特兰蒂斯 Tikki酒吧",
+        "role": "Live music / brewpub / Atlantis",
+        "when": "после Atlantis/CDF",
+        "verdict": "Резерв к EDITION",
+        "note": "Брать: craft beer, signature cocktails, Asian tapas. Сверить часы на месте.",
+        "tags": "бар дождь жара напитки резерв шопинг"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.7329,
+          18.3378
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Остров",
+        "name": "Boundary Island Tourist Center",
+        "zh": "分界洲岛游客中心",
+        "role": "Второй островный день",
+        "when": "только при идеальной погоде",
+        "verdict": "Не основной, далеко",
+        "note": "Красиво, но логистика сложнее. Не ставить перед вылетом; уточнить про animal shows.",
+        "tags": "море"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.1905,
+          18.5789
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Природа",
+        "name": "Nanwan Monkey Island",
+        "zh": "南湾猴岛",
+        "role": "Обезьяний остров / канатка",
+        "when": "только если очень хочется",
+        "verdict": "Скорее не рекомендую",
+        "note": "Этика животных, шоу, отзывы спорные. Включено как “известное, но осознанно не выбрали”.",
+        "tags": "море природа резерв"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.9752,
+          18.3944
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Природа",
+        "name": "Hainan Tropical Wildlife Park",
+        "zh": "海南热带野生动植物园",
+        "role": "Зоопарк у Хайкоу",
+        "when": "не для этой поездки",
+        "verdict": "Скорее не стоит из Саньи",
+        "note": "Слишком далеко от Dadonghai; день лучше потратить на Wanning/Yanoda/West Island.",
+        "tags": "море природа резерв рядом транспорт"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.2526,
+          19.8979
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Фото",
+        "name": "Pink Beach / Hyatt Tianli Bay candidate",
+        "zh": "粉色沙滩 / 三亚天丽湾凯悦酒店附近",
+        "role": "Фотозона, не природное чудо",
+        "when": "только если по пути",
+        "verdict": "Не ехать специально",
+        "note": "Вероятнее hotel/photo setup. Для вау-фото лучше West Island, Luhuitou, Sun Bay, Sanya Bay sunset.",
+        "tags": "бар море напитки природа резерв фото"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.3739,
+          18.2882
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Транспорт",
+        "name": "Yalong Bay Railway Station",
+        "zh": "亚龙湾站",
+        "role": "Ж/д станция",
+        "when": "редко, если удобнее для Yalong/Wanning",
+        "verdict": "Резерв",
+        "note": "Иногда удобна, но из Dadonghai часто проще DiDi до Sanya Station.",
+        "tags": "море резерв рядом транспорт"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          109.6238,
+          18.3069
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Транспорт",
+        "name": "Shenzhou Railway Station",
+        "zh": "神州站",
+        "role": "Ж/д для Shenzhou/Wanning",
+        "when": "Wanning day",
+        "verdict": "Полезно для day trip",
+        "note": "Сверять поезд в Trip.com/12306. После станции нужен DiDi до пляжа.",
+        "tags": "море транспорт"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3368,
+          18.6908
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Транспорт",
+        "name": "Wanning Railway Station",
+        "zh": "万宁站",
+        "role": "Ж/д для Wanning",
+        "when": "Wanning day",
+        "verdict": "Полезно для day trip",
+        "note": "Больше транспорта, чем на маленьких станциях; дальше DiDi.",
+        "tags": "транспорт"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.3895,
+          18.7959
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "cat": "Транспорт",
+        "name": "Lingshui Railway Station",
+        "zh": "陵水站",
+        "role": "Ж/д для Boundary/Monkey",
+        "when": "только если едете в Lingshui",
+        "verdict": "Резерв",
+        "note": "Для Boundary/Monkey нужен ещё такси/трансфер.",
+        "tags": "море природа резерв транспорт"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          110.0378,
+          18.5057
+        ]
+      }
+    }
+  ]
+}
