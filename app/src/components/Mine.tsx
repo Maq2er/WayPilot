@@ -1,4 +1,4 @@
-import { Check, CircleDollarSign, Copy, Star, Upload, X } from 'lucide-react'
+import { Check, CircleDollarSign, Copy, ListChecks, MapPinned, Star, Upload, WalletCards, X } from 'lucide-react'
 import { checklistItems } from '../data/checklist'
 import { phrases } from '../data/phrases'
 import type { Budget, Place } from '../types'
@@ -36,6 +36,12 @@ export function Mine(props: Props) {
   return (
     <section>
       {!props.storageAvailable && <div className="storage-warning">Хранилище браузера недоступно. Экспортируйте данные перед закрытием приложения.</div>}
+
+      <div className="mine-overview">
+        <div><MapPinned/><span>Сохранено</span><strong>{savedPlaces.length + savedPhrases.length}</strong></div>
+        <div><ListChecks/><span>Готово</span><strong>{props.checks.length}/{checklistItems.length}</strong></div>
+        <div><WalletCards/><span>Потрачено</span><strong>{total.toFixed(0)} ¥</strong></div>
+      </div>
 
       <SectionTitle title={`Избранные места · ${savedPlaces.length}`}/>
       {savedPlaces.length ? <div className="saved-list">{savedPlaces.map(place => <div className="saved-row" key={place.id}><div><strong>{place.name}</strong><span>{place.zh}</span></div><button onClick={() => props.onTogglePlace(place.id)} aria-label="Удалить"><X size={18}/></button></div>)}</div> : <Empty text="Сохраняйте места звездой — они появятся здесь."/>}

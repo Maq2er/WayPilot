@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react'
-import { CalendarDays, Check, ChevronRight, CloudRain, Compass, Copy, Home, MapPin, Sun, Umbrella, Waves } from 'lucide-react'
+import { CalendarDays, Check, ChevronRight, CloudRain, Compass, Copy, Home, MapPin, Navigation, Sparkles, Sun, Umbrella, Waves } from 'lucide-react'
 import { tripDays } from '../data/days'
 import { phrases } from '../data/phrases'
 import type { Place, ViewId } from '../types'
@@ -39,8 +39,9 @@ export function Today({ locations, selectedDayId, onSelectDay, onOpenPlace, onOp
   return (
     <>
       <section className="today-plan">
+        <div className="today-orbit" aria-hidden="true"/>
         <div className="today-plan-header">
-          <div><span>БОЕВОЙ ПЛАН</span><h2>{activeDay.label} · {activeDay.title}</h2></div>
+          <div><span><Sparkles size={12}/>ПЛАН НА СЕГОДНЯ</span><h2>{activeDay.title}</h2><p>{activeDay.label} · можно менять на ходу</p></div>
           <select value={activeDay.id} onChange={event => onSelectDay(event.target.value)} aria-label="Выбрать день">
             {tripDays.map(day => <option key={day.id} value={day.id}>{day.label}</option>)}
           </select>
@@ -62,7 +63,7 @@ export function Today({ locations, selectedDayId, onSelectDay, onOpenPlace, onOp
             </article>
           ))}
         </div>
-        <button className="today-all-days" onClick={() => go('days')}>Все дни маршрута <ChevronRight size={18}/></button>
+        <button className="today-all-days" onClick={() => go('days')}><Navigation size={17}/>Весь маршрут <ChevronRight size={18}/></button>
       </section>
 
       <section className="hero-card">

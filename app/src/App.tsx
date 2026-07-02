@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
-import { AlertTriangle, BookOpenText, CalendarDays, Compass, Download, Heart, MapPin } from 'lucide-react'
+import { AlertTriangle, BookOpenText, CalendarDays, Compass, Download, Heart, MapPin, WifiOff } from 'lucide-react'
 import locationsUrl from '../../sanya_locations_v3.geojson?url'
 import { checklistItems } from './data/checklist'
 import { tripDays } from './data/days'
@@ -139,7 +139,10 @@ export default function App() {
   return (
     <div className="app">
       <header className="app-header">
-        <div><span className="eyebrow">ОФЛАЙН • САНЬЯ</span><h1>{nav.find(item => item.id === view)?.label}</h1></div>
+        <div className="header-title">
+          <span className="eyebrow"><WifiOff size={11}/>РАБОТАЕТ ОФЛАЙН</span>
+          <h1>{nav.find(item => item.id === view)?.label}</h1>
+        </div>
         <button className="icon-button" onClick={() => setInstallHelp(true)} aria-label="Как установить приложение"><Download size={21}/></button>
       </header>
 
