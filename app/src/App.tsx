@@ -38,6 +38,8 @@ export default function App() {
   const [checks, setChecks, checksStorage] = useStoredState<string[]>('checkIds', [])
   const [budget, setBudget, budgetStorage] = useStoredState('budget', defaultBudget)
   const [selectedDayId, setSelectedDayId, dayStorage] = useStoredState('selectedDayId', tripDays[0].id)
+  const [recentPlaces, setRecentPlaces] = useStoredState<string[]>('recentPlaces', [])
+  const [recentPhrases, setRecentPhrases] = useStoredState<string[]>('recentPhrases', [])
   const [privateEmergency, setPrivateEmergency, emergencyStorage] = useStoredState<PrivateEmergencyProfile>('privateEmergency', {
     hotelPhone:'', bookingNumber:'', insuranceCompany:'', policyNumber:'', insurancePhone:'',
     bloodType:'', diabetesType:'', hypertensionGrade:'', asthmaSeverity:'', allergies:'', medications:'', emergencyContact:'',
@@ -87,10 +89,12 @@ export default function App() {
     window.scrollTo({ top:0, behavior:'smooth' })
   }
   const openPlace = (id: string) => {
+    setRecentPlaces([id, ...recentPlaces.filter(item => item !== id)].slice(0, 5))
     setRequestedPlaceId(id)
     go('places')
   }
   const openPhrase = (id: string) => {
+    setRecentPhrases([id, ...recentPhrases.filter(item => item !== id)].slice(0, 5))
     setRequestedPhraseId(id)
     go('phrases')
   }
@@ -153,7 +157,7 @@ export default function App() {
         {view === 'days' && <Days locations={locations} onOpenPlace={openPlace}/>}
         {view === 'places' && <Places locations={locations} loading={loading} favoriteIds={favoritePlaces} requestedPlaceId={requestedPlaceId} onRequestHandled={clearRequestedPlace} onToggleFavorite={id => setFavoritePlaces(toggle(favoritePlaces,id))} onCopy={handleCopy}/>}
         {view === 'phrases' && <Phrasebook favoriteIds={favoritePhrases} requestedPhraseId={requestedPhraseId} onRequestHandled={clearRequestedPhrase} onToggleFavorite={id => setFavoritePhrases(toggle(favoritePhrases,id))} onCopy={handleCopy}/>}
-        {view === 'mine' && <Mine locations={locations} favoritePlaceIds={favoritePlaces} favoritePhraseIds={favoritePhrases} onTogglePlace={id => setFavoritePlaces(toggle(favoritePlaces,id))} onTogglePhrase={id => setFavoritePhrases(toggle(favoritePhrases,id))} notes={notes} onNotes={setNotes} checks={checks} onChecks={setChecks} budget={budget} onBudget={setBudget} onCopy={handleCopy} onExport={exportData} onImport={importData} storageAvailable={storageAvailable}/>}
+        {view === 'mine' && <Mine locations={locations} favoritePlaceIds={favoritePlaces} favoritePhraseIds={favoritePhrases} recentPlaceIds={recentPlaces} recentPhraseIds={recentPhrases} onTogglePlace={id => setFavoritePlaces(toggle(favoritePlaces,id))} onTogglePhrase={id => setFavoritePhrases(toggle(favoritePhrases,id))} notes={notes} onNotes={setNotes} checks={checks} onChecks={setChecks} budget={budget} onBudget={setBudget} onCopy={handleCopy} onExport={exportData} onImport={importData} storageAvailable={storageAvailable}/>}
         {view === 'sos' && <Emergency profile={privateEmergency} onProfile={setPrivateEmergency} favoritePhraseIds={favoritePhrases} onToggleFavorite={id => setFavoritePhrases(toggle(favoritePhrases,id))} onCopy={handleCopy}/>}
       </main>
 

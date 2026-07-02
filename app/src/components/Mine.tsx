@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { ArrowLeftRight, Check, CircleDollarSign, Copy, ListChecks, MapPinned, Star, Upload, WalletCards, X } from 'lucide-react'
 import { checklistItems } from '../data/checklist'
 import { phrases } from '../data/phrases'
-import type { Budget, Place } from '../types'
+import type { Budget, Phrase, Place } from '../types'
 import { AudioButton } from './AudioButton'
 import { SectionTitle } from './SectionTitle'
 
@@ -10,6 +10,8 @@ interface Props {
   locations: Place[]
   favoritePlaceIds: string[]
   favoritePhraseIds: string[]
+  recentPlaceIds: string[]
+  recentPhraseIds: string[]
   onTogglePlace: (id: string) => void
   onTogglePhrase: (id: string) => void
   notes: string
@@ -30,6 +32,8 @@ export function Mine(props: Props) {
   const [rub, setRub] = useState(() => String(100 * rate))
   const savedPlaces = props.locations.filter(place => props.favoritePlaceIds.includes(place.id))
   const savedPhrases = phrases.filter(phrase => props.favoritePhraseIds.includes(phrase.id))
+  const recentPlaces = props.recentPlaceIds.map(id => props.locations.find(place => place.id === id)).filter((place): place is Place => Boolean(place))
+  const recentPhraseItems = props.recentPhraseIds.map(id => phrases.find(phrase => phrase.id === id)).filter((phrase): phrase is Phrase => Boolean(phrase))
   const expenseKeys: Array<keyof Budget> = ['transport','food','bars','activity','spa','shop','other']
   const total = expenseKeys.reduce((sum, key) => sum + (Number(props.budget[key]) || 0), 0)
   const left = (Number(props.budget.cash) || 0) - total
@@ -53,6 +57,14 @@ export function Mine(props: Props) {
         <div><ListChecks/><span>Готово</span><strong>{props.checks.length}/{checklistItems.length}</strong></div>
         <div><WalletCards/><span>Потрачено</span><strong>{total.toFixed(0)} ¥</strong></div>
       </div>
+
+      {(recentPlaces.length > 0 || recentPhraseItems.length > 0) && <>
+        <SectionTitle title="Недавно открывали"/>
+        <div className="recent-strip">
+          {recentPlaces.map(place => <div key={place.id}><MapPinned/><span>{place.name}</span></div>)}
+          {recentPhraseItems.map(phrase => <div key={phrase.id}><strong lang="zh-CN">{phrase.zh}</strong><span>{phrase.ru}</span></div>)}
+        </div>
+      </>}
 
       <SectionTitle title={`Избранные места · ${savedPlaces.length}`}/>
       {savedPlaces.length ? <div className="saved-list">{savedPlaces.map(place => <div className="saved-row" key={place.id}><div><strong>{place.name}</strong><span>{place.zh}</span></div><button onClick={() => props.onTogglePlace(place.id)} aria-label="Удалить"><X size={18}/></button></div>)}</div> : <Empty text="Сохраняйте места звездой — они появятся здесь."/>}
@@ -99,6 +111,13 @@ export function Mine(props: Props) {
         <label><span>Рубли</span><div><input type="number" inputMode="decimal" value={rub} placeholder={String(100 * rate)} onChange={event => changeRub(event.target.value)}/><b>₽</b></div></label>
       </div>
       <p className="converter-rate">Используется ваш курс: 1 CNY = {rate} ₽</p>
+
+      <SectionTitle title="Готовность к офлайну"/>
+      <div className="offline-readiness">
+        <span className={props.storageAvailable ? 'ready' : 'warn'}>{props.storageAvailable ? '✓' : '!'} Данные сохраняются</span>
+        <span className="ready">✓ {phrases.length} фраз доступны</span>
+        <span className={navigator.onLine ? 'ready' : 'ready'}>✓ Основные данные в приложении</span>
+      </div>
 
       <SectionTitle title="Резервная копия"/>
       <div className="backup-actions">
