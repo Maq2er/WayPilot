@@ -9,10 +9,10 @@ export default defineConfig({
     react(),
     VitePWA({
       registerType: 'autoUpdate',
-      includeAssets: ['icons/icon.svg'],
+      includeAssets: ['icons/waypilot-192.png', 'icons/waypilot-512.png', 'icons/apple-touch-icon.png'],
       manifest: {
-        name: 'Санья — офлайн-гид',
-        short_name: 'Санья',
+        name: 'WayPilot',
+        short_name: 'WayPilot',
         description: 'Маршруты, места, адреса, бюджет и SOS без интернета',
         theme_color: '#063b4c',
         background_color: '#f3f7f8',
@@ -21,7 +21,9 @@ export default defineConfig({
         lang: 'ru',
         start_url: './',
         icons: [
-          { src: 'icons/icon.svg', sizes: 'any', type: 'image/svg+xml', purpose: 'any maskable' }
+          { src: 'icons/waypilot-192.png', sizes: '192x192', type: 'image/png', purpose: 'any' },
+          { src: 'icons/waypilot-512.png', sizes: '512x512', type: 'image/png', purpose: 'any' },
+          { src: 'icons/waypilot-512.png', sizes: '512x512', type: 'image/png', purpose: 'maskable' }
         ]
       },
       workbox: {

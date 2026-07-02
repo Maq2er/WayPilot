@@ -1,6 +1,6 @@
 {
-  "name": "Санья — офлайн-гид",
-  "short_name": "Санья",
+  "name": "WayPilot",
+  "short_name": "WayPilot",
   "start_url": "./sanya_offline_guide_v3.html",
   "display": "standalone",
   "background_color": "#f3f7f8",
@@ -8,9 +8,9 @@
   "lang": "ru",
   "icons": [
     {
-      "src": "sanya-guide-icon.svg",
-      "sizes": "any",
-      "type": "image/svg+xml",
+      "src": "app/public/icons/waypilot-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
       "purpose": "any maskable"
     }
   ]

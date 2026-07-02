@@ -1,4 +1,4 @@
-# Санья — React PWA
+# WayPilot
 
 Основная мобильная TypeScript/PWA-версия офлайн-путеводителя. Данные мест
 берутся напрямую из `../sanya_locations_v3.geojson`.
