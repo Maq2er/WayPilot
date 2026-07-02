@@ -29,7 +29,7 @@ export interface Place extends Omit<LocationProperties, 'tags'> {
   tags: string[]
 }
 
-export type PhraseCategory = 'basic' | 'taxi' | 'restaurant' | 'hotel' | 'shopping' | 'emergency'
+export type PhraseCategory = 'quick' | 'basic' | 'taxi' | 'restaurant' | 'hotel' | 'shopping' | 'fruit' | 'emergency'
 
 export interface Phrase {
   id: string
@@ -79,6 +79,14 @@ export interface EmergencyData {
   }
   numbers: Array<{ number: string; label: string }>
   phraseIds: string[]
+}
+
+export interface PrivateEmergencyProfile {
+  hotelPhone: string
+  bookingNumber: string
+  insuranceCompany: string
+  policyNumber: string
+  insurancePhone: string
 }
 
 export interface Budget {

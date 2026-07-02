@@ -13,7 +13,7 @@ import { Today } from './components/Today'
 import { useStoredState } from './hooks/useStoredState'
 import { copyText } from './lib/copy'
 import { defaultBudget, migrateStorage, parseBackup } from './lib/storage'
-import type { BackupData, GeoCollection, Place, ViewId } from './types'
+import type { BackupData, GeoCollection, Place, PrivateEmergencyProfile, ViewId } from './types'
 
 migrateStorage(checklistItems.map(item => item.id))
 
@@ -38,12 +38,15 @@ export default function App() {
   const [checks, setChecks, checksStorage] = useStoredState<string[]>('checkIds', [])
   const [budget, setBudget, budgetStorage] = useStoredState('budget', defaultBudget)
   const [selectedDayId, setSelectedDayId, dayStorage] = useStoredState('selectedDayId', tripDays[0].id)
+  const [privateEmergency, setPrivateEmergency, emergencyStorage] = useStoredState<PrivateEmergencyProfile>('privateEmergency', {
+    hotelPhone:'', bookingNumber:'', insuranceCompany:'', policyNumber:'', insurancePhone:'',
+  })
   const [installHelp, setInstallHelp] = useState(false)
   const [requestedPlaceId, setRequestedPlaceId] = useState<string | null>(null)
   const [requestedPhraseId, setRequestedPhraseId] = useState<string | null>(null)
   const timer = useRef<number>()
 
-  const storageAvailable = placesStorage && phrasesStorage && notesStorage && checksStorage && budgetStorage && dayStorage
+  const storageAvailable = placesStorage && phrasesStorage && notesStorage && checksStorage && budgetStorage && dayStorage && emergencyStorage
 
   useEffect(() => {
     let active = true
@@ -147,7 +150,7 @@ export default function App() {
         {view === 'places' && <Places locations={locations} loading={loading} favoriteIds={favoritePlaces} requestedPlaceId={requestedPlaceId} onRequestHandled={clearRequestedPlace} onToggleFavorite={id => setFavoritePlaces(toggle(favoritePlaces,id))} onCopy={handleCopy}/>}
         {view === 'phrases' && <Phrasebook favoriteIds={favoritePhrases} requestedPhraseId={requestedPhraseId} onRequestHandled={clearRequestedPhrase} onToggleFavorite={id => setFavoritePhrases(toggle(favoritePhrases,id))} onCopy={handleCopy}/>}
         {view === 'mine' && <Mine locations={locations} favoritePlaceIds={favoritePlaces} favoritePhraseIds={favoritePhrases} onTogglePlace={id => setFavoritePlaces(toggle(favoritePlaces,id))} onTogglePhrase={id => setFavoritePhrases(toggle(favoritePhrases,id))} notes={notes} onNotes={setNotes} checks={checks} onChecks={setChecks} budget={budget} onBudget={setBudget} onCopy={handleCopy} onExport={exportData} onImport={importData} storageAvailable={storageAvailable}/>}
-        {view === 'sos' && <Emergency favoritePhraseIds={favoritePhrases} onToggleFavorite={id => setFavoritePhrases(toggle(favoritePhrases,id))} onCopy={handleCopy}/>}
+        {view === 'sos' && <Emergency profile={privateEmergency} onProfile={setPrivateEmergency} favoritePhraseIds={favoritePhrases} onToggleFavorite={id => setFavoritePhrases(toggle(favoritePhrases,id))} onCopy={handleCopy}/>}
       </main>
 
       <nav className="bottom-nav six" aria-label="Основная навигация">

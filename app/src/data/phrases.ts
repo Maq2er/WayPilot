@@ -1,15 +1,25 @@
 import type { Phrase, PhraseCategory } from '../types'
 
 export const phraseCategoryLabels: Record<PhraseCategory, string> = {
+  quick: 'Короткие',
   basic: 'Базовые',
   taxi: 'Такси',
   restaurant: 'Ресторан',
   hotel: 'Отель',
   shopping: 'Магазин',
+  fruit: 'Фрукты',
   emergency: 'Экстренно',
 }
 
 export const phrases: Phrase[] = [
+  { id:'yes', category:'quick', ru:'Да', zh:'是的', pinyin:'shì de', audio:null },
+  { id:'no', category:'quick', ru:'Нет', zh:'不是', pinyin:'bú shì', audio:null },
+  { id:'okay', category:'quick', ru:'Хорошо', zh:'好的', pinyin:'hǎo de', audio:null },
+  { id:'wait', category:'quick', ru:'Подождите', zh:'请等一下', pinyin:'qǐng děng yí xià', audio:null },
+  { id:'again', category:'quick', ru:'Повторите, пожалуйста', zh:'请再说一遍', pinyin:'qǐng zài shuō yí biàn', audio:null },
+  { id:'this-one', category:'quick', ru:'Вот это', zh:'我要这个', pinyin:'wǒ yào zhè ge', audio:null },
+  { id:'dont-need', category:'quick', ru:'Не нужно', zh:'不需要', pinyin:'bù xū yào', audio:null },
+  { id:'can', category:'quick', ru:'Можно', zh:'可以', pinyin:'kě yǐ', audio:null },
   { id:'hello', category:'basic', ru:'Здравствуйте', zh:'你好', pinyin:'nǐ hǎo', audio:null },
   { id:'thank-you', category:'basic', ru:'Спасибо', zh:'谢谢', pinyin:'xiè xie', audio:null },
   { id:'sorry', category:'basic', ru:'Извините', zh:'不好意思', pinyin:'bù hǎo yì si', audio:null },
@@ -45,6 +55,17 @@ export const phrases: Phrase[] = [
   { id:'cheaper', category:'shopping', ru:'Можно дешевле?', zh:'可以便宜一点吗？', pinyin:'kě yǐ pián yi yì diǎn ma?', audio:null },
   { id:'per-jin', category:'shopping', ru:'Сколько за 500 граммов?', zh:'多少钱一斤？', pinyin:'duō shao qián yì jīn?', audio:null },
   { id:'dont-want', category:'shopping', ru:'Нет, спасибо, мне не нужно', zh:'不用了，谢谢', pinyin:'bú yòng le, xiè xie', audio:null },
+
+  { id:'mango', category:'fruit', ru:'Манго', zh:'芒果', pinyin:'máng guǒ', audio:null },
+  { id:'mangosteen', category:'fruit', ru:'Мангостин', zh:'山竹', pinyin:'shān zhú', audio:null },
+  { id:'rambutan', category:'fruit', ru:'Рамбутан', zh:'红毛丹', pinyin:'hóng máo dān', audio:null },
+  { id:'dragon-fruit', category:'fruit', ru:'Драконий фрукт', zh:'火龙果', pinyin:'huǒ lóng guǒ', audio:null },
+  { id:'coconut', category:'fruit', ru:'Кокос', zh:'椰子', pinyin:'yē zi', audio:null },
+  { id:'pineapple', category:'fruit', ru:'Ананас', zh:'菠萝', pinyin:'bō luó', audio:null },
+  { id:'watermelon', category:'fruit', ru:'Арбуз', zh:'西瓜', pinyin:'xī guā', audio:null },
+  { id:'durian', category:'fruit', ru:'Дуриан', zh:'榴莲', pinyin:'liú lián', audio:null },
+  { id:'lychee', category:'fruit', ru:'Личи', zh:'荔枝', pinyin:'lì zhī', audio:null },
+  { id:'cut-fruit', category:'fruit', ru:'Нарежьте фрукты, пожалуйста', zh:'请帮我切一下水果', pinyin:'qǐng bāng wǒ qiē yí xià shuǐ guǒ', audio:null },
 
   { id:'need-help', category:'emergency', ru:'Мне нужна помощь', zh:'我需要帮助', pinyin:'wǒ xū yào bāng zhù', audio:'assets/audio/phrases/emergency/i-need-help.mp3', critical:true },
   { id:'ambulance', category:'emergency', ru:'Вызовите скорую помощь', zh:'请叫救护车', pinyin:'qǐng jiào jiù hù chē', audio:'assets/audio/phrases/emergency/call-an-ambulance.mp3', critical:true },

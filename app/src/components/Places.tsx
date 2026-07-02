@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { ChevronDown, ChevronUp, Copy, MapPin, Search, Star, X } from 'lucide-react'
 import type { Place } from '../types'
+import { FoodGuide } from './FoodGuide'
 
 const categories = ['все','рядом','море','еда','бар','шопинг','природа','дождь','транспорт','резерв']
 
@@ -17,6 +18,7 @@ interface Props {
 export function Places({ locations, loading, favoriteIds, requestedPlaceId, onRequestHandled, onToggleFavorite, onCopy }: Props) {
   const [query, setQuery] = useState('')
   const [category, setCategory] = useState('все')
+  const [mode, setMode] = useState<'places' | 'food' | 'bars'>('places')
   const filtered = useMemo(() => locations.filter(place => {
     const text = `${place.name} ${place.zh} ${place.cat} ${place.tags.join(' ')}`.toLowerCase()
     return (category === 'все' || place.tags.includes(category) || place.cat.toLowerCase().includes(category)) &&
@@ -31,13 +33,19 @@ export function Places({ locations, loading, favoriteIds, requestedPlaceId, onRe
       return
     }
     setCategory('все')
+    setMode('places')
     setQuery(place.name)
     onRequestHandled()
   }, [locations, onRequestHandled, requestedPlaceId])
 
   return (
     <section>
-      <div className="search-sticky">
+      <div className="place-mode-tabs" role="tablist" aria-label="Раздел мест">
+        <button className={mode === 'places' ? 'active' : ''} onClick={() => setMode('places')}>Места</button>
+        <button className={mode === 'food' ? 'active' : ''} onClick={() => setMode('food')}>Что попробовать</button>
+        <button className={mode === 'bars' ? 'active' : ''} onClick={() => setMode('bars')}>Бары</button>
+      </div>
+      {mode === 'places' && <><div className="search-sticky">
         <div className="search-box">
           <Search size={19}/><input value={query} onChange={event => setQuery(event.target.value)} placeholder="Название, китайский текст, тег…"/>
           {query && <button onClick={() => setQuery('')} aria-label="Очистить"><X size={19}/></button>}
@@ -55,7 +63,9 @@ export function Places({ locations, loading, favoriteIds, requestedPlaceId, onRe
             onCopy={onCopy}
           />
         ))}
-      </div>
+      </div></>}
+      {mode === 'food' && <FoodGuide mode="food"/>}
+      {mode === 'bars' && <FoodGuide mode="bars"/>}
     </section>
   )
 }
